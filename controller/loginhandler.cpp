@@ -5,7 +5,7 @@ LoginHandler::LoginHandler()
 
 }
 
-string LoginHandler::encrypt(const string& str) {
+string LoginHandler::decrypt(const string& str) {
     return "";
 }
 
