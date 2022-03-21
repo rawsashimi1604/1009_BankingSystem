@@ -13,10 +13,10 @@ class LoginHandler
 {
 
 private:
-    string decrypt(const string& str);
+
 public:
     LoginHandler();
-
+    string encrypt(const string& str);
     int login(const string& username, const string& password);
 
 };
