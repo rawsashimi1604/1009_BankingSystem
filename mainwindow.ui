@@ -23,9 +23,9 @@
       <height>461</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
+    <layout class="QVBoxLayout" name="loginLayout">
      <item>
-      <widget class="QFrame" name="mainFrame">
+      <widget class="QFrame" name="loginFrame">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(0, 0, 0);</string>
        </property>
@@ -35,7 +35,7 @@
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="titleLabel">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -65,9 +65,9 @@
           <height>73</height>
          </rect>
         </property>
-        <layout class="QHBoxLayout" name="horizontalLayout">
+        <layout class="QHBoxLayout" name="usernameLayout">
          <item>
-          <widget class="QLabel" name="label_2">
+          <widget class="QLabel" name="usernameLabel">
            <property name="font">
             <font>
              <pointsize>18</pointsize>
@@ -82,7 +82,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QTextEdit" name="textEdit">
+          <widget class="QTextEdit" name="usernameField">
            <property name="font">
             <font>
              <pointsize>18</pointsize>
@@ -111,9 +111,9 @@ p, li { white-space: pre-wrap; }
           <height>73</height>
          </rect>
         </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <layout class="QHBoxLayout" name="passwordLayout">
          <item>
-          <widget class="QLabel" name="label_3">
+          <widget class="QLabel" name="passwordLabel">
            <property name="font">
             <font>
              <pointsize>18</pointsize>
@@ -128,7 +128,7 @@ p, li { white-space: pre-wrap; }
           </widget>
          </item>
          <item>
-          <widget class="QTextEdit" name="textEdit_2">
+          <widget class="QTextEdit" name="passwordField">
            <property name="font">
             <font>
              <pointsize>18</pointsize>
@@ -148,7 +148,7 @@ p, li { white-space: pre-wrap; }
          </item>
         </layout>
        </widget>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="loginButton">
         <property name="geometry">
          <rect>
           <x>380</x>
