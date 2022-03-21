@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     controller/credentialsreader.cpp \
+    controller/loginhandler.cpp \
     controller/reader.cpp \
     controller/transactionreader.cpp \
     main.cpp \
@@ -19,6 +20,7 @@ SOURCES += \
 
 HEADERS += \
     controller/credentialsreader.h \
+    controller/loginhandler.h \
     controller/reader.h \
     controller/transactionreader.h \
     mainwindow.h \
