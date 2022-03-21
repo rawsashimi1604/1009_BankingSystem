@@ -17,6 +17,9 @@ public:
 
     Ui::MainWindow* getUI();
 
+private slots:
+    void on_loginButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

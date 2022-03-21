@@ -15,16 +15,14 @@ int LoginHandler::login(const string& username, const string& password) {
     string fileUsername = "temp123";
     string filePassword = "temp123456";
 
-    // If unable to find username,
+ // If unable to find username,
 //    if (notFound) {
 //        return NOT_AUTHENTICATED;
 //    }
-
     // Compare the 2 passwords
     if (password == filePassword) {
         return AUTHENTICATED;
     }
-
     return NOT_AUTHENTICATED;
 }
 
