@@ -16,7 +16,9 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     model/customer.cpp \
-    model/date.cpp
+    model/date.cpp \
+    model/model.cpp \
+    model/transaction.cpp
 
 HEADERS += \
     controller/credentialsreader.h \
@@ -25,7 +27,9 @@ HEADERS += \
     controller/transactionreader.h \
     mainwindow.h \
     model/customer.h \
-    model/date.h
+    model/date.h \
+    model/model.h \
+    model/transaction.h
 
 FORMS += \
     mainwindow.ui
@@ -38,5 +42,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES += \
     controller/README.md \
     data/README.md \
+    data/customers.csv \
     data/users.txt \
     model/README.md

@@ -3,9 +3,12 @@
 
 #include <iostream>
 
+#include "model.h"
+
+
 using namespace std;
 
-typedef unsigned int u_int;
+typedef unsigned u_int;
 
 class Date
 {
@@ -15,8 +18,10 @@ private:
     u_int day;
 
 public:
+    Date(string dateString);
     Date(u_int year, u_int month, u_int day);
-    void print();
+    void printInfo();
+    string getDateString();
 };
 
 #endif // DATE_H

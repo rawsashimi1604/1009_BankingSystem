@@ -3,29 +3,34 @@
 #include <QApplication>
 
 #include <vector>
+#include <filesystem>
 
 #include "controller/credentialsreader.h"
 #include "controller/transactionreader.h"
 
 #include "model/customer.h"
 
+
 void myTest() {
+    // Get current working Directory
+    cout << "Current working directory: " << filesystem::current_path() << endl;
+
+
     // Test Readers
-    vector<Reader*> myReaderArray;
+    CredentialsReader cReader;
+    Model* customer = cReader.read(1);
+    customer->printInfo();
 
-    CredentialsReader* CReader = new CredentialsReader();
-    myReaderArray.push_back(CReader);
 
-    TransactionReader* TReader = new TransactionReader();
-    myReaderArray.push_back(TReader);
 
-    for (Reader* r : myReaderArray) {
-        r->printHello();
-    }
+//    // Test Customer
+//    Customer myCustomer("Jason", "Ng", 25, "jason25", "123456", 21, 3, 2022);
+//    myCustomer.printInfo();
 
-    // Test Customer
-    Customer myCustomer("Jason", "Ng", 25, "jason25", "123456", 21, 3, 2022);
-    myCustomer.printInfo();
+    // Test Date
+//    Date myDate("01/02/2003");
+//    myDate.printInfo();
+
 }
 
 int main(int argc, char *argv[])

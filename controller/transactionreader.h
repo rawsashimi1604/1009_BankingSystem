@@ -8,6 +8,8 @@ class TransactionReader : public Reader
 public:
     TransactionReader();
     void printHello();
+    Model* read(int id);
+    void write(Model* model);
 };
 
 #endif // TRANSACTIONREADER_H

@@ -25,12 +25,14 @@ string pass = "temp123456";
 void MainWindow::on_loginButton_clicked()
 {
     cout << "loginButtonCheck" << endl;
+
     QString uName =  ui->usernameField->toPlainText();
     QString uPass = ui->passwordField->toPlainText();
+
     //cout  << uName.toStdString() << ", " << uPass.toStdString() << endl;
     LoginHandler test;
-     if(test.LoginHandler::login(uName.toStdString(),uPass.toStdString())){
+    if(test.LoginHandler::login(uName.toStdString(),uPass.toStdString())){
          cout << "success" << endl;
-     }
+    }
 }
 
