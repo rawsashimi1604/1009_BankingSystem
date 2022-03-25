@@ -32,7 +32,9 @@ HEADERS += \
     model/transaction.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    menu.ui \
+    register.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
