@@ -141,6 +141,10 @@ font: 700 12pt &quot;Segoe UI&quot;;</string>
    <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
      <widget class="QPushButton" name="pushButton">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(168, 212, 241);
+font: 700 9pt &quot;Segoe UI&quot;;</string>
+      </property>
       <property name="text">
        <string>Create Account</string>
       </property>
