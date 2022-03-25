@@ -11,19 +11,23 @@ string LoginHandler::encrypt(const string& str) {
 
 int LoginHandler::login(const string& username, const string& password) {
 
-    // Look up username and query password from file..
-    string fileUsername = "temp123";
-    string filePassword = "temp123456";
+    CredentialsReader cReader;
 
- // If unable to find username,
-//    if (notFound) {
-//        return NOT_AUTHENTICATED;
-//    }
+    Customer* customer = cReader.searchByUsername(username);
+
+    if (customer == NULL) {                 // Unable to find username.
+        return NOT_AUTHENTICATED;
+    }
+
+    string retrievedUsername = customer->getUsername();
+    string retrievedPassword = customer->getPassword();
     // Compare the 2 passwords
-    if (password == filePassword) {
+
+    if (password == retrievedPassword) {    // Correct password! Authenticate.
         return AUTHENTICATED;
     }
-    return NOT_AUTHENTICATED;
+
+    return NOT_AUTHENTICATED;               // Wrong password! No Authenticate.
 }
 
 

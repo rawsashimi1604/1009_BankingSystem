@@ -26,8 +26,11 @@
     <layout class="QVBoxLayout" name="loginLayout">
      <item>
       <widget class="QFrame" name="loginFrame">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(0, 0, 0);</string>
+        <string notr="true">background-color: rgb(47, 167, 218);</string>
        </property>
        <property name="frameShape">
         <enum>QFrame::StyledPanel</enum>
@@ -38,22 +41,25 @@
        <widget class="QLabel" name="titleLabel">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>0</y>
+          <x>310</x>
+          <y>20</y>
           <width>911</width>
           <height>81</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <pointsize>36</pointsize>
+          <pointsize>30</pointsize>
+          <italic>false</italic>
+          <bold>true</bold>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);</string>
+         <string notr="true">color: rgb(75, 73, 157);
+font: 700 30pt &quot;Segoe UI&quot;;</string>
         </property>
         <property name="text">
-         <string>C++ Banking Application</string>
+         <string>LOGIN SCREEN</string>
         </property>
        </widget>
        <widget class="QWidget" name="horizontalLayoutWidget">
@@ -62,7 +68,7 @@
           <x>90</x>
           <y>120</y>
           <width>741</width>
-          <height>73</height>
+          <height>89</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="usernameLayout">
@@ -70,11 +76,14 @@
           <widget class="QLabel" name="usernameLabel">
            <property name="font">
             <font>
-             <pointsize>18</pointsize>
+             <pointsize>15</pointsize>
+             <italic>false</italic>
+             <bold>true</bold>
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">color: rgb(255, 255, 255);</string>
+            <string notr="true">color: rgb(75, 73, 157);
+font: 700 15pt &quot;Segoe UI&quot;;</string>
            </property>
            <property name="text">
             <string>Username:</string>
@@ -108,7 +117,7 @@ p, li { white-space: pre-wrap; }
           <x>90</x>
           <y>230</y>
           <width>741</width>
-          <height>73</height>
+          <height>89</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="passwordLayout">
@@ -116,14 +125,17 @@ p, li { white-space: pre-wrap; }
           <widget class="QLabel" name="passwordLabel">
            <property name="font">
             <font>
-             <pointsize>18</pointsize>
+             <pointsize>15</pointsize>
+             <italic>false</italic>
+             <bold>true</bold>
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">color: rgb(255, 255, 255);</string>
+            <string notr="true">color: rgb(75, 73, 157);
+font: 700 15pt &quot;Segoe UI&quot;;</string>
            </property>
            <property name="text">
-            <string>Password:</string>
+            <string>Pin number:</string>
            </property>
           </widget>
          </item>
@@ -159,12 +171,14 @@ p, li { white-space: pre-wrap; }
         </property>
         <property name="font">
          <font>
-          <pointsize>22</pointsize>
+          <pointsize>10</pointsize>
+          <italic>false</italic>
+          <bold>true</bold>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);
-background-color: #ffffff;</string>
+         <string notr="true">background-color: rgb(168, 212, 241);
+font: 700 10pt &quot;Segoe UI&quot;;</string>
         </property>
         <property name="text">
          <string>Login</string>
@@ -181,7 +195,7 @@ background-color: #ffffff;</string>
      <x>0</x>
      <y>0</y>
      <width>954</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

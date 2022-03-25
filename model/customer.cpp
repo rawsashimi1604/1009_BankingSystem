@@ -46,7 +46,6 @@ Customer::Customer(int id, string firstName, string lastName, int age, string us
 
 
 // Public functions
-
 void Customer::printInfo() {
     // Set printing precision to 2 decimal places.
     streamsize ss = setPrintingPrecision();
@@ -65,4 +64,12 @@ void Customer::printInfo() {
 
     // Reset printing precision.
     removePrintingPrecision(ss);
+}
+
+string Customer::getUsername() {
+    return username;
+}
+
+string Customer::getPassword() {
+    return password;
 }

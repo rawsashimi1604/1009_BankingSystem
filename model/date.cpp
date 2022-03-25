@@ -18,10 +18,8 @@ Date::Date(string dateString) {
         token = s.substr(0, pos);
         s.erase(0, pos + delimiter.length());
         dateStore[count] = token;
-        cout << token << endl;
         count++;
     }
-    cout << s << endl;
     dateStore[count] = s;
 
     this->day = stoi(dateStore[0]);
