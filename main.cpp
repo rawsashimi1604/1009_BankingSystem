@@ -7,19 +7,20 @@
 
 #include "controller/credentialsreader.h"
 #include "controller/transactionreader.h"
+#include "controller/loginhandler.h"
 
 #include "model/customer.h"
 
 
 void myTest() {
-    // Test Readers
-    CredentialsReader cReader;
-    Model* customer = cReader.read(2);
-    customer->printInfo();
 
-
-
-
+    // Test login
+    LoginHandler loginHandler;
+    if (loginHandler.login("jasonng", "123456") == AUTHENTICATED) {
+        cout << "SUCCESS" << endl;
+    } else {
+        cout << "FAILURE" << endl;
+    }
 
 //    // Test Customer
 //    Customer myCustomer("Jason", "Ng", 25, "jason25", "123456", 21, 3, 2022);

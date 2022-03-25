@@ -1,15 +1,15 @@
 #ifndef TRANSACTIONREADER_H
 #define TRANSACTIONREADER_H
 
-#include "reader.h"
+#include "model/transaction.h"
 
-class TransactionReader : public Reader
+class TransactionReader
 {
 public:
     TransactionReader();
     void printHello();
-    Model* read(int id);
-    void write(Model* model);
+    Transaction* read(int id);
+    void write(Transaction* model);
 };
 
 #endif // TRANSACTIONREADER_H

@@ -19,9 +19,6 @@ Ui::MainWindow* MainWindow::getUI() {
     return this->ui;
 }
 
-string login = "temp123";
-string pass = "temp123456";
-
 void MainWindow::on_loginButton_clicked()
 {
     cout << "loginButtonCheck" << endl;
@@ -29,10 +26,12 @@ void MainWindow::on_loginButton_clicked()
     QString uName =  ui->usernameField->toPlainText();
     QString uPass = ui->passwordField->toPlainText();
 
-    //cout  << uName.toStdString() << ", " << uPass.toStdString() << endl;
-    LoginHandler test;
-    if(test.LoginHandler::login(uName.toStdString(),uPass.toStdString())){
-         cout << "success" << endl;
+    LoginHandler loginHandler;
+
+    if(loginHandler.login(uName.toStdString(),uPass.toStdString()) == AUTHENTICATED) {
+        cout << "success" << endl;
+    } else {
+        cout << "failure" << endl;
     }
 }
 

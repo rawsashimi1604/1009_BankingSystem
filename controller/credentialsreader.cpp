@@ -16,8 +16,9 @@ void CredentialsReader::printHello() {
     cout << "hello world from credentials reader!" << endl;
 }
 
-// Search for customer
-Model* CredentialsReader::read(int id) {
+// Search for customer by ID
+Customer* CredentialsReader::searchByID(int id) {
+    bool existFlag = false;
 
     fstream cFile(fileLocation);
     int row = 1;                        // track current row.
@@ -25,7 +26,6 @@ Model* CredentialsReader::read(int id) {
     // Skip first line (row columns)
     string column;
     getline(cFile, column);
-
 
     string customerID;
     string fName;
@@ -48,6 +48,7 @@ Model* CredentialsReader::read(int id) {
         return NULL;
     }
 
+
     // Load info from .csv file into Customer object
     while(cFile.good()) {
         getline(cFile, customerID,',');
@@ -62,26 +63,50 @@ Model* CredentialsReader::read(int id) {
         getline(cFile, aSaved,'\n');
 
         if (row == id) {
+            existFlag = true;
             break;
         }
 
         row++;  // Update row number
     }
 
-    // Convert all floats and ints from strings
-    int convertedAge = stoi(age);
+    // If customer exists,
+    if (existFlag) {
+        // Convert all floats and ints from strings
+        int convertedAge = stoi(age);
 
-    float convertedBalance = stof(Bal);
-    float convertedAmountSpent = stof(aSpent);
-    float convertedAmountSaved = stof(aSaved);
+        float convertedBalance = stof(Bal);
+        float convertedAmountSpent = stof(aSpent);
+        float convertedAmountSaved = stof(aSaved);
 
-    // Construct Customer Object (pointer)
-    Model* customer = new Customer(id, fName, lName, convertedAge, uName, pNo, dateRegistered, convertedBalance, convertedAmountSpent, convertedAmountSaved);
-    cFile.close();
+        // Construct Customer Object (pointer)
+        Customer* customer = new Customer(id, fName, lName, convertedAge, uName, pNo, dateRegistered, convertedBalance, convertedAmountSpent, convertedAmountSaved);
+        cFile.close();
 
-    return customer;
+        return customer;
+    }
+
+    return NULL;    // Customer dosent exist
 }
 
-void CredentialsReader::write(Model* customer) {
+// Search for customer by Username
+Customer* CredentialsReader::searchByUsername(string username) {
+
+    CredentialsReader cReader;
+    int IDCount = 1;
+
+    Customer* tmp;
+
+    // Keep searching the customer.csv file, unless you found the username or you reached EOF.
+    do {
+        tmp = cReader.searchByID(IDCount);
+
+    } while (tmp->getUsername() != username || tmp == NULL);
+
+    return tmp;
+}
+
+
+void CredentialsReader::write(Customer* customer) {
 
 }

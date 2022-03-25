@@ -36,6 +36,8 @@ public:
     Customer(int, string, string, int, string, string, u_int, u_int, u_int);
     Customer(int, string, string, int, string, string, string, float, float, float);
     void printInfo();
+    string getUsername();
+    string getPassword();
 
 };
 

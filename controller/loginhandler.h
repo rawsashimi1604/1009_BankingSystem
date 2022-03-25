@@ -7,6 +7,8 @@
 #include <iostream>
 #include <string>
 
+#include "credentialsreader.h"
+
 using namespace std;
 
 class LoginHandler
