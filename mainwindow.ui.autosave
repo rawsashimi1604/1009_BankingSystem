@@ -26,6 +26,9 @@
     <layout class="QVBoxLayout" name="loginLayout">
      <item>
       <widget class="QFrame" name="loginFrame">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(47, 167, 218);</string>
        </property>
