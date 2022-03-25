@@ -12,14 +12,12 @@
 
 
 void myTest() {
-    // Get current working Directory
-    cout << "Current working directory: " << filesystem::current_path() << endl;
-
-
     // Test Readers
     CredentialsReader cReader;
-    Model* customer = cReader.read(1);
+    Model* customer = cReader.read(2);
     customer->printInfo();
+
+
 
 
 
@@ -36,10 +34,13 @@ void myTest() {
 int main(int argc, char *argv[])
 {
 
-    myTest();
+
 
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
+
+    myTest();
+
     return a.exec();
 }

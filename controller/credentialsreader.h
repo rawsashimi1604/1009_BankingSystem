@@ -1,6 +1,9 @@
 #ifndef CREDENTIALSREADER_H
 #define CREDENTIALSREADER_H
 
+#include <QApplication>
+#include <QDebug>
+
 #include <iomanip>
 #include <string>
 #include <fstream>

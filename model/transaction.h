@@ -6,8 +6,17 @@
 
 class Transaction : public Model
 {
+private:
+    Date transactionDate;
+
+    int customerOut;            // Customer ID whose balance is deducted.
+    int customerIn;             // Customer ID whose balance is added, -1 if not applicable
+
+    float amountOut;
+    float amountIn;
+
 public:
-    Transaction();
+    Transaction(string dateString);
     void printInfo();
 };
 

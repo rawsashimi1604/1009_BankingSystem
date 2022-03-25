@@ -1,6 +1,6 @@
 #include "credentialsreader.h"
 
-const string CredentialsReader::DEFAULT_FILE_LOCATION = "data/customers.csv";
+const string CredentialsReader::DEFAULT_FILE_LOCATION = "../1009_BankingSystem/data/customers.csv";
 
 CredentialsReader::CredentialsReader()
 {
@@ -26,6 +26,8 @@ Model* CredentialsReader::read(int id) {
     string column;
     getline(cFile, column);
 
+
+    string customerID;
     string fName;
     string lName;
     string age;
@@ -48,16 +50,19 @@ Model* CredentialsReader::read(int id) {
 
     // Load info from .csv file into Customer object
     while(cFile.good()) {
+        getline(cFile, customerID,',');
+        getline(cFile, fName,',');
+        getline(cFile, lName,',');
+        getline(cFile, age,',');
+        getline(cFile, uName,',');
+        getline(cFile, pNo,',');
+        getline(cFile, dateRegistered,',');
+        getline(cFile, Bal,',');
+        getline(cFile, aSpent,',');
+        getline(cFile, aSaved,'\n');
+
         if (row == id) {
-            getline(cFile, uName,',');
-            getline(cFile, pNo,',');
-            getline(cFile, age,',');
-            getline(cFile, fName,',');
-            getline(cFile, lName,',');
-            getline(cFile, dateRegistered,',');
-            getline(cFile, Bal,',');
-            getline(cFile, aSpent,',');
-            getline(cFile, aSaved,'\n');
+            break;
         }
 
         row++;  // Update row number
