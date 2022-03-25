@@ -20,7 +20,7 @@
    <property name="geometry">
     <rect>
      <x>350</x>
-     <y>20</y>
+     <y>40</y>
      <width>321</width>
      <height>71</height>
     </rect>
@@ -37,44 +37,64 @@ font: 700 28pt &quot;Segoe UI&quot;;</string>
    <property name="geometry">
     <rect>
      <x>380</x>
-     <y>170</y>
-     <width>160</width>
-     <height>175</height>
+     <y>150</y>
+     <width>211</width>
+     <height>271</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QPushButton" name="pushButton">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(168, 212, 241);
+font: 700 9pt &quot;Segoe UI&quot;;</string>
+      </property>
       <property name="text">
-       <string>PushButton</string>
+       <string>Withdraw</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QPushButton" name="pushButton_2">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(168, 212, 241);
+font: 700 9pt &quot;Segoe UI&quot;;</string>
+      </property>
       <property name="text">
-       <string>PushButton</string>
+       <string>Deposit</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QPushButton" name="pushButton_3">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(168, 212, 241);
+font: 700 9pt &quot;Segoe UI&quot;;</string>
+      </property>
       <property name="text">
-       <string>PushButton</string>
+       <string>Transfer Money</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QPushButton" name="pushButton_5">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(168, 212, 241);
+font: 700 9pt &quot;Segoe UI&quot;;</string>
+      </property>
       <property name="text">
-       <string>PushButton</string>
+       <string>Transaction History</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QPushButton" name="pushButton_4">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(168, 212, 241);
+font: 700 9pt &quot;Segoe UI&quot;;</string>
+      </property>
       <property name="text">
-       <string>PushButton</string>
+       <string>Leaderboard</string>
       </property>
      </widget>
     </item>
