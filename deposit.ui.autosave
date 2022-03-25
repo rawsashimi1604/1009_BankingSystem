@@ -19,7 +19,7 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>350</x>
+     <x>340</x>
      <y>10</y>
      <width>461</width>
      <height>111</height>
@@ -30,7 +30,7 @@
 font: 700 28pt &quot;Segoe UI&quot;;</string>
    </property>
    <property name="text">
-    <string/>
+    <string>DEPOSIT</string>
    </property>
   </widget>
  </widget>

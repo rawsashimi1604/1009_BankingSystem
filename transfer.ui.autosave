@@ -16,6 +16,23 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(47, 167, 218);</string>
   </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>20</y>
+     <width>461</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(75, 73, 157);
+font: 700 28pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string>TRANSFER MONEY</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
