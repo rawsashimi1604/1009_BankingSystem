@@ -13,30 +13,42 @@ SOURCES += \
     controller/loginhandler.cpp \
     controller/transactionreader.cpp \
     main.cpp \
-    mainwindow.cpp \
     model/customer.cpp \
     model/date.cpp \
     model/model.cpp \
-    model/transaction.cpp
+    model/transaction.cpp \
+    view/deposit.cpp \
+    view/history.cpp \
+    view/login.cpp \
+    view/menu.cpp \
+    view/register.cpp \
+    view/transfer.cpp \
+    view/withdraw.cpp
 
 HEADERS += \
     controller/credentialsreader.h \
     controller/loginhandler.h \
     controller/transactionreader.h \
-    mainwindow.h \
     model/customer.h \
     model/date.h \
     model/model.h \
-    model/transaction.h
+    model/transaction.h \
+    view/deposit.h \
+    view/history.h \
+    view/login.h \
+    view/menu.h \
+    view/register.h \
+    view/transfer.h \
+    view/withdraw.h
 
 FORMS += \
-    deposit.ui \
-    history.ui \
-    mainwindow.ui \
-    menu.ui \
-    register.ui \
-    transfer.ui \
-    withdraw.ui
+    view/deposit.ui \
+    view/history.ui \
+    view/login.ui \
+    view/menu.ui \
+    view/register.ui \
+    view/transfer.ui \
+    view/withdraw.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

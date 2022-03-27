@@ -16,6 +16,7 @@ int LoginHandler::login(const string& username, const string& password) {
     Customer* customer = cReader.searchByUsername(username);
 
     if (customer == NULL) {                 // Unable to find username.
+
         return NOT_AUTHENTICATED;
     }
 

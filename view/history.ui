@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>history</class>
+ <widget class="QWidget" name="history">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -19,8 +19,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>20</y>
+     <x>400</x>
+     <y>10</y>
      <width>461</width>
      <height>111</height>
     </rect>
@@ -30,7 +30,7 @@
 font: 700 28pt &quot;Segoe UI&quot;;</string>
    </property>
    <property name="text">
-    <string>TRANSFER MONEY</string>
+    <string>HISTORY</string>
    </property>
   </widget>
  </widget>
