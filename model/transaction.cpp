@@ -1,6 +1,16 @@
 #include "transaction.h"
 
-Transaction::Transaction(int reciever, int sender, float incoming, float outgoing, u_int year, u_int month, u_int day)
+Transaction::Transaction(int receiver, int sender, float incoming, float outgoing, Date date)
+    : transactionDate(date.getDateString())
+{
+    this->customerOut = sender;
+    this->customerIn = receiver;
+    this->amountIn = incoming;
+    this->amountOut = outgoing;
+    this->transactionDate = date;
+}
+
+Transaction::Transaction(int receiver, int sender, float incoming, float outgoing, u_int year, u_int month, u_int day)
     : transactionDate(year, month, day),
       customerOut(0),
       customerIn(0),
@@ -9,7 +19,7 @@ Transaction::Transaction(int reciever, int sender, float incoming, float outgoin
 
 {
     this->customerOut = sender;
-    this->customerIn = reciever;
+    this->customerIn = receiver;
     this->amountIn = incoming;
     this->amountOut = outgoing;
 }

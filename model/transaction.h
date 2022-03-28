@@ -21,6 +21,7 @@ private:
     TransactionType transType;
 
 public:
+    Transaction(int, int, float, float, Date);
     Transaction(int, int, float, float, u_int, u_int, u_int);
     void printInfo();
 };

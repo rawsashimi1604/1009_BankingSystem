@@ -1,13 +1,15 @@
 #ifndef LOGINHANDLER_H
 #define LOGINHANDLER_H
 
-#define AUTHENTICATED 1
-#define NOT_AUTHENTICATED 0
-
 #include <iostream>
 #include <string>
 
 #include "credentialsreader.h"
+
+#define AUTHENTICATED 1
+#define NOT_AUTHENTICATED 0
+
+typedef int LoginStatus;
 
 using namespace std;
 
@@ -19,7 +21,7 @@ private:
 public:
     LoginHandler();
     string encrypt(const string& str);
-    int login(const string& username, const string& password) const;
+    LoginStatus login(const string& username, const string& password) const;
 
 };
 

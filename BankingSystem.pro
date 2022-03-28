@@ -11,6 +11,8 @@ CONFIG += c++11
 SOURCES += \
     controller/credentialsreader.cpp \
     controller/loginhandler.cpp \
+    controller/registerhandler.cpp \
+    controller/transactionhandler.cpp \
     controller/transactionreader.cpp \
     main.cpp \
     model/customer.cpp \
@@ -28,6 +30,8 @@ SOURCES += \
 HEADERS += \
     controller/credentialsreader.h \
     controller/loginhandler.h \
+    controller/registerhandler.h \
+    controller/transactionhandler.h \
     controller/transactionreader.h \
     model/customer.h \
     model/date.h \

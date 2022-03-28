@@ -9,7 +9,7 @@ string LoginHandler::encrypt(const string& str) {
     return "";
 }
 
-int LoginHandler::login(const string& username, const string& password) const{
+LoginStatus LoginHandler::login(const string& username, const string& password) const{
 
     CredentialsReader cReader;
 
