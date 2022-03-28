@@ -4,6 +4,9 @@
 #include "model.h"
 #include "date.h"
 
+// Possible Transaction Types
+enum TransactionType {DEPOSIT, WITHDRAWAL, TRANSFER};
+
 class Transaction : public Model
 {
 private:
@@ -15,7 +18,7 @@ private:
     float amountOut;
     float amountIn;
 
-    string transType;
+    TransactionType transType;
 
 public:
     Transaction(int, int, float, float, u_int, u_int, u_int);

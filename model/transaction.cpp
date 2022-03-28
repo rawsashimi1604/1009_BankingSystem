@@ -18,15 +18,15 @@ void Transaction::printInfo() {
 
     cout << "====================================TRANSACTION HISTORY====================================" << endl;
     cout << "||   Type  ||    Date    ||    From    ||    To    ||    Amount In    ||    Amount Out   ||" << endl;
-    if (transType == "DEPOSIT"){
+    if (transType == DEPOSIT){
         customerIn = customerOut;
         cout << "DEPOSIT, "; transactionDate.printInfo(); cout << "," << customerOut << "," << customerIn << "," << amountIn << "," << amountOut << endl;
     }
-    if (transType == "WITHDRAW"){
+    if (transType == WITHDRAWAL){
         customerIn = customerOut;
         cout << "WITHDRAW, "; transactionDate.printInfo(); cout << "," << customerOut << "," << customerIn << "," << amountIn << "," << amountOut << endl;
     }
-    if (transType == "TRANSFER"){
+    if (transType == TRANSFER){
         cout << "TRANSFER, "; transactionDate.printInfo(); cout << "," << customerOut << "," << customerIn << "," << amountIn << "," << amountOut << endl;
         cout << "TRANSFER, "; transactionDate.printInfo(); cout << "," << customerIn << "," << customerOut << "," << amountOut << "," << amountIn << endl;
     }
