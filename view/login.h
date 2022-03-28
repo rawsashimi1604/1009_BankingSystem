@@ -7,25 +7,25 @@
 #include "controller/loginhandler.h"
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class login; }
+namespace Ui { class Login; }
 QT_END_NAMESPACE
 
-class login : public QMainWindow
+class Login : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    login(QWidget *parent = nullptr);
-    ~login();
+    Login(QWidget *parent = nullptr);
+    ~Login();
 
-    Ui::login* getUI();
+    Ui::Login* getUI();
 
 private slots:
     void on_loginButton_clicked();
 
 
 private:
-    Ui::login *ui;
-    menu menu;
+    Ui::Login *ui;
+    Menu menu;
 };
 #endif // LOGIN_H

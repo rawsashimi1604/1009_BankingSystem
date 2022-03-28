@@ -1,14 +1,14 @@
 #include "deposit.h"
 #include "ui_deposit.h"
 
-deposit::deposit(QWidget *parent) :
+Deposit::Deposit(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::deposit)
+    ui(new Ui::Deposit)
 {
     ui->setupUi(this);
 }
 
-deposit::~deposit()
+Deposit::~Deposit()
 {
     delete ui;
 }

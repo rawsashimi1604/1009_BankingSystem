@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>withdraw</class>
- <widget class="QWidget" name="withdraw">
+ <class>Withdraw</class>
+ <widget class="QWidget" name="Withdraw">
   <property name="geometry">
    <rect>
     <x>0</x>

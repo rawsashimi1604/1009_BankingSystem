@@ -1,14 +1,14 @@
 #include "history.h"
 #include "ui_history.h"
 
-history::history(QWidget *parent) :
+History::History(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::history)
+    ui(new Ui::History)
 {
     ui->setupUi(this);
 }
 
-history::~history()
+History::~History()
 {
     delete ui;
 }

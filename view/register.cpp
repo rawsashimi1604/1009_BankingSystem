@@ -1,14 +1,14 @@
 #include "register.h"
 #include "ui_register.h"
 
-register_2::register_2(QWidget *parent) :
+Register::Register(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::register_2)
+    ui(new Ui::Register)
 {
     ui->setupUi(this);
 }
 
-register_2::~register_2()
+Register::~Register()
 {
 delete ui;
 }

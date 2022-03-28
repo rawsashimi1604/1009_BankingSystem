@@ -4,19 +4,19 @@
 #include <QWidget>
 
 namespace Ui {
-class withdraw;
+class Withdraw;
 }
 
-class withdraw : public QWidget
+class Withdraw : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit withdraw(QWidget *parent = nullptr);
-    ~withdraw();
+    explicit Withdraw(QWidget *parent = nullptr);
+    ~Withdraw();
 
 private:
-    Ui::withdraw *ui;
+    Ui::Withdraw *ui;
 };
 
 #endif // WITHDRAW_H

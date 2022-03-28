@@ -1,14 +1,14 @@
 #include "menu.h"
 #include "ui_menu.h"
 
-menu::menu(QWidget *parent) :
+Menu::Menu(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::menu)
+    ui(new Ui::Menu)
 {
     ui->setupUi(this);
 }
 
-menu::~menu()
+Menu::~Menu()
 {
     delete ui;
 }

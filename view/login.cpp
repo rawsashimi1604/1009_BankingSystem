@@ -2,9 +2,9 @@
 #include "ui_login.h"
 
 
-login::login(QWidget *parent)
+Login::Login(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::login)
+    , ui(new Ui::Login)
 {
     ui->setupUi(this);
 
@@ -26,18 +26,18 @@ login::login(QWidget *parent)
 
 }
 
-login::~login()
+Login::~Login()
 {
     delete ui;
 }
 
 // Gets the pointer to the UI.
-Ui::login* login::getUI() {
+Ui::Login* Login::getUI() {
     return this->ui;
 
 }
 
-void login::on_loginButton_clicked()
+void Login::on_loginButton_clicked()
 {
     cout << "loginButtonCheck" << endl;
 

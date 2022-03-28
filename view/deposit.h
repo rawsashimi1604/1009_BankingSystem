@@ -4,19 +4,19 @@
 #include <QWidget>
 
 namespace Ui {
-class deposit;
+class Deposit;
 }
 
-class deposit : public QWidget
+class Deposit : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit deposit(QWidget *parent = nullptr);
-    ~deposit();
+    explicit Deposit(QWidget *parent = nullptr);
+    ~Deposit();
 
 private:
-    Ui::deposit *ui;
+    Ui::Deposit *ui;
 };
 
 #endif // DEPOSIT_H

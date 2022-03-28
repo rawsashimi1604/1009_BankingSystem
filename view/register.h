@@ -4,19 +4,19 @@
 #include <QWidget>
 
 namespace Ui {
-class register_2;
+class Register;
 }
 
-class register_2 : public QWidget
+class Register : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit register_2(QWidget *parent = nullptr);
-    ~register_2();
+    explicit Register(QWidget *parent = nullptr);
+    ~Register();
 
 private:
-    Ui::register_2 *ui;
+    Ui::Register *ui;
 };
 
 #endif // REGISTER_H

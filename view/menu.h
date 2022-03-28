@@ -4,19 +4,19 @@
 #include <QWidget>
 
 namespace Ui {
-class menu;
+class Menu;
 }
 
-class menu : public QWidget
+class Menu : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit menu(QWidget *parent = nullptr);
-    ~menu();
+    explicit Menu(QWidget *parent = nullptr);
+    ~Menu();
 
 private:
-    Ui::menu *ui;
+    Ui::Menu *ui;
 };
 
 #endif // MENU_H

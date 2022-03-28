@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 
 
     QApplication a(argc, argv);
-    login m;
+    Login m;
     m.show();
 
     myTest();

@@ -1,14 +1,14 @@
 #include "transfer.h"
 #include "ui_transfer.h"
 
-transfer::transfer(QWidget *parent) :
+Transfer::Transfer(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::transfer)
+    ui(new Ui::Transfer)
 {
     ui->setupUi(this);
 }
 
-transfer::~transfer()
+Transfer::~Transfer()
 {
     delete ui;
 }

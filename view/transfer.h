@@ -4,19 +4,19 @@
 #include <QWidget>
 
 namespace Ui {
-class transfer;
+class Transfer;
 }
 
-class transfer : public QWidget
+class Transfer : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit transfer(QWidget *parent = nullptr);
-    ~transfer();
+    explicit Transfer(QWidget *parent = nullptr);
+    ~Transfer();
 
 private:
-    Ui::transfer *ui;
+    Ui::Transfer *ui;
 };
 
 #endif // TRANSFER_H

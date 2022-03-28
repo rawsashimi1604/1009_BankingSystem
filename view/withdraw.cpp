@@ -1,14 +1,14 @@
 #include "withdraw.h"
 #include "ui_withdraw.h"
 
-withdraw::withdraw(QWidget *parent) :
+Withdraw::Withdraw(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::withdraw)
+    ui(new Ui::Withdraw)
 {
     ui->setupUi(this);
 }
 
-withdraw::~withdraw()
+Withdraw::~Withdraw()
 {
     delete ui;
 }

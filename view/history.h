@@ -4,19 +4,19 @@
 #include <QWidget>
 
 namespace Ui {
-class history;
+class History;
 }
 
-class history : public QWidget
+class History : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit history(QWidget *parent = nullptr);
-    ~history();
+    explicit History(QWidget *parent = nullptr);
+    ~History();
 
 private:
-    Ui::history *ui;
+    Ui::History *ui;
 };
 
 #endif // HISTORY_H
