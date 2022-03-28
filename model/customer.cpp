@@ -1,17 +1,5 @@
 #include "customer.h"
 
-// Private functions
-streamsize Customer::setPrintingPrecision() {
-    streamsize ss = cout.precision();
-    cout << fixed;
-    cout << setprecision(2);
-    return ss;
-}
-
-void Customer::removePrintingPrecision(streamsize ss) {
-    cout << setprecision(ss);
-}
-
 
 // Constructors
 Customer::Customer(int id, string firstName, string lastName, int age, string username, string password, u_int year, u_int month, u_int day)
@@ -44,11 +32,15 @@ Customer::Customer(int id, string firstName, string lastName, int age, string us
 }
 
 
+// Deconstructors
+Customer::~Customer() {
+
+}
 
 // Public functions
-void Customer::printInfo() {
+void Customer::printInfo() const{
     // Set printing precision to 2 decimal places.
-    streamsize ss = setPrintingPrecision();
+    streamsize ss = UtilityFunctions::setPrintingPrecision();
 
     cout << firstName + " " + lastName + ": $" << balance << endl;
     cout << "Date registered: "; dateRegistered.printInfo(); cout << endl;
@@ -63,13 +55,34 @@ void Customer::printInfo() {
     cout << "Amount spent: $" << amountSpent << endl;
 
     // Reset printing precision.
-    removePrintingPrecision(ss);
+    UtilityFunctions::removePrintingPrecision(ss);
 }
 
-string Customer::getUsername() {
+// Getters
+int Customer::getID() const {
+    return id;
+}
+
+string Customer::getUsername() const{
     return username;
 }
 
-string Customer::getPassword() {
+string Customer::getPassword() const{
     return password;
+}
+
+int Customer::getAge() const {
+    return age;
+}
+string Customer::getFullName() const {
+    return firstName + " " + lastName;
+}
+float Customer::getBalance() const {
+    return balance;
+}
+float Customer::getAmountSpent() const {
+    return amountSpent;
+}
+float Customer::getAmountSaved() const {
+    return amountSaved;
 }

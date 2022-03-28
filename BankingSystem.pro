@@ -19,6 +19,7 @@ SOURCES += \
     model/date.cpp \
     model/model.cpp \
     model/transaction.cpp \
+    utils.cpp \
     view/deposit.cpp \
     view/history.cpp \
     view/login.cpp \
@@ -37,6 +38,7 @@ HEADERS += \
     model/date.h \
     model/model.h \
     model/transaction.h \
+    utils.h \
     view/deposit.h \
     view/history.h \
     view/login.h \

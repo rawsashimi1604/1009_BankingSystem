@@ -10,6 +10,7 @@
 #include "controller/loginhandler.h"
 
 #include "model/customer.h"
+#include "model/transaction.h"
 
 
 void myTest() {
@@ -22,13 +23,9 @@ void myTest() {
         cout << "FAILURE" << endl;
     }
 
-//    // Test Customer
-//    Customer myCustomer("Jason", "Ng", 25, "jason25", "123456", 21, 3, 2022);
-//    myCustomer.printInfo();
-
-    // Test Date
-//    Date myDate("01/02/2003");
-//    myDate.printInfo();
+    // Test Transaction
+    Transaction myTransaction(1, 1, -1, 300, 0, 2020, 1, 1);
+    myTransaction.printInfo();
 
 }
 
@@ -37,11 +34,12 @@ int main(int argc, char *argv[])
 
 
 
+
     QApplication a(argc, argv);
     login m;
     m.show();
 
-    //myTest();
+    myTest();
 
     return a.exec();
     //test

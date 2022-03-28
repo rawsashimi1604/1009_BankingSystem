@@ -5,6 +5,10 @@ Model::Model()
 
 }
 
-void Model::printInfo() {
+Model::~Model() {
+
+}
+
+void Model::printInfo() const{
     cout << "Normal Model class" << endl;
 }

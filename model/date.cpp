@@ -34,7 +34,7 @@ Date::Date(u_int year, u_int month, u_int day)
     this->day = day;
 }
 
-void Date::printInfo() {
+void Date::printInfo() const{
     cout << day << "/" << month << "/" << year;
 }
 

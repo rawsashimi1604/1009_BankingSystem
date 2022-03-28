@@ -9,7 +9,9 @@ class Model
 {
 public:
     Model();
-    virtual void printInfo();
+    virtual ~Model();
+    virtual void printInfo() const;
+
 };
 
 #endif // MODEL_H

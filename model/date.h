@@ -20,7 +20,8 @@ private:
 public:
     Date(string dateString);
     Date(u_int year, u_int month, u_int day);
-    void printInfo();
+
+    void printInfo() const;
     string getDateString();
 };
 

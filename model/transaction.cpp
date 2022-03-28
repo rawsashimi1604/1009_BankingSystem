@@ -1,43 +1,75 @@
 #include "transaction.h"
 
-Transaction::Transaction(int receiver, int sender, float incoming, float outgoing, Date date)
+Transaction::Transaction(int id, int receiverID, int senderID, float incoming, float outgoing, Date date)
     : transactionDate(date.getDateString())
 {
-    this->customerOut = sender;
-    this->customerIn = receiver;
+    this->transactionID = id;
+
+    setTransactionAttributes(receiverID, senderID);     // Helper function help set Customer* and Transaction Types attributes
+
     this->amountIn = incoming;
     this->amountOut = outgoing;
-    this->transactionDate = date;
 }
 
-Transaction::Transaction(int receiver, int sender, float incoming, float outgoing, u_int year, u_int month, u_int day)
-    : transactionDate(year, month, day),
-      customerOut(0),
-      customerIn(0),
-      amountOut(0),
-      amountIn(0)
-
+Transaction::Transaction(int id, int receiverID, int senderID, float incoming, float outgoing, u_int year, u_int month, u_int day)
+    : transactionDate(year, month, day)
 {
-    this->customerOut = sender;
-    this->customerIn = receiver;
+    this->transactionID = id;
+
+    setTransactionAttributes(receiverID, senderID);     // Helper function help set Customer* and Transaction Types attributes attributes
+
     this->amountIn = incoming;
     this->amountOut = outgoing;
 }
 
-void Transaction::printInfo() {
+Transaction::~Transaction() {
+    delete customerReceived;
+    delete customerWithdrawn;
+}
+
+// Private Functions
+void Transaction::setTransactionAttributes(int receiverID, int senderID){
+
+    // If transaction type is DEPOSIT
+    if (receiverID != -1) {
+        this->customerReceived = cReader.searchByID(receiverID);
+        this->customerWithdrawn = NULL;
+        this->transType = DEPOSIT;
+    }
+    // If transaction type is WITHDRAWAL
+    else if (senderID != -1) {
+        this->customerWithdrawn = cReader.searchByID(senderID);
+        this->customerReceived = NULL;
+        this->transType = WITHDRAWAL;
+    }
+    // If transaction type is TRANSFER
+    else {
+        this->customerReceived = cReader.searchByID(receiverID);
+        this->customerWithdrawn = cReader.searchByID(senderID);
+        this->transType = TRANSFER;
+    }
+}
+
+
+// Public Functions
+void Transaction::printInfo() const{
+
+    // Set printing precision to 2 decimal places.
+    streamsize ss = UtilityFunctions::setPrintingPrecision();
 
     cout << "====================================TRANSACTION HISTORY====================================" << endl;
     cout << "||   Type  ||    Date    ||    From    ||    To    ||    Amount In    ||    Amount Out   ||" << endl;
     if (transType == DEPOSIT){
-        customerIn = customerOut;
-        cout << "DEPOSIT, "; transactionDate.printInfo(); cout << "," << customerOut << "," << customerIn << "," << amountIn << "," << amountOut << endl;
+        cout << "DEPOSIT, "; transactionDate.printInfo(); cout << ", " << "nil, " << customerReceived->getID() << ", $" << amountIn << ", $" << amountOut << endl;
     }
-    if (transType == WITHDRAWAL){
-        customerIn = customerOut;
-        cout << "WITHDRAW, "; transactionDate.printInfo(); cout << "," << customerOut << "," << customerIn << "," << amountIn << "," << amountOut << endl;
+    else if (transType == WITHDRAWAL) {
+        cout << "WITHDRAWAL, "; transactionDate.printInfo(); cout << ", " << customerWithdrawn->getID() << " nil, " << ", $" << amountIn << ", $" << amountOut << endl;
     }
-    if (transType == TRANSFER){
-        cout << "TRANSFER, "; transactionDate.printInfo(); cout << "," << customerOut << "," << customerIn << "," << amountIn << "," << amountOut << endl;
-        cout << "TRANSFER, "; transactionDate.printInfo(); cout << "," << customerIn << "," << customerOut << "," << amountOut << "," << amountIn << endl;
+    else if (transType == TRANSFER) {
+        cout << "TRANSFER, "; transactionDate.printInfo(); cout << ", " << customerWithdrawn->getID() << customerReceived->getID() << ", $" << amountIn << ", $" << amountOut << endl;
+        cout << "TRANSFER, "; transactionDate.printInfo(); cout << ", " << customerReceived->getID() << customerWithdrawn->getID() << ", $" << amountOut << ", $" << amountIn << endl;
     }
+
+    // Reset printing precision.
+    UtilityFunctions::removePrintingPrecision(ss);
 }
