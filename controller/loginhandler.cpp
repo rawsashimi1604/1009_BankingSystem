@@ -9,7 +9,7 @@ string LoginHandler::encrypt(const string& str) {
     return "";
 }
 
-int LoginHandler::login(const string& username, const string& password) {
+int LoginHandler::login(const string& username, const string& password) const{
 
     CredentialsReader cReader;
 
@@ -25,6 +25,7 @@ int LoginHandler::login(const string& username, const string& password) {
     // Compare the 2 passwords
 
     if (password == retrievedPassword) {    // Correct password! Authenticate.
+        free(customer);
         return AUTHENTICATED;
     }
 

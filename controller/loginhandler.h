@@ -19,7 +19,7 @@ private:
 public:
     LoginHandler();
     string encrypt(const string& str);
-    int login(const string& username, const string& password);
+    int login(const string& username, const string& password) const;
 
 };
 

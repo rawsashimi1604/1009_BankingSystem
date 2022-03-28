@@ -92,18 +92,76 @@ Customer* CredentialsReader::searchByID(int id) {
 // Search for customer by Username
 Customer* CredentialsReader::searchByUsername(string username) {
 
-    CredentialsReader cReader;
-    int IDCount = 1;
+    bool existFlag = false;
 
-    Customer* tmp;
+    fstream cFile(fileLocation);
+    int row = 1;                        // track current row.
 
-    // Keep searching the customer.csv file, unless you found the username or you reached EOF.
-    do {
-        tmp = cReader.searchByID(IDCount);
+    // Skip first line (row columns)
+    string column;
+    getline(cFile, column);
 
-    } while (tmp->getUsername() != username || tmp == NULL);
+    string customerID;
+    string fName;
+    string lName;
+    string age;
 
-    return tmp;
+    string uName;
+    string pNo;
+
+    string dateRegistered;
+
+    string Bal;
+    string aSpent;
+    string aSaved;
+
+
+    // If file open failed, return NULL and show error.
+    if(!cFile.is_open()) {
+        std::cout << "Error opening " << fileLocation << ", returning NULL." << endl;
+        return NULL;
+    }
+
+
+    // Load info from .csv file into Customer object
+    while(cFile.good()) {
+        getline(cFile, customerID,',');
+        getline(cFile, fName,',');
+        getline(cFile, lName,',');
+        getline(cFile, age,',');
+        getline(cFile, uName,',');
+        getline(cFile, pNo,',');
+        getline(cFile, dateRegistered,',');
+        getline(cFile, Bal,',');
+        getline(cFile, aSpent,',');
+        getline(cFile, aSaved,'\n');
+
+        if (username == uName) {
+            existFlag = true;
+            break;
+        }
+
+        row++;  // Update row number
+    }
+
+    // If customer exists,
+    if (existFlag) {
+        // Convert all floats and ints from strings
+        int id = stoi(customerID);
+        int convertedAge = stoi(age);
+
+        float convertedBalance = stof(Bal);
+        float convertedAmountSpent = stof(aSpent);
+        float convertedAmountSaved = stof(aSaved);
+
+        // Construct Customer Object (pointer)
+        Customer* customer = new Customer(id, fName, lName, convertedAge, uName, pNo, dateRegistered, convertedBalance, convertedAmountSpent, convertedAmountSaved);
+        cFile.close();
+
+        return customer;
+    }
+
+    return NULL;    // Customer dosent exist
 }
 
 
