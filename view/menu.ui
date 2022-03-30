@@ -14,7 +14,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(47, 167, 218);</string>
+   <string notr="true"/>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
@@ -36,7 +36,7 @@ font: 700 28pt &quot;Segoe UI&quot;;</string>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>380</x>
+     <x>370</x>
      <y>150</y>
      <width>211</width>
      <height>271</height>
