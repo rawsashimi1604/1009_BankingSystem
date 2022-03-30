@@ -20,9 +20,9 @@ public:
     CredentialsReader();
     CredentialsReader(string fileLocation);
     void printHello();
-    Customer* searchByID(int id);
-    Customer* searchByUsername(string username);
-    bool write(Customer* customer);
+    optional<Customer> searchByID(int id);
+    optional<Customer> searchByUsername(string username);
+    bool write(Customer customer);
 };
 
 #endif // CREDENTIALSREADER_H

@@ -17,15 +17,15 @@ void CredentialsReader::printHello() {
 }
 
 // Search for customer by ID
-Customer* CredentialsReader::searchByID(int id) {
+optional<Customer> CredentialsReader::searchByID(int id) {
     bool existFlag = false;
 
     fstream cFile(fileLocation);
 
-    // If file open failed, return NULL and show error.
+    // If file open failed, return nothing and show error.
     if(!cFile.is_open()) {
         std::cout << "Error opening " << fileLocation << ", returning NULL." << endl;
-        return NULL;
+        return {};
     }
 
     // Skip first line (row columns)
@@ -75,16 +75,16 @@ Customer* CredentialsReader::searchByID(int id) {
         float convertedAmountSpent = stof(aSpent);
         float convertedAmountSaved = stof(aSaved);
 
-        // Construct Customer Object (pointer)
-        Customer* customer = new Customer(id, fName, lName, convertedAge, uName, pNo, dateRegistered, convertedBalance, convertedAmountSpent, convertedAmountSaved);
+        // Construct Customer Object
+        Customer customer(id, fName, lName, convertedAge, uName, pNo, dateRegistered, convertedBalance, convertedAmountSpent, convertedAmountSaved);
         return customer;
     }
 
-    return NULL;    // Customer dosent exist
+    return {};    // Customer dosent exist
 }
 
 // Search for customer by Username
-Customer* CredentialsReader::searchByUsername(string username) {
+optional<Customer> CredentialsReader::searchByUsername(string username) {
 
     bool existFlag = false;
 
@@ -113,7 +113,7 @@ Customer* CredentialsReader::searchByUsername(string username) {
     // If file open failed, return NULL and show error.
     if(!cFile.is_open()) {
         std::cout << "Error opening " << fileLocation << ", returning NULL." << endl;
-        return NULL;
+        return {};
     }
 
 
@@ -153,19 +153,19 @@ Customer* CredentialsReader::searchByUsername(string username) {
         float convertedAmountSpent = stof(aSpent);
         float convertedAmountSaved = stof(aSaved);
 
-        // Construct Customer Object (pointer)
-        Customer* customer = new Customer(id, fName, lName, convertedAge, uName, pNo, dateRegistered, convertedBalance, convertedAmountSpent, convertedAmountSaved);
+        // Construct Customer Object
+        Customer customer(id, fName, lName, convertedAge, uName, pNo, dateRegistered, convertedBalance, convertedAmountSpent, convertedAmountSaved);
         cFile.close();
 
         return customer;
     }
 
-    return NULL;    // Customer dosent exist
+    return {};    // Customer dosent exist
 }
 
 // This function writes the userCredential struct to the given fileName's csv file
 // returns true if success, false if failed
-bool CredentialsReader::write(Customer* customer) {
+bool CredentialsReader::write(Customer customer) {
 
     ofstream cFile(fileLocation, ios_base::app);
 
@@ -174,16 +174,16 @@ bool CredentialsReader::write(Customer* customer) {
     }
 
     // Add customer parameters to .csv file.
-    cFile   << customer->getID() << ","
-            << customer->getFirstName() << ","
-            << customer->getLastName() << ","
-            << customer->getAge() << ","
-            << customer->getUsername() << ","
-            << customer->getPassword() << ","
-            << customer->getDateRegistered().getDateString() << ","
-            << customer->getBalance() << ","
-            << customer->getAmountSpent() << ","
-            << customer->getAmountSaved() << endl;
+    cFile   << customer.getID() << ","
+            << customer.getFirstName() << ","
+            << customer.getLastName() << ","
+            << customer.getAge() << ","
+            << customer.getUsername() << ","
+            << customer.getPassword() << ","
+            << customer.getDateRegistered().getDateString() << ","
+            << customer.getBalance() << ","
+            << customer.getAmountSpent() << ","
+            << customer.getAmountSaved() << endl;
 
     cFile.close();
     return true;

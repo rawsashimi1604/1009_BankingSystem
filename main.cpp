@@ -25,30 +25,26 @@ void myTest() {
 
     // Test TransactionReader
     TransactionReader tReader;
-    vector<Transaction*> tArr = tReader.searchAllTransactions(1);
 
-    // Test Transaction
-    for (Transaction* t: tArr) {
-        t->printInfo();
-        delete t;
+//    // Test Adding transaction to .csv
+//    Date date("01/01/2020");
+//    Transaction transaction(3, 1, -1, 100, 0, date, Enums::TransactionType::DEPOSIT);
+
+//    tReader.write(transaction);
+
+    vector<Transaction> tArr = tReader.searchAllTransactions(1);
+
+    // Test Transaction printing
+    for (Transaction t: tArr) {
+        t.printInfo();
     }
 
-    // Test Adding transaction to .csv
-    Date date("01/01/2020");
-    Transaction* transaction = new Transaction(1, 1, 2, 100, 0, date, Enums::TransactionType::DEPOSIT);
-    tReader.write(transaction);
-    delete transaction;
-
-//    // Test CredentialsReader
-//    CredentialsReader cReader;
+    // Test CredentialsReader
+    CredentialsReader cReader;
 
 //    // Test adding customer to .csv
-//    Customer* customer = new Customer(4, "James", "Collins", 37, "james123", "123456", 2022, 3, 30);
-//    for (int i = 0; i < 5; i++) {
-//        cReader.write(customer);
-//    }
-
-//    delete customer;
+//    Customer customer(5, "Admin", "Test", 99, "test", "test", 2022, 3, 30);
+//    cReader.write(customer);
 
 }
 

@@ -16,9 +16,9 @@ private:
 
 public:
     TransactionHandler();
-    TransactionStatus withdraw(Customer* customer, float amt);
-    TransactionStatus deposit(Customer* customer, float amt);
-    TransactionStatus transfer(Customer* fromCustomer, Customer* toCustomer, float amt);
+    TransactionStatus withdraw(Customer customer, float amt);
+    TransactionStatus deposit(Customer customer, float amt);
+    TransactionStatus transfer(Customer fromCustomer, Customer toCustomer, float amt);
 };
 
 #endif // TRANSACTIONHANDLER_H

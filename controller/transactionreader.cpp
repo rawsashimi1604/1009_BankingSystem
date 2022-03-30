@@ -17,7 +17,7 @@ void TransactionReader::printHello() {
     cout << "hello world from transaction reader!" << endl;
 }
 
-Transaction* TransactionReader::searchByID(int id) {
+optional<Transaction> TransactionReader::searchByID(int id) {
     bool existFlag = false;
 
     fstream tFile(fileLocation);
@@ -25,7 +25,7 @@ Transaction* TransactionReader::searchByID(int id) {
     // If file open failed, return NULL and show error.
     if(!tFile.is_open()) {
         std::cout << "Error opening " << fileLocation << ", returning NULL." << endl;
-        return NULL;
+        return {};
     }
 
     // Skip first line
@@ -76,17 +76,17 @@ Transaction* TransactionReader::searchByID(int id) {
         // Convert Transaction Type
         Enums::TransactionType transactionType = Enums::convertTransactionType(transType);
 
-        // Construct Transaction Object (pointer)
-        Transaction* transaction = new Transaction(id, convertedCustomerIn, convertedCustomerOut, convertedAmountIn, convertedAmountOut, date, transactionType);
+        // Construct Transaction Object
+        Transaction transaction(id, convertedCustomerIn, convertedCustomerOut, convertedAmountIn, convertedAmountOut, date, transactionType);
 
         return transaction;
     }
 
-    return NULL;
+    return {};
 }
 
-vector<Transaction*> TransactionReader::searchAllTransactions(int customerID) {
-    vector<Transaction*> res;
+vector<Transaction> TransactionReader::searchAllTransactions(int customerID) {
+    vector<Transaction> res;
 
     fstream tFile(fileLocation);
 
@@ -142,7 +142,7 @@ vector<Transaction*> TransactionReader::searchAllTransactions(int customerID) {
             Enums::TransactionType transactionType = Enums::convertTransactionType(transType);
 
             // Construct Transaction Object (pointer)
-            Transaction* transaction = new Transaction(id, convertedCustomerIn, convertedCustomerOut, convertedAmountIn, convertedAmountOut, date, transactionType);
+            Transaction transaction(id, convertedCustomerIn, convertedCustomerOut, convertedAmountIn, convertedAmountOut, date, transactionType);
 
             res.push_back(transaction);
         }
@@ -153,7 +153,7 @@ vector<Transaction*> TransactionReader::searchAllTransactions(int customerID) {
 
 // This function writes the userCredential struct to the given fileName's csv file
 // returns true if success, false if failed
-bool TransactionReader::write(Transaction* transaction) {
+bool TransactionReader::write(Transaction transaction) {
 
     ofstream tFile(fileLocation, ios_base::app);
 
@@ -162,13 +162,13 @@ bool TransactionReader::write(Transaction* transaction) {
     }
 
     // Add transaction parameters to .csv file
-    tFile   << transaction->getTransactionID() << ","
-            << transaction->getTransactionDate().getDateString() << ","
-            << transaction->getSenderID() << ","
-            << transaction->getReceiverID() << ","
-            << transaction->getAmountSent() << ","
-            << transaction->getAmountReceived() << ","
-            << Enums::convertString(transaction->getTransactionType()) << endl;
+    tFile   << transaction.getTransactionID() << ","
+            << transaction.getTransactionDate().getDateString() << ","
+            << transaction.getSenderID() << ","
+            << transaction.getReceiverID() << ","
+            << transaction.getAmountSent() << ","
+            << transaction.getAmountReceived() << ","
+            << Enums::convertString(transaction.getTransactionType()) << endl;
 
     tFile.close();
     return true;

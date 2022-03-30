@@ -17,9 +17,9 @@ public:
     TransactionReader(string fileLocation);
     void printHello();
 
-    Transaction* searchByID(int id);
-    vector<Transaction*> searchAllTransactions(int customerID);
-    bool write(Transaction* transaction);
+    optional<Transaction> searchByID(int id);
+    vector<Transaction> searchAllTransactions(int customerID);
+    bool write(Transaction transaction);
 };
 
 #endif // TRANSACTIONREADER_H
