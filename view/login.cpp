@@ -44,14 +44,22 @@ void Login::on_loginButton_clicked()
     QString uName =  ui->usernameField->text();
     QString uPass = ui->passwordField->text();
 
-    LoginHandler loginHandler;
+    LoginHandler loginHandler;                      // Login logic class
+    QMessageBox msgBox;                             // Pop up message.
 
     if(loginHandler.login(uName.toStdString(),uPass.toStdString()) == AUTHENTICATED) {
         cout << "success" << endl;
+
+        msgBox.setText("Login successful.");
+        msgBox.exec();
+
         ui->stackedWidget->setCurrentWidget(&menu);
 
     } else {
         cout << "failure" << endl;
+
+        msgBox.setText("Login unsuccessful. Please try again.");
+        msgBox.exec();
     }
 }
 

@@ -22,7 +22,7 @@ public:
     void printHello();
     Customer* searchByID(int id);
     Customer* searchByUsername(string username);
-    void write(Customer* customer);
+    bool write(Customer* customer);
 };
 
 #endif // CREDENTIALSREADER_H

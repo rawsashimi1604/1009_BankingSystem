@@ -14,6 +14,8 @@ class Customer : public Model
 {
 
 private:
+    static const float INITIAL_STARTING_BALANCE;     // Starting balance when creaing bank account;
+
 
     int id;
     string firstName;
@@ -31,8 +33,8 @@ private:
 
 public:
 
-    Customer(int, string, string, int, string, string, u_int, u_int, u_int);
-    Customer(int, string, string, int, string, string, string, float, float, float);
+    Customer(int id, string firstName, string lastName, int age, string username, string password, u_int year, u_int month, u_int day);
+    Customer(int id, string firstName, string lastName, int age, string username, string password, string dateString, float balance, float amountSpent, float amountSaved);
     ~Customer();
     void printInfo() const;
 
@@ -41,7 +43,10 @@ public:
     string getUsername() const;
     string getPassword() const;
     int getAge() const;
+    string getFirstName() const;
+    string getLastName() const;
     string getFullName() const;
+    Date getDateRegistered() const;
     float getBalance() const;
     float getAmountSpent() const;
     float getAmountSaved() const;

@@ -30,7 +30,13 @@ public:
     void printInfo() const;
 
     // Getters
-    Enums::TransactionType getTransactionType();
+    Enums::TransactionType getTransactionType() const;
+    int getTransactionID() const;
+    Date getTransactionDate() const;
+    int getReceiverID() const;
+    int getSenderID() const;
+    float getAmountReceived() const;
+    float getAmountSent() const;
 };
 
 #endif // TRANSACTION_H

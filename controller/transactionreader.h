@@ -19,7 +19,7 @@ public:
 
     Transaction* searchByID(int id);
     vector<Transaction*> searchAllTransactions(int customerID);
-    void write(Transaction* model);
+    bool write(Transaction* transaction);
 };
 
 #endif // TRANSACTIONREADER_H

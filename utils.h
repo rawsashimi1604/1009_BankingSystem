@@ -19,6 +19,7 @@ namespace Enums {
     enum class TransactionType {DEPOSIT, WITHDRAWAL, TRANSFER, NONE};
 
     TransactionType convertTransactionType(string& str);
+    string convertString(TransactionType transType);
     ostream& operator<<(ostream& COUT, TransactionType t);
 }
 

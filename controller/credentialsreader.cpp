@@ -163,7 +163,45 @@ Customer* CredentialsReader::searchByUsername(string username) {
     return NULL;    // Customer dosent exist
 }
 
+// This function writes the userCredential struct to the given fileName's csv file
+// returns true if success, false if failed
+bool CredentialsReader::write(Customer* customer) {
 
-void CredentialsReader::write(Customer* customer) {
+    ofstream cFile(fileLocation, ios_base::app);
 
+    if (!cFile.is_open()) {
+        return false;
+    }
+
+    // Add customer parameters to .csv file.
+    cFile   << customer->getID() << ","
+            << customer->getFirstName() << ","
+            << customer->getLastName() << ","
+            << customer->getAge() << ","
+            << customer->getUsername() << ","
+            << customer->getPassword() << ","
+            << customer->getDateRegistered().getDateString() << ","
+            << customer->getBalance() << ","
+            << customer->getAmountSpent() << ","
+            << customer->getAmountSaved() << endl;
+
+    cFile.close();
+    return true;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

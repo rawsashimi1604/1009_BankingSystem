@@ -151,10 +151,27 @@ vector<Transaction*> TransactionReader::searchAllTransactions(int customerID) {
     return res;
 }
 
+// This function writes the userCredential struct to the given fileName's csv file
+// returns true if success, false if failed
+bool TransactionReader::write(Transaction* transaction) {
 
-void TransactionReader::write(Transaction* model) {
+    ofstream tFile(fileLocation, ios_base::app);
 
+    if (!tFile.is_open()) {
+        return false;
+    }
 
+    // Add transaction parameters to .csv file
+    tFile   << transaction->getTransactionID() << ","
+            << transaction->getTransactionDate().getDateString() << ","
+            << transaction->getSenderID() << ","
+            << transaction->getReceiverID() << ","
+            << transaction->getAmountSent() << ","
+            << transaction->getAmountReceived() << ","
+            << Enums::convertString(transaction->getTransactionType()) << endl;
+
+    tFile.close();
+    return true;
 }
 
 

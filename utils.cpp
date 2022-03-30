@@ -21,7 +21,7 @@ Enums::TransactionType Enums::convertTransactionType(string& str) {
     return Enums::TransactionType::NONE;
 }
 
-ostream& operator<<(ostream& COUT, Enums::TransactionType t) {
+ostream& Enums::operator<<(ostream& COUT, Enums::TransactionType t) {
     int enumVal = static_cast<int>(t);
     string str;
     switch(enumVal) {
@@ -41,6 +41,21 @@ ostream& operator<<(ostream& COUT, Enums::TransactionType t) {
 
     COUT << str;
     return COUT;
+}
+
+string Enums::convertString(Enums::TransactionType transType) {
+
+    switch(transType) {
+        case Enums::TransactionType::DEPOSIT:
+            return "DEPOSIT";
+        case Enums::TransactionType::WITHDRAWAL:
+            return "WITHDRAWAL";
+        case Enums::TransactionType::TRANSFER:
+            return "TRANSFER";
+        case Enums::TransactionType::NONE:
+            return "NONE";
+    }
+    return "NONE";
 }
 
 

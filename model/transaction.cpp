@@ -1,5 +1,7 @@
 #include "transaction.h"
 
+
+
 Transaction::Transaction(int id, int receiverID, int senderID, float amountReceived, float amountSent, Date date, Enums::TransactionType transactionType)
     : transactionDate(date.getDateString())
 {
@@ -47,6 +49,36 @@ void Transaction::printInfo() const{
     UtilityFunctions::removePrintingPrecision(ss);
 }
 
-Enums::TransactionType Transaction::getTransactionType() {
+int Transaction::getTransactionID() const
+{
+    return transactionID;
+}
+
+Date Transaction::getTransactionDate() const
+{
+    return transactionDate;
+}
+
+int Transaction::getReceiverID() const
+{
+    return receiverID;
+}
+
+int Transaction::getSenderID() const
+{
+    return senderID;
+}
+
+float Transaction::getAmountReceived() const
+{
+    return amountReceived;
+}
+
+float Transaction::getAmountSent() const
+{
+    return amountSent;
+}
+
+Enums::TransactionType Transaction::getTransactionType() const{
     return transType;
 }
