@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <vector>
 
 #include "utils.h"
 #include "model/date.h"
@@ -36,7 +37,9 @@ public:
     Customer(int id, string firstName, string lastName, int age, string username, string password, u_int year, u_int month, u_int day);
     Customer(int id, string firstName, string lastName, int age, string username, string password, string dateString, float balance, float amountSpent, float amountSaved);
     ~Customer();
+
     void printInfo() const;
+    vector<string> getCsvFormat() const;
 
     // Getters
     int getID() const;
@@ -50,6 +53,8 @@ public:
     float getBalance() const;
     float getAmountSpent() const;
     float getAmountSaved() const;
+
+
 };
 
 #endif // CUSTOMER_H

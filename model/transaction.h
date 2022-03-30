@@ -28,10 +28,11 @@ public:
     Transaction(int id, int receiverID, int senderID, float amountReceived, float amountSent, Date date, Enums::TransactionType transactionType);
     Transaction(int id, int receiverID, int senderID, float amountReceived, float amountSent, u_int year, u_int month, u_int day, Enums::TransactionType transactionType);
     void printInfo() const;
+    vector<string> getCsvFormat();
 
     // Getters
     Enums::TransactionType getTransactionType() const;
-    int getTransactionID() const;
+    int getID() const;
     Date getTransactionDate() const;
     int getReceiverID() const;
     int getSenderID() const;

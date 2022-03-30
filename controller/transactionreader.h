@@ -20,6 +20,7 @@ public:
     optional<Transaction> searchByID(int id);
     vector<Transaction> searchAllTransactions(int customerID);
     bool write(Transaction transaction);
+    bool update(Transaction transaction);
 };
 
 #endif // TRANSACTIONREADER_H

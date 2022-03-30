@@ -25,6 +25,28 @@ Transaction::Transaction(int id, int receiverID, int senderID, float amountRecei
 }
 
 // Public Functions
+vector<string> Transaction::getCsvFormat() {
+    vector<string> csvRow;
+
+    // convert float to string, round 2 dec
+    string amtOut = to_string(getAmountSent());
+    string amtOutRounded = amtOut.substr(0, amtOut.find(".") + 3);
+
+    string amtIn = to_string(getAmountReceived());
+    string amtInRounded = amtIn.substr(0, amtIn.find(".") + 3);
+
+
+    csvRow.push_back(to_string(getID()));
+    csvRow.push_back(getTransactionDate().getDateString());
+    csvRow.push_back(to_string(getSenderID()));
+    csvRow.push_back(to_string(getReceiverID()));
+    csvRow.push_back(amtOutRounded);
+    csvRow.push_back(amtInRounded);
+    csvRow.push_back(Enums::convertString(getTransactionType()));
+
+    return csvRow;
+}
+
 void Transaction::printInfo() const{
 
     // Set printing precision to 2 decimal places.
@@ -49,7 +71,7 @@ void Transaction::printInfo() const{
     UtilityFunctions::removePrintingPrecision(ss);
 }
 
-int Transaction::getTransactionID() const
+int Transaction::getID() const
 {
     return transactionID;
 }

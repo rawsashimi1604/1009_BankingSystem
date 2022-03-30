@@ -41,6 +41,33 @@ Customer::~Customer() {
 }
 
 // Public functions
+vector<string> Customer::getCsvFormat() const{
+    vector<string> csvRow;
+
+    // convert float to string, round 2 dec
+    string balance = to_string(getBalance());
+    string balanceRounded = balance.substr(0, balance.find(".") + 3);
+
+    string amtSaved = to_string(getAmountSaved());
+    string amtSavedRounded = amtSaved.substr(0, amtSaved.find(".") + 3);
+
+    string amtSpent = to_string(getAmountSpent());
+    string amtSpentRounded = amtSpent.substr(0, amtSpent.find(".") + 3);
+
+    csvRow.push_back(to_string(getID()));
+    csvRow.push_back(getFirstName());
+    csvRow.push_back(getLastName());
+    csvRow.push_back(to_string(getAge()));
+    csvRow.push_back(getUsername());
+    csvRow.push_back(getPassword());
+    csvRow.push_back(getDateRegistered().getDateString());
+    csvRow.push_back(balanceRounded);
+    csvRow.push_back(amtSpentRounded);
+    csvRow.push_back(amtSavedRounded);
+
+    return csvRow;
+}
+
 void Customer::printInfo() const{
     // Set printing precision to 2 decimal places.
     streamsize ss = UtilityFunctions::setPrintingPrecision();

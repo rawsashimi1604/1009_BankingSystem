@@ -7,6 +7,7 @@
 #include <iomanip>
 #include <string>
 #include <fstream>
+#include <filesystem>
 
 #include "model/customer.h"
 
@@ -23,6 +24,7 @@ public:
     optional<Customer> searchByID(int id);
     optional<Customer> searchByUsername(string username);
     bool write(Customer customer);
+    bool update(Customer customer);
 };
 
 #endif // CREDENTIALSREADER_H
