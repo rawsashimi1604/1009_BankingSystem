@@ -13,4 +13,13 @@ namespace UtilityFunctions {
     void removePrintingPrecision(streamsize ss);
 }
 
+// List of enums and their functions
+namespace Enums {
+    // Transaction
+    enum class TransactionType {DEPOSIT, WITHDRAWAL, TRANSFER, NONE};
+
+    TransactionType convertTransactionType(string& str);
+    ostream& operator<<(ostream& COUT, TransactionType t);
+}
+
 #endif // UTILS_H
