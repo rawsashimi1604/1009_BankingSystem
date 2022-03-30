@@ -3,6 +3,13 @@
 
 #include <QWidget>
 
+#include "view/withdraw.h"
+#include "view/deposit.h"
+#include "view/transfer.h"
+#include "view/history.h"
+
+
+
 namespace Ui {
 class Menu;
 }
@@ -15,8 +22,27 @@ public:
     explicit Menu(QWidget *parent = nullptr);
     ~Menu();
 
+private slots:
+    void on_withdraw_clicked();
+
+    void on_deposit_clicked();
+
+    void on_transfer_clicked();
+
+    void on_transactions_clicked();
+
+    void moveMenu();
+
 private:
     Ui::Menu *ui;
+
+    //initialise all the menu ui classes
+    Withdraw withdraw;
+    Deposit deposit;
+    Transfer transfer;
+    History history;
+
+
 };
 
 #endif // MENU_H

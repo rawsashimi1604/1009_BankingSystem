@@ -26,6 +26,7 @@ private slots:
 
 private:
     Ui::Login *ui;
+    //initialise the menu class
     Menu menu;
 };
 #endif // LOGIN_H
