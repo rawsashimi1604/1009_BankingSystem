@@ -3,12 +3,22 @@
 
 #include "model/transaction.h"
 
+#include <vector>
+
 class TransactionReader
 {
+
+private:
+    static const string DEFAULT_FILE_LOCATION;
+    string fileLocation;
+
 public:
     TransactionReader();
+    TransactionReader(string fileLocation);
     void printHello();
-    Transaction* read(int id);
+
+    Transaction* searchByID(int id);
+    vector<Transaction*> searchAllTransactions(int customerID);
     void write(Transaction* model);
 };
 

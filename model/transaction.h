@@ -8,7 +8,11 @@
 #include "model/customer.h"
 
 // Possible Transaction Types
-enum TransactionType {DEPOSIT, WITHDRAWAL, TRANSFER};
+enum class TransactionType {DEPOSIT, WITHDRAWAL, TRANSFER, NONE};
+
+TransactionType convertTransactionType(string& str);
+ostream& operator<<(ostream& COUT, TransactionType t);
+
 
 class Transaction : public Model
 {
@@ -30,10 +34,13 @@ private:
     void setTransactionAttributes(int receiverID, int senderID);
 
 public:
-    Transaction(int, int, int, float, float, Date);
-    Transaction(int, int, int, float, float, u_int, u_int, u_int);
+    Transaction(int id, int receiverID, int senderID, float incoming, float outgoing, Date date, TransactionType transactionType);
+    Transaction(int id, int receiverID, int senderID, float incoming, float outgoing, u_int year, u_int month, u_int day, TransactionType transactionType);
     ~Transaction();
     void printInfo() const;
+
+    // Getters
+    TransactionType getTransactionType();
 };
 
 #endif // TRANSACTION_H

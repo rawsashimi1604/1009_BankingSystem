@@ -21,32 +21,28 @@ Customer* CredentialsReader::searchByID(int id) {
     bool existFlag = false;
 
     fstream cFile(fileLocation);
-    int row = 1;                        // track current row.
-
-    // Skip first line (row columns)
-    string column;
-    getline(cFile, column);
-
-    string customerID;
-    string fName;
-    string lName;
-    string age;
-
-    string uName;
-    string pNo;
-
-    string dateRegistered;
-
-    string Bal;
-    string aSpent;
-    string aSaved;
-
 
     // If file open failed, return NULL and show error.
     if(!cFile.is_open()) {
         std::cout << "Error opening " << fileLocation << ", returning NULL." << endl;
         return NULL;
     }
+
+    // Skip first line (row columns)
+    string column;
+    getline(cFile, column);
+
+    // Variables to store csv column data
+    string customerID;
+    string fName;
+    string lName;
+    string age;
+    string uName;
+    string pNo;
+    string dateRegistered;
+    string Bal;
+    string aSpent;
+    string aSaved;
 
 
     // Load info from .csv file into Customer object
@@ -62,13 +58,13 @@ Customer* CredentialsReader::searchByID(int id) {
         getline(cFile, aSpent,',');
         getline(cFile, aSaved,'\n');
 
-        if (row == id) {
+        if (stoi(customerID) == id) {
             existFlag = true;
             break;
         }
-
-        row++;  // Update row number
     }
+
+    cFile.close();
 
     // If customer exists,
     if (existFlag) {
@@ -81,8 +77,6 @@ Customer* CredentialsReader::searchByID(int id) {
 
         // Construct Customer Object (pointer)
         Customer* customer = new Customer(id, fName, lName, convertedAge, uName, pNo, dateRegistered, convertedBalance, convertedAmountSpent, convertedAmountSaved);
-        cFile.close();
-
         return customer;
     }
 
@@ -135,6 +129,11 @@ Customer* CredentialsReader::searchByUsername(string username) {
         getline(cFile, Bal,',');
         getline(cFile, aSpent,',');
         getline(cFile, aSaved,'\n');
+
+        // If reached EOF, stop searching
+        if (cFile.eof()) {
+            break;
+        }
 
         if (username == uName) {
             existFlag = true;

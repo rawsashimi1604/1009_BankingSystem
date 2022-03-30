@@ -10,6 +10,8 @@ CONFIG += c++11
 
 SOURCES += \
     controller/credentialsreader.cpp \
+    controller/decrypter.cpp \
+    controller/encrypter.cpp \
     controller/loginhandler.cpp \
     controller/registerhandler.cpp \
     controller/transactionhandler.cpp \
@@ -30,6 +32,8 @@ SOURCES += \
 
 HEADERS += \
     controller/credentialsreader.h \
+    controller/decrypter.h \
+    controller/encrypter.h \
     controller/loginhandler.h \
     controller/registerhandler.h \
     controller/transactionhandler.h \

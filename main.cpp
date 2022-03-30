@@ -15,17 +15,23 @@
 
 void myTest() {
 
-    // Test login
-    LoginHandler loginHandler;
-    if (loginHandler.login("jasonng", "123456") == AUTHENTICATED) {
-        cout << "SUCCESS" << endl;
-    } else {
-        cout << "FAILURE" << endl;
-    }
+//    // Test login
+//    LoginHandler loginHandler;
+//    if (loginHandler.login("jasonng", "123456") == AUTHENTICATED) {
+//        cout << "SUCCESS" << endl;
+//    } else {
+//        cout << "FAILURE" << endl;
+//    }
+
+    // Test TransactionReader
+    TransactionReader tReader;
+    vector<Transaction*> tArr = tReader.searchAllTransactions(1);
 
     // Test Transaction
-    Transaction myTransaction(1, 1, -1, 300, 0, 2020, 1, 1);
-    myTransaction.printInfo();
+    for (Transaction* t: tArr) {
+        t->printInfo();
+    }
+
 
 }
 

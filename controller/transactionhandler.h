@@ -11,6 +11,9 @@ typedef int TransactionStatus;
 
 class TransactionHandler
 {
+private:
+    void logTransaction(Transaction);
+
 public:
     TransactionHandler();
     TransactionStatus withdraw(Customer* customer, float amt);

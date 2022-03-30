@@ -8,6 +8,7 @@
 using namespace std;
 
 namespace UtilityFunctions {
+    // General Util functions
     streamsize setPrintingPrecision();
     void removePrintingPrecision(streamsize ss);
 }

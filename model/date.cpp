@@ -20,6 +20,7 @@ Date::Date(string dateString) {
         dateStore[count] = token;
         count++;
     }
+
     dateStore[count] = s;
 
     this->day = stoi(dateStore[0]);
@@ -45,7 +46,7 @@ string Date::getDateString() {
     s += "/";
     s += to_string(month);
     s += "/";
-    s += year;
+    s += to_string(year);
 
     return s;
 }
