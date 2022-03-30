@@ -88,9 +88,9 @@ font: 700 28pt &quot;Segoe UI&quot;;</string>
     <widget class="QPushButton" name="pushButton">
      <property name="geometry">
       <rect>
-       <x>350</x>
+       <x>390</x>
        <y>380</y>
-       <width>181</width>
+       <width>141</width>
        <height>50</height>
       </rect>
      </property>

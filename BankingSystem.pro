@@ -57,6 +57,7 @@ FORMS += \
     view/login.ui \
     view/menu.ui \
     view/register.ui \
+    view/title.ui \
     view/transfer.ui \
     view/withdraw.ui
 
