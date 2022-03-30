@@ -1,38 +1,6 @@
 #include "transaction.h"
 
-// Enum functions
-TransactionType convertTransactionType(string& str) {
-    if (str == "DEPOSIT") return TransactionType::DEPOSIT;
-    else if (str == "WITHDRAWAL") return TransactionType::WITHDRAWAL;
-    else if (str == "TRANSFER") return TransactionType::TRANSFER;
-
-    return TransactionType::NONE;
-}
-
-// help to std::cout TransactionType enum.
-ostream& operator<<(ostream& COUT, TransactionType t) {
-    int enumVal = static_cast<int>(t);
-    string str;
-    switch(enumVal) {
-        case 0:
-            str = "DEPOSIT";
-            break;
-        case 1:
-            str = "WITHDRAWAL";
-            break;
-        case 2:
-            str = "TRANSFER";
-            break;
-        case 3:
-            str = "NONE";
-            break;
-    }
-
-    COUT << str;
-    return COUT;
-}
-
-Transaction::Transaction(int id, int receiverID, int senderID, float amountReceived, float amountSent, Date date, TransactionType transactionType)
+Transaction::Transaction(int id, int receiverID, int senderID, float amountReceived, float amountSent, Date date, Enums::TransactionType transactionType)
     : transactionDate(date.getDateString())
 {
     this->transactionID = id;
@@ -43,7 +11,7 @@ Transaction::Transaction(int id, int receiverID, int senderID, float amountRecei
     this->transType = transactionType;
 }
 
-Transaction::Transaction(int id, int receiverID, int senderID, float amountReceived, float amountSent, u_int year, u_int month, u_int day, TransactionType transactionType)
+Transaction::Transaction(int id, int receiverID, int senderID, float amountReceived, float amountSent, u_int year, u_int month, u_int day, Enums::TransactionType transactionType)
     : transactionDate(year, month, day)
 {
     this->transactionID = id;
@@ -62,13 +30,13 @@ void Transaction::printInfo() const{
 
 //    cout << "====================================TRANSACTION HISTORY====================================" << endl;
 //    cout << "||   Type  ||    Date    ||    From    ||    To    ||    Amount In    ||    Amount Out   ||" << endl;
-    if (transType == TransactionType::DEPOSIT){
+    if (transType == Enums::TransactionType::DEPOSIT){
         cout << "DEPOSIT, "; transactionDate.printInfo(); cout << ", " << "nil, " << receiverID << ", $" << amountReceived << ", $" << amountSent << endl;
     }
-    else if (transType == TransactionType::WITHDRAWAL) {
+    else if (transType == Enums::TransactionType::WITHDRAWAL) {
         cout << "WITHDRAWAL, "; transactionDate.printInfo(); cout << ", " << senderID << " nil, " << ", $" << amountReceived << ", $" << amountSent << endl;
     }
-    else if (transType == TransactionType::TRANSFER) {
+    else if (transType == Enums::TransactionType::TRANSFER) {
         cout << "TRANSFER, "; transactionDate.printInfo(); cout << ", " << senderID << ", " << receiverID << ", $" << amountReceived << ", $" << amountSent << endl;
     }
     else {
@@ -79,6 +47,6 @@ void Transaction::printInfo() const{
     UtilityFunctions::removePrintingPrecision(ss);
 }
 
-TransactionType Transaction::getTransactionType() {
+Enums::TransactionType Transaction::getTransactionType() {
     return transType;
 }

@@ -7,13 +7,6 @@
 #include "controller/credentialsreader.h"
 #include "model/customer.h"
 
-// Possible Transaction Types
-enum class TransactionType {DEPOSIT, WITHDRAWAL, TRANSFER, NONE};
-
-TransactionType convertTransactionType(string& str);
-ostream& operator<<(ostream& COUT, TransactionType t);
-
-
 class Transaction : public Model
 {
 
@@ -29,15 +22,15 @@ private:
     float amountReceived;             // Amount of $ received
     float amountSent;            // Amount of $ sent
 
-    TransactionType transType;
+    Enums::TransactionType transType;
 
 public:
-    Transaction(int id, int receiverID, int senderID, float amountReceived, float amountSent, Date date, TransactionType transactionType);
-    Transaction(int id, int receiverID, int senderID, float amountReceived, float amountSent, u_int year, u_int month, u_int day, TransactionType transactionType);
+    Transaction(int id, int receiverID, int senderID, float amountReceived, float amountSent, Date date, Enums::TransactionType transactionType);
+    Transaction(int id, int receiverID, int senderID, float amountReceived, float amountSent, u_int year, u_int month, u_int day, Enums::TransactionType transactionType);
     void printInfo() const;
 
     // Getters
-    TransactionType getTransactionType();
+    Enums::TransactionType getTransactionType();
 };
 
 #endif // TRANSACTION_H

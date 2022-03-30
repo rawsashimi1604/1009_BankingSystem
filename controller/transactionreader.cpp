@@ -74,7 +74,7 @@ Transaction* TransactionReader::searchByID(int id) {
         Date date(transactionDate);
 
         // Convert Transaction Type
-        TransactionType transactionType = convertTransactionType(transType);
+        Enums::TransactionType transactionType = Enums::convertTransactionType(transType);
 
         // Construct Transaction Object (pointer)
         Transaction* transaction = new Transaction(id, convertedCustomerIn, convertedCustomerOut, convertedAmountIn, convertedAmountOut, date, transactionType);
@@ -139,7 +139,7 @@ vector<Transaction*> TransactionReader::searchAllTransactions(int customerID) {
             Date date(transactionDate);
 
             // Convert transaction type to enum
-            TransactionType transactionType = convertTransactionType(transType);
+            Enums::TransactionType transactionType = Enums::convertTransactionType(transType);
 
             // Construct Transaction Object (pointer)
             Transaction* transaction = new Transaction(id, convertedCustomerIn, convertedCustomerOut, convertedAmountIn, convertedAmountOut, date, transactionType);
