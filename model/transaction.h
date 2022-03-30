@@ -23,20 +23,17 @@ private:
     int transactionID;
     Date transactionDate;
 
-    const Customer* customerReceived;
-    const Customer* customerWithdrawn;
+    int receiverID;             // ID of customer receiving $
+    int senderID;               // ID of customer sending $
 
-    float amountOut;
-    float amountIn;
+    float amountReceived;             // Amount of $ received
+    float amountSent;            // Amount of $ sent
 
     TransactionType transType;
 
-    void setTransactionAttributes(int receiverID, int senderID);
-
 public:
-    Transaction(int id, int receiverID, int senderID, float incoming, float outgoing, Date date, TransactionType transactionType);
-    Transaction(int id, int receiverID, int senderID, float incoming, float outgoing, u_int year, u_int month, u_int day, TransactionType transactionType);
-    ~Transaction();
+    Transaction(int id, int receiverID, int senderID, float amountReceived, float amountSent, Date date, TransactionType transactionType);
+    Transaction(int id, int receiverID, int senderID, float amountReceived, float amountSent, u_int year, u_int month, u_int day, TransactionType transactionType);
     void printInfo() const;
 
     // Getters
