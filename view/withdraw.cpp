@@ -6,9 +6,16 @@ Withdraw::Withdraw(QWidget *parent) :
     ui(new Ui::Withdraw)
 {
     ui->setupUi(this);
+
 }
 
 Withdraw::~Withdraw()
 {
     delete ui;
 }
+
+void Withdraw::on_back_clicked()
+{
+    emit menuClicked();
+}
+

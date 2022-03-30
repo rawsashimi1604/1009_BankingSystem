@@ -16,89 +16,104 @@
   <property name="styleSheet">
    <string notr="true"/>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>20</y>
-     <width>461</width>
-     <height>111</height>
+     <x>10</x>
+     <y>10</y>
+     <width>931</width>
+     <height>491</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(75, 73, 157);
+   <widget class="QWidget" name="page">
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>30</y>
+       <width>461</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(75, 73, 157);
 font: 700 28pt &quot;Segoe UI&quot;;</string>
-   </property>
-   <property name="text">
-    <string>MAIN MENU</string>
-   </property>
-  </widget>
-  <widget class="QWidget" name="verticalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>370</x>
-     <y>150</y>
-     <width>211</width>
-     <height>271</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <widget class="QPushButton" name="pushButton">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(168, 212, 241);
+     </property>
+     <property name="text">
+      <string>MAIN MENU</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>370</x>
+       <y>160</y>
+       <width>211</width>
+       <height>271</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QPushButton" name="withdraw">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(168, 212, 241);
 font: 700 9pt &quot;Segoe UI&quot;;</string>
-      </property>
-      <property name="text">
-       <string>Withdraw</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton_2">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(168, 212, 241);
+        </property>
+        <property name="text">
+         <string>Withdraw</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="deposit">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(168, 212, 241);
 font: 700 9pt &quot;Segoe UI&quot;;</string>
-      </property>
-      <property name="text">
-       <string>Deposit</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton_3">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(168, 212, 241);
+        </property>
+        <property name="text">
+         <string>Deposit</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="transfer">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(168, 212, 241);
 font: 700 9pt &quot;Segoe UI&quot;;</string>
-      </property>
-      <property name="text">
-       <string>Transfer Money</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton_5">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(168, 212, 241);
+        </property>
+        <property name="text">
+         <string>Transfer Money</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="transactions">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(168, 212, 241);
 font: 700 9pt &quot;Segoe UI&quot;;</string>
-      </property>
-      <property name="text">
-       <string>Transaction History</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton_4">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(168, 212, 241);
+        </property>
+        <property name="text">
+         <string>Transaction History</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="leaderboard">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(168, 212, 241);
 font: 700 9pt &quot;Segoe UI&quot;;</string>
-      </property>
-      <property name="text">
-       <string>Leaderboard</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
+        </property>
+        <property name="text">
+         <string>Leaderboard</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
   </widget>
  </widget>
  <resources/>
