@@ -12,3 +12,9 @@ Register::~Register()
 {
 delete ui;
 }
+
+void Register::on_back_clicked()
+{
+    emit menuClicked();
+}
+

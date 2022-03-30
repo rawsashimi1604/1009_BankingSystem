@@ -12,3 +12,9 @@ History::~History()
 {
     delete ui;
 }
+
+void History::on_back_clicked()
+{
+    emit menuClicked();
+}
+

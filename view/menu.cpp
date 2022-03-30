@@ -14,6 +14,9 @@ Menu::Menu(QWidget *parent) :
     ui->stackedWidget->insertWidget(4,&history);
 
     connect(&withdraw, SIGNAL(menuClicked()),this, SLOT(moveMenu()));
+    connect(&deposit, SIGNAL(menuClicked()),this, SLOT(moveMenu()));
+    connect(&transfer, SIGNAL(menuClicked()),this, SLOT(moveMenu()));
+    connect(&history, SIGNAL(menuClicked()),this, SLOT(moveMenu()));
 }
 
 Menu::~Menu()

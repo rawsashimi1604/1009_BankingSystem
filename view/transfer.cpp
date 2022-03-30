@@ -12,3 +12,9 @@ Transfer::~Transfer()
 {
     delete ui;
 }
+
+void Transfer::on_back_clicked()
+{
+     emit menuClicked();
+}
+

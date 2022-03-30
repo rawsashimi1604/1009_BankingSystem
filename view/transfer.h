@@ -17,6 +17,11 @@ public:
 
 private:
     Ui::Transfer *ui;
+
+signals:
+    void menuClicked();
+private slots:
+    void on_back_clicked();
 };
 
 #endif // TRANSFER_H

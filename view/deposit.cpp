@@ -12,3 +12,9 @@ Deposit::~Deposit()
 {
     delete ui;
 }
+
+void Deposit::on_back_clicked()
+{
+    emit menuClicked();
+}
+

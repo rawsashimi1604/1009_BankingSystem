@@ -17,6 +17,11 @@ public:
 
 private:
     Ui::History *ui;
+
+signals:
+    void menuClicked();
+private slots:
+    void on_back_clicked();
 };
 
 #endif // HISTORY_H

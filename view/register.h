@@ -17,6 +17,11 @@ public:
 
 private:
     Ui::Register *ui;
+
+signals:
+    void menuClicked();
+private slots:
+    void on_back_clicked();
 };
 
 #endif // REGISTER_H
