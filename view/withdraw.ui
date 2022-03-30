@@ -14,7 +14,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(47, 167, 218);</string>
+   <string notr="true"/>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
@@ -33,16 +33,39 @@ font: 700 28pt &quot;Segoe UI&quot;;</string>
     <string>WITHDRAW</string>
    </property>
   </widget>
-  <widget class="QWidget" name="verticalLayoutWidget">
+  <widget class="QWidget" name="verticalLayoutWidget_3">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>180</y>
-     <width>207</width>
+     <x>390</x>
+     <y>380</y>
+     <width>160</width>
      <height>80</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <item>
+     <widget class="QPushButton" name="pushButton">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(168, 212, 241);
+font: 700 9pt &quot;Segoe UI&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Confirm</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>180</y>
+     <width>361</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
      <widget class="QLabel" name="label_2">
       <property name="styleSheet">
@@ -55,61 +78,9 @@ font: 700 15pt &quot;Segoe UI&quot;;</string>
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="label_3">
-      <property name="styleSheet">
-       <string notr="true">color: rgb(75, 73, 157);
-font: 700 15pt &quot;Segoe UI&quot;;</string>
-      </property>
-      <property name="text">
-       <string>Account number:</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="verticalLayoutWidget_2">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>180</y>
-     <width>160</width>
-     <height>89</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout_2">
-    <item>
      <widget class="QLineEdit" name="lineEdit">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLineEdit" name="lineEdit_2">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="verticalLayoutWidget_3">
-   <property name="geometry">
-    <rect>
-     <x>420</x>
-     <y>380</y>
-     <width>160</width>
-     <height>80</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout_3">
-    <item>
-     <widget class="QPushButton" name="pushButton">
-      <property name="styleSheet">
-       <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;</string>
-      </property>
-      <property name="text">
-       <string>Confirm</string>
+       <string notr="true">background-color: rgb(47, 167, 218);</string>
       </property>
      </widget>
     </item>

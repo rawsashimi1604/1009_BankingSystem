@@ -14,7 +14,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(47, 167, 218);</string>
+   <string notr="true"/>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
@@ -57,7 +57,7 @@ font: 700 15pt &quot;Segoe UI&quot;;</string>
     <item>
      <widget class="QLineEdit" name="lineEdit">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
+       <string notr="true">background-color: rgb(47, 167, 218);</string>
       </property>
      </widget>
     </item>
