@@ -29,62 +29,24 @@
     <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>160</x>
-       <y>160</y>
+       <x>10</x>
+       <y>360</y>
        <width>207</width>
        <height>80</height>
       </rect>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_4">
-      <item>
-       <widget class="QLabel" name="label_4">
-        <property name="styleSheet">
-         <string notr="true">color: rgb(75, 73, 157);
-font: 700 15pt &quot;Segoe UI&quot;;</string>
-        </property>
-        <property name="text">
-         <string>Enter amount:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_5">
-        <property name="styleSheet">
-         <string notr="true">color: rgb(75, 73, 157);
-font: 700 15pt &quot;Segoe UI&quot;;</string>
-        </property>
-        <property name="text">
-         <string>Account number:</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
+     <layout class="QVBoxLayout" name="verticalLayout_4"/>
     </widget>
     <widget class="QWidget" name="verticalLayoutWidget_2">
      <property name="geometry">
       <rect>
-       <x>380</x>
-       <y>160</y>
-       <width>160</width>
-       <height>80</height>
+       <x>250</x>
+       <y>400</y>
+       <width>91</width>
+       <height>71</height>
       </rect>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_5">
-      <item>
-       <widget class="QLineEdit" name="lineEdit_3">
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(47, 167, 218);</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="lineEdit_4">
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(47, 167, 218);</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
+     <layout class="QVBoxLayout" name="verticalLayout_5"/>
     </widget>
     <widget class="QPushButton" name="back">
      <property name="geometry">
@@ -106,31 +68,19 @@ font: 700 9pt &quot;Segoe UI&quot;;</string>
     <widget class="QWidget" name="verticalLayoutWidget_3">
      <property name="geometry">
       <rect>
-       <x>280</x>
-       <y>390</y>
+       <x>660</x>
+       <y>360</y>
        <width>160</width>
        <height>80</height>
       </rect>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_6">
-      <item>
-       <widget class="QPushButton" name="pushButton_3">
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(168, 212, 241);
-font: 700 9pt &quot;Segoe UI&quot;;</string>
-        </property>
-        <property name="text">
-         <string>Confirm</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
+     <layout class="QVBoxLayout" name="verticalLayout_6"/>
     </widget>
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>150</x>
-       <y>0</y>
+       <x>260</x>
+       <y>10</y>
        <width>461</width>
        <height>111</height>
       </rect>
@@ -141,6 +91,83 @@ font: 700 28pt &quot;Segoe UI&quot;;</string>
      </property>
      <property name="text">
       <string>TRANSFER MONEY</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>390</y>
+       <width>181</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(168, 212, 241);
+font: 700 9pt &quot;Segoe UI&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Confirm</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>270</y>
+       <width>211</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(75, 73, 157);
+font: 700 15pt &quot;Segoe UI&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Account number:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>170</y>
+       <width>171</width>
+       <height>78</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(75, 73, 157);
+font: 700 15pt &quot;Segoe UI&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Enter amount:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_4">
+     <property name="geometry">
+      <rect>
+       <x>440</x>
+       <y>260</y>
+       <width>141</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(47, 167, 218);</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_3">
+     <property name="geometry">
+      <rect>
+       <x>440</x>
+       <y>190</y>
+       <width>141</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(47, 167, 218);</string>
      </property>
     </widget>
    </widget>
