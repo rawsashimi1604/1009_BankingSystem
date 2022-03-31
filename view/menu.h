@@ -7,6 +7,7 @@
 #include "view/deposit.h"
 #include "view/transfer.h"
 #include "view/history.h"
+#include "view/leaderboard.h"
 
 
 
@@ -33,6 +34,8 @@ private slots:
 
     void moveMenu();
 
+    void on_leaderboard_clicked();
+
 private:
     Ui::Menu *ui;
 
@@ -41,6 +44,7 @@ private:
     Deposit deposit;
     Transfer transfer;
     History history;
+    Leaderboard leaderBoard;
 
 
 };

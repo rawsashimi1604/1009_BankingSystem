@@ -24,6 +24,7 @@ SOURCES += \
     utils.cpp \
     view/deposit.cpp \
     view/history.cpp \
+    view/leaderboard.cpp \
     view/login.cpp \
     view/menu.cpp \
     view/register.cpp \
@@ -46,6 +47,7 @@ HEADERS += \
     utils.h \
     view/deposit.h \
     view/history.h \
+    view/leaderboard.h \
     view/login.h \
     view/menu.h \
     view/register.h \

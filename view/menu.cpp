@@ -12,11 +12,13 @@ Menu::Menu(QWidget *parent) :
     ui->stackedWidget->insertWidget(2,&deposit);
     ui->stackedWidget->insertWidget(3,&transfer);
     ui->stackedWidget->insertWidget(4,&history);
+    ui->stackedWidget->insertWidget(5,&leaderBoard);
 
     connect(&withdraw, SIGNAL(menuClicked()),this, SLOT(moveMenu()));
     connect(&deposit, SIGNAL(menuClicked()),this, SLOT(moveMenu()));
     connect(&transfer, SIGNAL(menuClicked()),this, SLOT(moveMenu()));
     connect(&history, SIGNAL(menuClicked()),this, SLOT(moveMenu()));
+    connect(&leaderBoard, SIGNAL(menuClicked()),this, SLOT(moveMenu()));
 }
 
 Menu::~Menu()
@@ -47,8 +49,15 @@ void Menu::on_transactions_clicked()
     ui->stackedWidget->setCurrentIndex(4);
 }
 
+void Menu::on_leaderboard_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(5);
+}
+
 void Menu::moveMenu()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
+
+
 

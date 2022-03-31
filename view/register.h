@@ -20,6 +20,7 @@ private:
 
 signals:
     void menuClicked();
+
 private slots:
     void on_back_clicked();
 };
