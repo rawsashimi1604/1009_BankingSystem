@@ -56,6 +56,7 @@ HEADERS += \
 FORMS += \
     view/deposit.ui \
     view/history.ui \
+    view/leaderboard.ui \
     view/login.ui \
     view/menu.ui \
     view/register.ui \
