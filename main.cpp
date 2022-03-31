@@ -1,4 +1,4 @@
-#include "view/login.h"
+#include "view/title.h"
 
 #include <QApplication>
 
@@ -27,8 +27,8 @@ int main(int argc, char *argv[])
 {
 
     QApplication a(argc, argv);
-    Login m;
-    m.show();
+    Title main;
+    main.show();
 
     myTest();
 

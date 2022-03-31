@@ -24,9 +24,14 @@ private slots:
     void on_loginButton_clicked();
 
 
+    void on_back_clicked();
+
 private:
     Ui::Login *ui;
     //initialise the menu class
     Menu menu;
+
+signals:
+    void menuClicked();
 };
 #endif // LOGIN_H

@@ -27,6 +27,7 @@ SOURCES += \
     view/login.cpp \
     view/menu.cpp \
     view/register.cpp \
+    view/title.cpp \
     view/transfer.cpp \
     view/withdraw.cpp
 
@@ -48,6 +49,7 @@ HEADERS += \
     view/login.h \
     view/menu.h \
     view/register.h \
+    view/title.h \
     view/transfer.h \
     view/withdraw.h
 

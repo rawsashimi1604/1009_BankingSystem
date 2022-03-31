@@ -694,6 +694,23 @@ font: 700 10pt &quot;Segoe UI&quot;;</string>
            <string>Login</string>
           </property>
          </widget>
+         <widget class="QPushButton" name="back">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>71</width>
+            <height>24</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(168, 212, 241);
+font: 700 9pt &quot;Segoe UI&quot;;</string>
+          </property>
+          <property name="text">
+           <string>back</string>
+          </property>
+         </widget>
         </widget>
        </item>
       </layout>

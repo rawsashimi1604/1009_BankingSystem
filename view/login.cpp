@@ -63,3 +63,9 @@ void Login::on_loginButton_clicked()
     }
 }
 
+
+void Login::on_back_clicked()
+{
+    emit menuClicked();
+}
+
