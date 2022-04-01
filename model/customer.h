@@ -53,7 +53,10 @@ public:
     float getAmountSpent() const;
     float getAmountSaved() const;
 
-
+    // Setters
+    void setBalance(float newBalance);
+    void setAmountSpent(float newAmountSpent);
+    void setAmountSaved(float newAmountSaved);
 };
 
 #endif // CUSTOMER_H

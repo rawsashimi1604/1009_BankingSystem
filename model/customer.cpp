@@ -4,6 +4,8 @@
 const float Customer::INITIAL_STARTING_BALANCE = 1000.00;
 
 // Constructors
+
+
 Customer::Customer(int id, string firstName, string lastName, int age, string username, string password, u_int year, u_int month, u_int day)
     : CsvModel(id),
       dateRegistered(year, month, day),
@@ -143,3 +145,21 @@ float Customer::getAmountSpent() const {
 float Customer::getAmountSaved() const {
     return amountSaved;
 }
+
+// Setters
+void Customer::setBalance(float newBalance)
+{
+    balance = newBalance;
+}
+
+void Customer::setAmountSaved(float newAmountSaved)
+{
+    amountSaved = newAmountSaved;
+}
+
+void Customer::setAmountSpent(float newAmountSpent)
+{
+    amountSpent = newAmountSpent;
+}
+
+
