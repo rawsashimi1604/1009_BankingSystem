@@ -16,6 +16,7 @@ public:
     TransactionReader();
     TransactionReader(string fileLocation);
     void printHello();
+    int getNextID();
 
     optional<Transaction> searchByID(int id);
     vector<Transaction> searchAllTransactions(int customerID);

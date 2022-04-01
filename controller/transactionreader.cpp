@@ -17,6 +17,38 @@ void TransactionReader::printHello() {
     cout << "hello world from transaction reader!" << endl;
 }
 
+// Get the next ID to add.
+int TransactionReader::getNextID() {
+
+    fstream tFile(fileLocation);
+
+    if(!tFile.is_open()) {
+        std::cout << "Error opening " << fileLocation << ", returning NULL." << endl;
+        return 0;
+    }
+
+    string idStr;
+    int id;
+
+    string column;
+    getline(tFile, column);             // Skip column headers
+
+    while(tFile.good()) {
+        getline(tFile, idStr, ',');
+        getline(tFile, column);
+
+        if (tFile.eof()) {
+            break;
+        }
+
+        id = stoi(idStr);
+    }
+
+    tFile.close();
+
+    return id + 1;                      // Next ID is last ID + 1
+}
+
 optional<Transaction> TransactionReader::searchByID(int id) {
     bool existFlag = false;
 

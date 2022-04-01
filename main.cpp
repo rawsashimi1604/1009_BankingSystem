@@ -20,6 +20,10 @@ void myTest() {
     RegisterHandler rHandler;
     RegisterStatus status = rHandler.registerAcc("Gavin", "Loo", 23, "gavin", "gavin123");
 
+    // Transaction Reader
+    TransactionReader tReader;
+    cout << tReader.getNextID() << endl;
+
 
 
 }
