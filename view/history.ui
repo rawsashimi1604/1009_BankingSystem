@@ -77,6 +77,69 @@ font: 700 9pt &quot;Segoe UI&quot;;</string>
       <string>Current balance:</string>
      </property>
     </widget>
+    <widget class="QTableWidget" name="tableWidget">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>140</y>
+       <width>781</width>
+       <height>301</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;</string>
+     </property>
+     <row>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>2</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>3</string>
+      </property>
+     </row>
+     <column>
+      <property name="text">
+       <string>transactionID</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>transactionDate</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>customerOut</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>customerIn</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>amountOut</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>amountIn</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>transType</string>
+      </property>
+     </column>
+    </widget>
    </widget>
   </widget>
  </widget>
