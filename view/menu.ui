@@ -113,6 +113,23 @@ font: 700 9pt &quot;Segoe UI&quot;;</string>
       </item>
      </layout>
     </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>700</x>
+       <y>30</y>
+       <width>121</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(75, 73, 157);
+font: 700 9pt &quot;Segoe UI&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Current balance:</string>
+     </property>
+    </widget>
    </widget>
   </widget>
  </widget>
