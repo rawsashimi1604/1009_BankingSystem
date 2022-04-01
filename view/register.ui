@@ -177,6 +177,17 @@ font: 700 12pt &quot;Segoe UI&quot;;</string>
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(73, 75, 157);
+font: 700 12pt &quot;Segoe UI&quot;;</string>
+        </property>
+        <property name="text">
+         <string>Age</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </widget>
