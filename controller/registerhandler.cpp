@@ -18,6 +18,7 @@ RegisterStatus RegisterHandler::registerAcc(const string& firstName, const strin
 
     CredentialsReader cReader;
     if (cReader.searchByUsername(username)) {       // Username already exists, can't use username.
+        cout << "REGISTER_FAILURE_NAME_EXISTS" << endl;
         return REGISTER_FAILURE_NAME_EXISTS;
     }
 
@@ -26,9 +27,11 @@ RegisterStatus RegisterHandler::registerAcc(const string& firstName, const strin
     Customer customer(cReader.getNextID(), firstName, lastName, age, username, password, currDate);
 
     if (cReader.write(customer)) {
+        cout << "REGISTER_SUCCESS" << endl;
         return REGISTER_SUCCESS;                    // Successfully added to customers.csv!
     }
 
+    cout << "REGISTER_FAILURE_FILE_ERROR" << endl;
     return REGISTER_FAILURE_FILE_ERROR;             // something went wrong with file opening...
 }
 

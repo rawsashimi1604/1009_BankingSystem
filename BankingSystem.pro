@@ -17,9 +17,9 @@ SOURCES += \
     controller/transactionhandler.cpp \
     controller/transactionreader.cpp \
     main.cpp \
+    model/csvmodel.cpp \
     model/customer.cpp \
     model/date.cpp \
-    model/model.cpp \
     model/transaction.cpp \
     utils.cpp \
     view/deposit.cpp \
@@ -40,9 +40,9 @@ HEADERS += \
     controller/registerhandler.h \
     controller/transactionhandler.h \
     controller/transactionreader.h \
+    model/csvmodel.h \
     model/customer.h \
     model/date.h \
-    model/model.h \
     model/transaction.h \
     utils.h \
     view/deposit.h \

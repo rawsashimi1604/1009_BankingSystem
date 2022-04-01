@@ -1,19 +1,18 @@
 #ifndef TRANSACTION_H
 #define TRANSACTION_H
 
-#include "model.h"
+#include "csvmodel.h"
 #include "date.h"
 
 #include "controller/credentialsreader.h"
 #include "model/customer.h"
 
-class Transaction : public Model
+class Transaction : public CsvModel
 {
 
 private:
     CredentialsReader cReader;
 
-    int transactionID;
     Date transactionDate;
 
     int receiverID;             // ID of customer receiving $
@@ -27,12 +26,12 @@ private:
 public:
     Transaction(int id, int receiverID, int senderID, float amountReceived, float amountSent, Date date, Enums::TransactionType transactionType);
     Transaction(int id, int receiverID, int senderID, float amountReceived, float amountSent, u_int year, u_int month, u_int day, Enums::TransactionType transactionType);
+
     void printInfo() const;
-    vector<string> getCsvFormat();
+    vector<string> getCsvFormat() const;
 
     // Getters
     Enums::TransactionType getTransactionType() const;
-    int getID() const;
     Date getTransactionDate() const;
     int getReceiverID() const;
     int getSenderID() const;

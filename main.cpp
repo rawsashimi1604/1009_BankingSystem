@@ -18,7 +18,8 @@ void myTest() {
 
     // Register Handler
     RegisterHandler rHandler;
-    rHandler.registerAcc("Gavin", "Loo", 23, "gavin", "gavin123");
+    RegisterStatus status = rHandler.registerAcc("Gavin", "Loo", 23, "gavin", "gavin123");
+
 
 
 }

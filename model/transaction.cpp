@@ -3,9 +3,9 @@
 
 
 Transaction::Transaction(int id, int receiverID, int senderID, float amountReceived, float amountSent, Date date, Enums::TransactionType transactionType)
-    : transactionDate(date.getDateString())
+    : CsvModel(id),
+      transactionDate(date.getDateString())
 {
-    this->transactionID = id;
     this->receiverID = receiverID;
     this->senderID = senderID;
     this->amountReceived = amountReceived;
@@ -14,9 +14,9 @@ Transaction::Transaction(int id, int receiverID, int senderID, float amountRecei
 }
 
 Transaction::Transaction(int id, int receiverID, int senderID, float amountReceived, float amountSent, u_int year, u_int month, u_int day, Enums::TransactionType transactionType)
-    : transactionDate(year, month, day)
+    : CsvModel(id),
+      transactionDate(year, month, day)
 {
-    this->transactionID = id;
     this->receiverID = receiverID;
     this->senderID = senderID;
     this->amountReceived = amountReceived;
@@ -25,7 +25,7 @@ Transaction::Transaction(int id, int receiverID, int senderID, float amountRecei
 }
 
 // Public Functions
-vector<string> Transaction::getCsvFormat() {
+vector<string> Transaction::getCsvFormat() const{
     vector<string> csvRow;
 
     // convert float to string, round 2 dec
@@ -69,11 +69,6 @@ void Transaction::printInfo() const{
 
     // Reset printing precision.
     UtilityFunctions::removePrintingPrecision(ss);
-}
-
-int Transaction::getID() const
-{
-    return transactionID;
 }
 
 Date Transaction::getTransactionDate() const

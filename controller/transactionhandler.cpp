@@ -5,7 +5,7 @@ TransactionHandler::TransactionHandler()
 
 }
 
-void TransactionHandler::logTransaction(Transaction) {
+void TransactionHandler::logTransaction(Transaction ) {
     // Use this function as a helper function to help with the other 3 functions
 }
 

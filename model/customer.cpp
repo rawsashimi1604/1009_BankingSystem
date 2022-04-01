@@ -5,11 +5,11 @@ const float Customer::INITIAL_STARTING_BALANCE = 1000.00;
 
 // Constructors
 Customer::Customer(int id, string firstName, string lastName, int age, string username, string password, u_int year, u_int month, u_int day)
-    : dateRegistered(year, month, day),
+    : CsvModel(id),
+      dateRegistered(year, month, day),
       amountSpent(0),
       amountSaved(0)
 {
-    this->id = id;
     this->firstName = firstName;
     this->lastName = lastName;
     this->age = age;
@@ -19,7 +19,8 @@ Customer::Customer(int id, string firstName, string lastName, int age, string us
 }
 
 Customer::Customer(int id, string firstName, string lastName, int age, string username, string password, Date date)
-    : dateRegistered(date.getDateString()),
+    : CsvModel(id),
+      dateRegistered(date.getDateString()),
       amountSpent(0),
       amountSaved(0)
 {
@@ -33,7 +34,8 @@ Customer::Customer(int id, string firstName, string lastName, int age, string us
 }
 
 Customer::Customer(int id, string firstName, string lastName, int age, string username, string password, string dateString, float balance, float amountSpent, float amountSaved)
-    : dateRegistered(dateString)
+    : CsvModel(id),
+      dateRegistered(dateString)
 {
     this->id = id;
     this->firstName = firstName;
@@ -102,10 +104,6 @@ void Customer::printInfo() const{
 }
 
 // Getters
-int Customer::getID() const {
-    return id;
-}
-
 string Customer::getUsername() const{
     return username;
 }

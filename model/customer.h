@@ -7,18 +7,17 @@
 
 #include "utils.h"
 #include "model/date.h"
-#include "model/model.h"
+#include "model/csvmodel.h"
 
 using namespace std;
 
-class Customer : public Model
+class Customer : public CsvModel
 {
 
 private:
     static const float INITIAL_STARTING_BALANCE;     // Starting balance when creaing bank account;
 
 
-    int id;
     string firstName;
     string lastName;
     int age;
@@ -42,8 +41,7 @@ public:
     void printInfo() const;
     vector<string> getCsvFormat() const;
 
-    // Getters
-    int getID() const;
+    // Getters   
     string getUsername() const;
     string getPassword() const;
     int getAge() const;

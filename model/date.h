@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-#include "model.h"
+#include "csvmodel.h"
 
 
 using namespace std;
