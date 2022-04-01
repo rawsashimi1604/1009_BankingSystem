@@ -21,6 +21,7 @@ public:
     CredentialsReader();
     CredentialsReader(string fileLocation);
     void printHello();
+    int getNextID();
     optional<Customer> searchByID(int id);
     optional<Customer> searchByUsername(string username);
     bool write(Customer customer);

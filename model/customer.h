@@ -35,6 +35,7 @@ private:
 public:
 
     Customer(int id, string firstName, string lastName, int age, string username, string password, u_int year, u_int month, u_int day);
+    Customer(int id, string firstName, string lastName, int age, string username, string password, Date date);
     Customer(int id, string firstName, string lastName, int age, string username, string password, string dateString, float balance, float amountSpent, float amountSaved);
     ~Customer();
 

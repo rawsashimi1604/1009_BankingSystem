@@ -7,6 +7,7 @@
 
 #include "controller/credentialsreader.h"
 #include "controller/transactionreader.h"
+#include "controller/registerhandler.h"
 #include "controller/loginhandler.h"
 
 #include "model/customer.h"
@@ -15,11 +16,10 @@
 
 void myTest() {
 
-    // Test Transaction Reader Update
-    TransactionReader tReader;
-    Date date("04/05/2007");
-    Transaction t(4, 1, -1, 100, 0, date, Enums::TransactionType::DEPOSIT);\
-    tReader.update(t);
+    // Register Handler
+    RegisterHandler rHandler;
+    rHandler.registerAcc("Gavin", "Loo", 23, "gavin", "gavin123");
+
 
 }
 

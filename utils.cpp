@@ -12,6 +12,14 @@ void UtilityFunctions::removePrintingPrecision(streamsize ss) {
     cout << setprecision(ss);
 }
 
+Date UtilityFunctions::getTodaysDate() {
+    u_int year = QDate::currentDate().year();
+    u_int month = QDate::currentDate().month();
+    u_int day = QDate::currentDate().day();
+
+    return Date(year, month, day);
+}
+
 // Enums namespace
 Enums::TransactionType Enums::convertTransactionType(string& str) {
     if (str == "DEPOSIT") return Enums::TransactionType::DEPOSIT;

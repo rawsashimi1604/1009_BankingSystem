@@ -6,7 +6,20 @@ const float Customer::INITIAL_STARTING_BALANCE = 1000.00;
 // Constructors
 Customer::Customer(int id, string firstName, string lastName, int age, string username, string password, u_int year, u_int month, u_int day)
     : dateRegistered(year, month, day),
-      balance(0),
+      amountSpent(0),
+      amountSaved(0)
+{
+    this->id = id;
+    this->firstName = firstName;
+    this->lastName = lastName;
+    this->age = age;
+    this->username = username;
+    this->password = password;
+    this->balance = INITIAL_STARTING_BALANCE;
+}
+
+Customer::Customer(int id, string firstName, string lastName, int age, string username, string password, Date date)
+    : dateRegistered(date.getDateString()),
       amountSpent(0),
       amountSaved(0)
 {

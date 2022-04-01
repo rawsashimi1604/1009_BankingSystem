@@ -16,6 +16,38 @@ void CredentialsReader::printHello() {
     cout << "hello world from credentials reader!" << endl;
 }
 
+// Get the next ID to add.
+int CredentialsReader::getNextID() {
+
+    fstream cFile(fileLocation);
+
+    if(!cFile.is_open()) {
+        std::cout << "Error opening " << fileLocation << ", returning NULL." << endl;
+        return 0;
+    }
+
+    string idStr;
+    int id;
+
+    string column;
+    getline(cFile, column);             // Skip column headers
+
+    while(cFile.good()) {
+        getline(cFile, idStr, ',');
+        getline(cFile, column);
+
+        if (cFile.eof()) {
+            break;
+        }
+
+        id = stoi(idStr);
+    }
+
+    cFile.close();
+
+    return id + 1;                      // Next ID is last ID + 1
+}
+
 // Search for customer by ID
 optional<Customer> CredentialsReader::searchByID(int id) {
     bool existFlag = false;
