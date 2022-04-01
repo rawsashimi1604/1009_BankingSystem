@@ -20,6 +20,17 @@ Date UtilityFunctions::getTodaysDate() {
     return Date(year, month, day);
 }
 
+int UtilityFunctions::checkNumeric(QString s){
+    if (s.size()> 0){
+        for (int i =0;i<s.size();i++)
+        {
+            if(!s[i].isDigit()) // to check if it is alphabet !!
+                return 1;
+        }
+    }
+    return 0;
+}
+
 // Enums namespace
 Enums::TransactionType Enums::convertTransactionType(std::string& str) {
     if (str == "DEPOSIT") return Enums::TransactionType::DEPOSIT;
@@ -65,5 +76,7 @@ std::string Enums::convertString(Enums::TransactionType transType) {
     }
     return "NONE";
 }
+
+
 
 

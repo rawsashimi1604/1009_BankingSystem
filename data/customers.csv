@@ -7,3 +7,11 @@ customerID,firstName,lastName,age,username,password,dateRegistered,balance,amoun
 7,Scott,Jones,42,1004besta,test,31/3/2022,1000,0,0
 8,Gavin,Loo,23,gavin,gavin123,1/4/2022,1000,0,0
 9,gavin,loo,0,,,1/4/2022,1000,0,0
+10,a,,0,asdasdasd,,1/4/2022,1000,0,0
+11,a,a,0,a,a,1/4/2022,1000,0,0
+12,asdasd,asdasd,0,asdasdasdadsasd,asdasd,1/4/2022,1000,0,0
+13,asdasd,asdasd,0,asdasd,asdasd,1/4/2022,1000,0,0
+14,asd,asd,0,asd,asd,1/4/2022,1000,0,0
+15,asd,asd,0,asdasdasdasdasd,asd,1/4/2022,1000,0,0
+16,asdasd,asdasd,0,xxxxxx,asdasd,1/4/2022,1000,0,0
+17,1,1,0,1,1,1/4/2022,1000,0,0

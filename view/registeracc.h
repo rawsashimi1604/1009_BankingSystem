@@ -3,6 +3,7 @@
 
 #include <QtWidgets>
 #include "controller/registerhandler.h"
+#include "utils.h"
 
 
 namespace Ui {
@@ -24,6 +25,8 @@ private slots:
 
 private:
     Ui::RegisterAcc *ui;
+    bool checkFlag ;
+
 
 signals:
     void menuClicked();

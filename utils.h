@@ -14,6 +14,7 @@ namespace UtilityFunctions {
 
     std::streamsize setPrintingPrecision();              // Help with printing precision (2 dec place)
     void removePrintingPrecision(std::streamsize ss);
+    int checkNumeric(QString); //Check for numeric string for Qstring
 
     Date getTodaysDate();
 
