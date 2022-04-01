@@ -55,95 +55,6 @@ font: 700 28pt &quot;Segoe UI&quot;;</string>
        <string>LEADERBOARD</string>
       </property>
      </widget>
-     <widget class="QTableWidget" name="tableWidget_2">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>120</y>
-        <width>841</width>
-        <height>321</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QWidget" name="horizontalLayoutWidget_2">
-      <property name="geometry">
-       <rect>
-        <x>190</x>
-        <y>130</y>
-        <width>531</width>
-        <height>80</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item>
-        <widget class="QLabel" name="label_8">
-         <property name="styleSheet">
-          <string notr="true">font: 700 15pt &quot;Segoe UI&quot;;
-color: rgb(75,73,157);</string>
-         </property>
-         <property name="text">
-          <string>Username</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_9">
-         <property name="styleSheet">
-          <string notr="true">font: 700 15pt &quot;Segoe UI&quot;;
-color: rgb(75,73,157);</string>
-         </property>
-         <property name="text">
-          <string>Savings Amount</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="verticalLayoutWidget_2">
-      <property name="geometry">
-       <rect>
-        <x>80</x>
-        <y>180</y>
-        <width>81</width>
-        <height>221</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <item>
-        <widget class="QLabel" name="label_10">
-         <property name="styleSheet">
-          <string notr="true">font: 700 15pt &quot;Segoe UI&quot;;
-color: rgb(75,73,157);</string>
-         </property>
-         <property name="text">
-          <string>1.</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_11">
-         <property name="styleSheet">
-          <string notr="true">font: 700 15pt &quot;Segoe UI&quot;;
-color: rgb(75,73,157);</string>
-         </property>
-         <property name="text">
-          <string>2.</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_12">
-         <property name="styleSheet">
-          <string notr="true">font: 700 15pt &quot;Segoe UI&quot;;
-color: rgb(75,73,157);</string>
-         </property>
-         <property name="text">
-          <string>3.</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
      <widget class="QPushButton" name="back">
       <property name="geometry">
        <rect>
@@ -177,6 +88,44 @@ font: 700 9pt &quot;Segoe UI&quot;;</string>
       <property name="text">
        <string>Current balance:</string>
       </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>140</y>
+        <width>411</width>
+        <height>281</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;</string>
+      </property>
+      <row>
+       <property name="text">
+        <string>1</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>2</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>3</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>Username</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Savings Amount</string>
+       </property>
+      </column>
      </widget>
     </widget>
    </widget>
