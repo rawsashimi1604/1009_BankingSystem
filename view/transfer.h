@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+#include "bankingapp.h"
+
 namespace Ui {
 class Transfer;
 }
@@ -12,11 +14,12 @@ class Transfer : public QWidget
     Q_OBJECT
 
 public:
-    explicit Transfer(QWidget *parent = nullptr);
+    explicit Transfer(BankingApp* bankApp, QWidget *parent = nullptr);
     ~Transfer();
 
 private:
     Ui::Transfer *ui;
+    BankingApp* bankApp;
 
 signals:
     void menuClicked();

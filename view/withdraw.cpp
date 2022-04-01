@@ -1,12 +1,13 @@
 #include "withdraw.h"
 #include "ui_withdraw.h"
 
-Withdraw::Withdraw(QWidget *parent) :
+Withdraw::Withdraw(BankingApp* bankApp, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Withdraw)
 {
+    this->bankApp = bankApp;
+    std::cout << bankApp << std::endl;
     ui->setupUi(this);
-
 }
 
 Withdraw::~Withdraw()

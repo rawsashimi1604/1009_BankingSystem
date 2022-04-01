@@ -2,6 +2,8 @@
 #define REGISTERACC_H
 
 #include <QtWidgets>
+
+#include "bankingapp.h"
 #include "controller/registerhandler.h"
 #include "utils.h"
 
@@ -15,7 +17,7 @@ class RegisterAcc : public QWidget
     Q_OBJECT
 
 public:
-    explicit RegisterAcc(QWidget *parent = nullptr);
+    explicit RegisterAcc(BankingApp* bankApp, QWidget *parent = nullptr);
     ~RegisterAcc();
 
 private slots:
@@ -24,6 +26,7 @@ private slots:
     void on_pushButton_3_clicked();
 
 private:
+    BankingApp* bankApp;
     Ui::RegisterAcc *ui;
     bool checkFlag ;
 

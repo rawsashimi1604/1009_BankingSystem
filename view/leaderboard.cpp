@@ -1,10 +1,12 @@
 #include "leaderboard.h"
 #include "ui_leaderboard.h"
 
-Leaderboard::Leaderboard(QWidget *parent) :
+Leaderboard::Leaderboard(BankingApp* bankApp, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Leaderboard)
 {
+    this->bankApp = bankApp;
+    std::cout << bankApp << std::endl;
     ui->setupUi(this);
 }
 
@@ -15,6 +17,7 @@ Leaderboard::~Leaderboard()
 
 void Leaderboard::on_back_clicked()
 {
+    bankApp->getCurrentCustomer()->printInfo();
     emit menuClicked();
 }
 

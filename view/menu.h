@@ -3,6 +3,7 @@
 
 #include <QWidget>
 
+#include "bankingapp.h"
 #include "view/withdraw.h"
 #include "view/deposit.h"
 #include "view/transfer.h"
@@ -20,7 +21,7 @@ class Menu : public QWidget
     Q_OBJECT
 
 public:
-    explicit Menu(QWidget *parent = nullptr);
+    explicit Menu(BankingApp* bankApp, QWidget *parent = nullptr);
     ~Menu();
 
 private slots:
@@ -38,6 +39,8 @@ private slots:
 
 private:
     Ui::Menu *ui;
+
+    BankingApp* bankApp;
 
     //initialise all the menu ui classes
     Withdraw withdraw;

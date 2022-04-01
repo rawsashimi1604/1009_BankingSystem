@@ -3,6 +3,8 @@
 
 #include <QtWidgets>
 #include <QMainWindow>
+
+#include "bankingapp.h"
 #include "view/menu.h"
 #include "controller/loginhandler.h"
 
@@ -15,7 +17,7 @@ class Login : public QMainWindow
     Q_OBJECT
 
 public:
-    Login(QWidget *parent = nullptr);
+    Login(BankingApp* bankApp, QWidget *parent = nullptr);
     ~Login();
 
     Ui::Login* getUI();
@@ -30,6 +32,8 @@ private:
     Ui::Login *ui;
     //initialise the menu class
     Menu menu;
+
+    BankingApp* bankApp;
 
 signals:
     void menuClicked();

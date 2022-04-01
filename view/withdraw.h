@@ -4,6 +4,8 @@
 #include <iostream>
 #include <QWidget>
 
+#include "bankingapp.h"
+
 namespace Ui {
 class Withdraw;
 }
@@ -13,7 +15,7 @@ class Withdraw : public QWidget
     Q_OBJECT
 
 public:
-    explicit Withdraw(QWidget *parent = nullptr);
+    explicit Withdraw(BankingApp* bankApp, QWidget *parent = nullptr);
     ~Withdraw();
 
 private slots:
@@ -21,6 +23,7 @@ private slots:
 
 private:
     Ui::Withdraw *ui;
+    BankingApp* bankApp;
 
 signals:
     void menuClicked();

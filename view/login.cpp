@@ -2,10 +2,13 @@
 #include "ui_login.h"
 
 
-Login::Login(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::Login)
+Login::Login(BankingApp* bankApp, QWidget *parent)
+    : QMainWindow(parent),
+      ui(new Ui::Login),
+      menu(bankApp)
 {
+    this->bankApp = bankApp;
+    std::cout << bankApp << std::endl;
     ui->setupUi(this);
 
     //insert a menu object
@@ -21,9 +24,6 @@ Login::Login(QWidget *parent)
 
     //Enable the dot for password field instead of plaintext
     ui->passwordField->setEchoMode(QLineEdit::Password);
-
-
-
 }
 
 Login::~Login()
@@ -52,6 +52,13 @@ void Login::on_loginButton_clicked()
 
         msgBox.setText("Login successful.");
         msgBox.exec();
+
+        // Set BankingApp to logged in customer
+        CredentialsReader cReader;
+        std::optional<Customer> loggedInCustomer = cReader.searchByUsername(uName.toStdString());
+        bankApp->setCurrentCustomer(loggedInCustomer);
+        bankApp->getCurrentCustomer()->printInfo();
+        std::cout << bankApp << std::endl;
 
         ui->stackedWidget->setCurrentWidget(&menu);
 

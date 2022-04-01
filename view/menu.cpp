@@ -1,10 +1,18 @@
 #include "menu.h"
 #include "ui_menu.h"
 
-Menu::Menu(QWidget *parent) :
+Menu::Menu(BankingApp* bankApp, QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::Menu)
+    ui(new Ui::Menu),
+    withdraw(bankApp),
+    deposit(bankApp),
+    transfer(bankApp),
+    history(bankApp),
+    leaderBoard(bankApp)
 {
+    this->bankApp = bankApp;
+    std::cout << bankApp << std::endl;
+
     ui->setupUi(this);
 
     //insert all the menu object

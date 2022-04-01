@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+#include "bankingapp.h"
+
 namespace Ui {
 class Deposit;
 }
@@ -12,10 +14,11 @@ class Deposit : public QWidget
     Q_OBJECT
 
 public:
-    explicit Deposit(QWidget *parent = nullptr);
+    explicit Deposit(BankingApp* bankApp, QWidget *parent = nullptr);
     ~Deposit();
 
 private:
+    BankingApp* bankApp;
     Ui::Deposit *ui;
 
 signals:

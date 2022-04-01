@@ -1,10 +1,13 @@
 #include "history.h"
 #include "ui_history.h"
 
-History::History(QWidget *parent) :
+History::History(BankingApp* bankApp, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::History)
 {
+
+    this->bankApp = bankApp;
+    std::cout << bankApp << std::endl;
     ui->setupUi(this);
 }
 

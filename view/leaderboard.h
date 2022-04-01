@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+#include "bankingapp.h"
+
 namespace Ui {
 class Leaderboard;
 }
@@ -12,13 +14,14 @@ class Leaderboard : public QWidget
     Q_OBJECT
 
 public:
-    explicit Leaderboard(QWidget *parent = nullptr);
+    explicit Leaderboard(BankingApp* bankApp, QWidget *parent = nullptr);
     ~Leaderboard();
 
 private slots:
     void on_back_clicked();
 
 private:
+    BankingApp* bankApp;
     Ui::Leaderboard *ui;
 
 signals:

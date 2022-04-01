@@ -9,6 +9,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    bankingapp.cpp \
     controller/credentialsreader.cpp \
     controller/decrypter.cpp \
     controller/encrypter.cpp \
@@ -33,6 +34,7 @@ SOURCES += \
     view/withdraw.cpp
 
 HEADERS += \
+    bankingapp.h \
     controller/credentialsreader.h \
     controller/decrypter.h \
     controller/encrypter.h \
