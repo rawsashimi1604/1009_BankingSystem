@@ -67,7 +67,7 @@ void RegisterAcc::on_pushButton_3_clicked()
             errorString += "-Please only use numerics for your password\n";
 
         }
-        if (passCode.size() < 6){
+        else if (passCode.size() < 6){
             checkFlag = false;
             errorString += "-Please ensure your pin number is 6 digit or more\n";
         }
