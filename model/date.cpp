@@ -2,19 +2,19 @@
 
 // 01/01/2000
 
-Date::Date(string dateString) {
+Date::Date(std::string dateString) {
 
-    string dateStore[3];
+    std::string dateStore[3];
 
-    string s = dateString;
-    string delimiter = "/";
+    std::string s = dateString;
+    std::string delimiter = "/";
 
     size_t pos = 0;
-    string token;
+    std::string token;
 
     int count = 0;
 
-    while ((pos = s.find(delimiter)) != string::npos) {
+    while ((pos = s.find(delimiter)) != std::string::npos) {
         token = s.substr(0, pos);
         s.erase(0, pos + delimiter.length());
         dateStore[count] = token;
@@ -36,17 +36,17 @@ Date::Date(u_int year, u_int month, u_int day)
 }
 
 void Date::printInfo() const{
-    cout << day << "/" << month << "/" << year;
+    std::cout << day << "/" << month << "/" << year;
 }
 
-string Date::getDateString() {
-    string s = "";
+std::string Date::getDateString() {
+    std::string s = "";
 
-    s += to_string(day);
+    s += std::to_string(day);
     s += "/";
-    s += to_string(month);
+    s += std::to_string(month);
     s += "/";
-    s += to_string(year);
+    s += std::to_string(year);
 
     return s;
 }

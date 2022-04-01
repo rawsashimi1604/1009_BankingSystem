@@ -25,21 +25,21 @@ Transaction::Transaction(int id, int receiverID, int senderID, float amountRecei
 }
 
 // Public Functions
-vector<string> Transaction::getCsvFormat() const{
-    vector<string> csvRow;
+std::vector<std::string> Transaction::getCsvFormat() const{
+    std::vector<std::string> csvRow;
 
     // convert float to string, round 2 dec
-    string amtOut = to_string(getAmountSent());
-    string amtOutRounded = amtOut.substr(0, amtOut.find(".") + 3);
+    std::string amtOut = std::to_string(getAmountSent());
+    std::string amtOutRounded = amtOut.substr(0, amtOut.find(".") + 3);
 
-    string amtIn = to_string(getAmountReceived());
-    string amtInRounded = amtIn.substr(0, amtIn.find(".") + 3);
+    std::string amtIn = std::to_string(getAmountReceived());
+    std::string amtInRounded = amtIn.substr(0, amtIn.find(".") + 3);
 
 
-    csvRow.push_back(to_string(getID()));
+    csvRow.push_back(std::to_string(getID()));
     csvRow.push_back(getTransactionDate().getDateString());
-    csvRow.push_back(to_string(getSenderID()));
-    csvRow.push_back(to_string(getReceiverID()));
+    csvRow.push_back(std::to_string(getSenderID()));
+    csvRow.push_back(std::to_string(getReceiverID()));
     csvRow.push_back(amtOutRounded);
     csvRow.push_back(amtInRounded);
     csvRow.push_back(Enums::convertString(getTransactionType()));
@@ -50,21 +50,21 @@ vector<string> Transaction::getCsvFormat() const{
 void Transaction::printInfo() const{
 
     // Set printing precision to 2 decimal places.
-    streamsize ss = UtilityFunctions::setPrintingPrecision();
+    std::streamsize ss = UtilityFunctions::setPrintingPrecision();
 
 //    cout << "====================================TRANSACTION HISTORY====================================" << endl;
 //    cout << "||   Type  ||    Date    ||    From    ||    To    ||    Amount In    ||    Amount Out   ||" << endl;
     if (transType == Enums::TransactionType::DEPOSIT){
-        cout << "DEPOSIT, "; transactionDate.printInfo(); cout << ", " << "nil, " << receiverID << ", $" << amountReceived << ", $" << amountSent << endl;
+        std::cout << "DEPOSIT, "; transactionDate.printInfo(); std::cout << ", " << "nil, " << receiverID << ", $" << amountReceived << ", $" << amountSent << std::endl;
     }
     else if (transType == Enums::TransactionType::WITHDRAWAL) {
-        cout << "WITHDRAWAL, "; transactionDate.printInfo(); cout << ", " << senderID << " nil, " << ", $" << amountReceived << ", $" << amountSent << endl;
+        std::cout << "WITHDRAWAL, "; transactionDate.printInfo(); std::cout << ", " << senderID << " nil, " << ", $" << amountReceived << ", $" << amountSent << std::endl;
     }
     else if (transType == Enums::TransactionType::TRANSFER) {
-        cout << "TRANSFER, "; transactionDate.printInfo(); cout << ", " << senderID << ", " << receiverID << ", $" << amountReceived << ", $" << amountSent << endl;
+        std::cout << "TRANSFER, "; transactionDate.printInfo(); std::cout << ", " << senderID << ", " << receiverID << ", $" << amountReceived << ", $" << amountSent << std::endl;
     }
     else {
-        cout << "ERROR GETTING TRANSFER." << endl;
+        std::cout << "ERROR GETTING TRANSFER." << std::endl;
     }
 
     // Reset printing precision.

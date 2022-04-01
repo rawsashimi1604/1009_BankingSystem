@@ -22,7 +22,7 @@ void myTest() {
 
     // Transaction Reader
     TransactionReader tReader;
-    cout << tReader.getNextID() << endl;
+    std::cout << tReader.getNextID() << std::endl;
 
 
 

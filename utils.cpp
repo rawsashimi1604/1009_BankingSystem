@@ -1,15 +1,15 @@
 #include "utils.h"
 
 // UtilityFunctions namespace
-streamsize UtilityFunctions::setPrintingPrecision() {
-    streamsize ss = cout.precision();
-    cout << fixed;
-    cout << setprecision(2);
+std::streamsize UtilityFunctions::setPrintingPrecision() {
+    std::streamsize ss = std::cout.precision();
+    std::cout << std::fixed;
+    std::cout << std::setprecision(2);
     return ss;
 }
 
-void UtilityFunctions::removePrintingPrecision(streamsize ss) {
-    cout << setprecision(ss);
+void UtilityFunctions::removePrintingPrecision(std::streamsize ss) {
+    std::cout << std::setprecision(ss);
 }
 
 Date UtilityFunctions::getTodaysDate() {
@@ -21,7 +21,7 @@ Date UtilityFunctions::getTodaysDate() {
 }
 
 // Enums namespace
-Enums::TransactionType Enums::convertTransactionType(string& str) {
+Enums::TransactionType Enums::convertTransactionType(std::string& str) {
     if (str == "DEPOSIT") return Enums::TransactionType::DEPOSIT;
     else if (str == "WITHDRAWAL") return Enums::TransactionType::WITHDRAWAL;
     else if (str == "TRANSFER") return Enums::TransactionType::TRANSFER;
@@ -29,9 +29,9 @@ Enums::TransactionType Enums::convertTransactionType(string& str) {
     return Enums::TransactionType::NONE;
 }
 
-ostream& Enums::operator<<(ostream& COUT, Enums::TransactionType t) {
+std::ostream& Enums::operator<<(std::ostream& COUT, Enums::TransactionType t) {
     int enumVal = static_cast<int>(t);
-    string str;
+    std::string str;
     switch(enumVal) {
         case 0:
             str = "DEPOSIT";
@@ -51,7 +51,7 @@ ostream& Enums::operator<<(ostream& COUT, Enums::TransactionType t) {
     return COUT;
 }
 
-string Enums::convertString(Enums::TransactionType transType) {
+std::string Enums::convertString(Enums::TransactionType transType) {
 
     switch(transType) {
         case Enums::TransactionType::DEPOSIT:

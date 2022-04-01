@@ -9,17 +9,17 @@ class TransactionReader
 {
 
 private:
-    static const string DEFAULT_FILE_LOCATION;
-    string fileLocation;
+    static const std::string DEFAULT_FILE_LOCATION;
+    std::string fileLocation;
 
 public:
     TransactionReader();
-    TransactionReader(string fileLocation);
+    TransactionReader(std::string fileLocation);
     void printHello();
     int getNextID();
 
-    optional<Transaction> searchByID(int id);
-    vector<Transaction> searchAllTransactions(int customerID);
+    std::optional<Transaction> searchByID(int id);
+    std::vector<Transaction> searchAllTransactions(int customerID);
     bool write(Transaction transaction);
     bool update(Transaction transaction);
 };

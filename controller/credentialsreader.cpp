@@ -1,35 +1,35 @@
 #include "credentialsreader.h"
 
-const string CredentialsReader::DEFAULT_FILE_LOCATION = "../1009_BankingSystem/data/customers.csv";
+const std::string CredentialsReader::DEFAULT_FILE_LOCATION = "../1009_BankingSystem/data/customers.csv";
 
 CredentialsReader::CredentialsReader()
 {
     this->fileLocation = DEFAULT_FILE_LOCATION;
 }
 
-CredentialsReader::CredentialsReader(string fileLocation)
+CredentialsReader::CredentialsReader(std::string fileLocation)
 {
     this->fileLocation = fileLocation;
 }
 
 void CredentialsReader::printHello() {
-    cout << "hello world from credentials reader!" << endl;
+    std::cout << "hello world from credentials reader!" << std::endl;
 }
 
 // Get the next ID to add.
 int CredentialsReader::getNextID() {
 
-    fstream cFile(fileLocation);
+    std::fstream cFile(fileLocation);
 
     if(!cFile.is_open()) {
-        std::cout << "Error opening " << fileLocation << ", returning NULL." << endl;
+        std::cout << "Error opening " << fileLocation << ", returning NULL." << std::endl;
         return 0;
     }
 
-    string idStr;
+    std::string idStr;
     int id;
 
-    string column;
+    std::string column;
     getline(cFile, column);             // Skip column headers
 
     while(cFile.good()) {
@@ -49,32 +49,32 @@ int CredentialsReader::getNextID() {
 }
 
 // Search for customer by ID
-optional<Customer> CredentialsReader::searchByID(int id) {
+std::optional<Customer> CredentialsReader::searchByID(int id) {
     bool existFlag = false;
 
-    fstream cFile(fileLocation);
+    std::fstream cFile(fileLocation);
 
     // If file open failed, return nothing and show error.
     if(!cFile.is_open()) {
-        std::cout << "Error opening " << fileLocation << ", returning NULL." << endl;
+        std::cout << "Error opening " << fileLocation << ", returning NULL." << std::endl;
         return {};
     }
 
     // Skip first line (row columns)
-    string column;
+    std::string column;
     getline(cFile, column);
 
     // Variables to store csv column data
-    string customerID;
-    string fName;
-    string lName;
-    string age;
-    string uName;
-    string pNo;
-    string dateRegistered;
-    string Bal;
-    string aSpent;
-    string aSaved;
+    std::string customerID;
+    std::string fName;
+    std::string lName;
+    std::string age;
+    std::string uName;
+    std::string pNo;
+    std::string dateRegistered;
+    std::string Bal;
+    std::string aSpent;
+    std::string aSaved;
 
 
     // Load info from .csv file into Customer object
@@ -116,35 +116,35 @@ optional<Customer> CredentialsReader::searchByID(int id) {
 }
 
 // Search for customer by Username
-optional<Customer> CredentialsReader::searchByUsername(string username) {
+std::optional<Customer> CredentialsReader::searchByUsername(std::string username) {
 
     bool existFlag = false;
 
-    fstream cFile(fileLocation);
+    std::fstream cFile(fileLocation);
     int row = 1;                        // track current row.
 
     // Skip first line (row columns)
-    string column;
+    std::string column;
     getline(cFile, column);
 
-    string customerID;
-    string fName;
-    string lName;
-    string age;
+    std::string customerID;
+    std::string fName;
+    std::string lName;
+    std::string age;
 
-    string uName;
-    string pNo;
+    std::string uName;
+    std::string pNo;
 
-    string dateRegistered;
+    std::string dateRegistered;
 
-    string Bal;
-    string aSpent;
-    string aSaved;
+    std::string Bal;
+    std::string aSpent;
+    std::string aSaved;
 
 
     // If file open failed, return NULL and show error.
     if(!cFile.is_open()) {
-        std::cout << "Error opening " << fileLocation << ", returning NULL." << endl;
+        std::cout << "Error opening " << fileLocation << ", returning NULL." << std::endl;
         return {};
     }
 
@@ -199,7 +199,7 @@ optional<Customer> CredentialsReader::searchByUsername(string username) {
 // returns true if success, false if failed
 bool CredentialsReader::write(Customer customer) {
 
-    ofstream cFile(fileLocation, ios_base::app);
+    std::ofstream cFile(fileLocation, std::ios_base::app);
 
     if (!cFile.is_open()) {
         return false;
@@ -215,7 +215,7 @@ bool CredentialsReader::write(Customer customer) {
             << customer.getDateRegistered().getDateString() << ","
             << customer.getBalance() << ","
             << customer.getAmountSpent() << ","
-            << customer.getAmountSaved() << endl;
+            << customer.getAmountSaved() << std::endl;
 
     cFile.close();
     return true;
@@ -229,19 +229,19 @@ bool CredentialsReader::update(Customer customer) {
     // Update record
     // Delete old file, rename file
 
-    string newFileLocation = "../1009_BankingSystem/data/customers_tmp.csv";    // to be updated, make more dynamic
-    fstream fin, fout;
+    std::string newFileLocation = "../1009_BankingSystem/data/customers_tmp.csv";    // to be updated, make more dynamic
+    std::fstream fin, fout;
 
-    fin.open(fileLocation, ios::in);            // Existing file.
-    fout.open(newFileLocation, ios::out);       // New file to copy updated data to.
+    fin.open(fileLocation, std::ios::in);            // Existing file.
+    fout.open(newFileLocation, std::ios::out);       // New file to copy updated data to.
 
     bool found = false;                         // Denotes whether the Customer exists in the .csv file.
-    vector<string> row;
-    string line, word;
+    std::vector<std::string> row;
+    std::string line, word;
     int id = customer.getID();                  // ID of customer to update.
 
     // Get new customer data as a vector
-    vector<string> updatedCustomerData = customer.getCsvFormat();
+    std::vector<std::string> updatedCustomerData = customer.getCsvFormat();
 
 //    // Check data is correct
 //    for (size_t i = 0; i < updatedCustomerData.size(); i++) {
@@ -257,7 +257,7 @@ bool CredentialsReader::update(Customer customer) {
         row.clear();
 
         getline(fin, line);
-        stringstream s(line);
+        std::stringstream s(line);
 
         while(getline(s, word, ',')) {
             row.push_back(word);
@@ -301,8 +301,8 @@ bool CredentialsReader::update(Customer customer) {
     fout.close();
 
     // Remove the old file, and update the tmp file to the old file's file name.
-    filesystem::remove(fileLocation);
-    filesystem::rename(newFileLocation, fileLocation);
+    std::filesystem::remove(fileLocation);
+    std::filesystem::rename(newFileLocation, fileLocation);
 
     // Return true if found and updated, false otherwise
     return found;

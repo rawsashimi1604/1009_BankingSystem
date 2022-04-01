@@ -39,7 +39,7 @@ Ui::Login* Login::getUI() {
 
 void Login::on_loginButton_clicked()
 {
-    cout << "loginButtonCheck" << endl;
+    std::cout << "loginButtonCheck" << std::endl;
 
     QString uName =  ui->usernameField->text();
     QString uPass = ui->passwordField->text();
@@ -48,7 +48,7 @@ void Login::on_loginButton_clicked()
     QMessageBox msgBox;                             // Pop up message.
 
     if(loginHandler.login(uName.toStdString(),uPass.toStdString()) == AUTHENTICATED) {
-        cout << "success" << endl;
+        std::cout << "success" << std::endl;
 
         msgBox.setText("Login successful.");
         msgBox.exec();
@@ -56,7 +56,7 @@ void Login::on_loginButton_clicked()
         ui->stackedWidget->setCurrentWidget(&menu);
 
     } else {
-        cout << "failure" << endl;
+        std::cout << "failure" << std::endl;
 
         msgBox.setText("Login unsuccessful. Please try again.");
         msgBox.exec();

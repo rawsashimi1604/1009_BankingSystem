@@ -9,13 +9,11 @@
 
 #include "model/date.h"
 
-using namespace std;
-
 namespace UtilityFunctions {
     // General Util functions
 
-    streamsize setPrintingPrecision();              // Help with printing precision (2 dec place)
-    void removePrintingPrecision(streamsize ss);
+    std::streamsize setPrintingPrecision();              // Help with printing precision (2 dec place)
+    void removePrintingPrecision(std::streamsize ss);
 
     Date getTodaysDate();
 
@@ -26,9 +24,9 @@ namespace Enums {
     // Transaction
     enum class TransactionType {DEPOSIT, WITHDRAWAL, TRANSFER, NONE};
 
-    TransactionType convertTransactionType(string& str);
-    string convertString(TransactionType transType);
-    ostream& operator<<(ostream& COUT, TransactionType t);
+    TransactionType convertTransactionType(std::string& str);
+    std::string convertString(TransactionType transType);
+    std::ostream& operator<<(std::ostream& COUT, TransactionType t);
 }
 
 #endif // UTILS_H

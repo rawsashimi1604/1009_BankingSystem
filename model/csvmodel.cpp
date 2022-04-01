@@ -10,7 +10,7 @@ CsvModel::~CsvModel() {
 }
 
 void CsvModel::printInfo() const{
-    cout << "Normal Model class" << endl;
+    std::cout << "Normal Model class" << std::endl;
 }
 
 int CsvModel::getID() const {

@@ -5,11 +5,11 @@ RegisterHandler::RegisterHandler()
 
 }
 
-string RegisterHandler::encrypt(const string& str) {
+std::string RegisterHandler::encrypt(const std::string& str) {
     return "";
 }
 
-RegisterStatus RegisterHandler::registerAcc(const string& firstName, const string& lastName, const int age, const string& username, const string& password) const {
+RegisterStatus RegisterHandler::registerAcc(const std::string& firstName, const std::string& lastName, const int age, const std::string& username, const std::string& password) const {
 
     // check if username exists,
     // if exists, return failure
@@ -18,7 +18,7 @@ RegisterStatus RegisterHandler::registerAcc(const string& firstName, const strin
 
     CredentialsReader cReader;
     if (cReader.searchByUsername(username)) {       // Username already exists, can't use username.
-        cout << "REGISTER_FAILURE_NAME_EXISTS" << endl;
+        std::cout << "REGISTER_FAILURE_NAME_EXISTS" << std::endl;
         return REGISTER_FAILURE_NAME_EXISTS;
     }
 
@@ -27,11 +27,11 @@ RegisterStatus RegisterHandler::registerAcc(const string& firstName, const strin
     Customer customer(cReader.getNextID(), firstName, lastName, age, username, password, currDate);
 
     if (cReader.write(customer)) {
-        cout << "REGISTER_SUCCESS" << endl;
+        std::cout << "REGISTER_SUCCESS" << std::endl;
         return REGISTER_SUCCESS;                    // Successfully added to customers.csv!
     }
 
-    cout << "REGISTER_FAILURE_FILE_ERROR" << endl;
+    std::cout << "REGISTER_FAILURE_FILE_ERROR" << std::endl;
     return REGISTER_FAILURE_FILE_ERROR;             // something went wrong with file opening...
 }
 

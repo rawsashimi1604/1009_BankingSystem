@@ -9,8 +9,6 @@
 #include "model/date.h"
 #include "model/csvmodel.h"
 
-using namespace std;
-
 class Customer : public CsvModel
 {
 
@@ -18,12 +16,12 @@ private:
     static const float INITIAL_STARTING_BALANCE;     // Starting balance when creaing bank account;
 
 
-    string firstName;
-    string lastName;
+    std::string firstName;
+    std::string lastName;
     int age;
 
-    string username;
-    string password;
+    std::string username;
+    std::string password;
 
     Date dateRegistered;
 
@@ -33,21 +31,21 @@ private:
 
 public:
 
-    Customer(int id, string firstName, string lastName, int age, string username, string password, u_int year, u_int month, u_int day);
-    Customer(int id, string firstName, string lastName, int age, string username, string password, Date date);
-    Customer(int id, string firstName, string lastName, int age, string username, string password, string dateString, float balance, float amountSpent, float amountSaved);
+    Customer(int id, std::string firstName, std::string lastName, int age, std::string username, std::string password, u_int year, u_int month, u_int day);
+    Customer(int id, std::string firstName, std::string lastName, int age, std::string username, std::string password, Date date);
+    Customer(int id, std::string firstName, std::string lastName, int age, std::string username, std::string password, std::string dateString, float balance, float amountSpent, float amountSaved);
     ~Customer();
 
     void printInfo() const;
-    vector<string> getCsvFormat() const;
+    std::vector<std::string> getCsvFormat() const;
 
     // Getters   
-    string getUsername() const;
-    string getPassword() const;
+    std::string getUsername() const;
+    std::string getPassword() const;
     int getAge() const;
-    string getFirstName() const;
-    string getLastName() const;
-    string getFullName() const;
+    std::string getFirstName() const;
+    std::string getLastName() const;
+    std::string getFullName() const;
     Date getDateRegistered() const;
     float getBalance() const;
     float getAmountSpent() const;

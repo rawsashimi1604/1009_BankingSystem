@@ -14,16 +14,16 @@
 class CredentialsReader
 {
 private:
-    static const string DEFAULT_FILE_LOCATION;
-    string fileLocation;
+    static const std::string DEFAULT_FILE_LOCATION;
+    std::string fileLocation;
 
 public:
     CredentialsReader();
-    CredentialsReader(string fileLocation);
+    CredentialsReader(std::string fileLocation);
     void printHello();
     int getNextID();
-    optional<Customer> searchByID(int id);
-    optional<Customer> searchByUsername(string username);
+    std::optional<Customer> searchByID(int id);
+    std::optional<Customer> searchByUsername(std::string username);
     bool write(Customer customer);
     bool update(Customer customer);
 };

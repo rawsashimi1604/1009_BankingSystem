@@ -11,8 +11,6 @@
 
 typedef int LoginStatus;
 
-using namespace std;
-
 class LoginHandler
 {
 
@@ -20,8 +18,8 @@ private:
 
 public:
     LoginHandler();
-    string encrypt(const string& str);
-    LoginStatus login(const string& username, const string& password) const;
+    std::string encrypt(const std::string& str);
+    LoginStatus login(const std::string& username, const std::string& password) const;
 
 };
 

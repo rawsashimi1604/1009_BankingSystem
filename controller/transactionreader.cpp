@@ -1,36 +1,36 @@
 #include "transactionreader.h"
 
-const string TransactionReader::DEFAULT_FILE_LOCATION = "../1009_BankingSystem/data/transactions.csv";
+const std::string TransactionReader::DEFAULT_FILE_LOCATION = "../1009_BankingSystem/data/transactions.csv";
 
 TransactionReader::TransactionReader()
 {
     this->fileLocation = DEFAULT_FILE_LOCATION;
 }
 
-TransactionReader::TransactionReader(string fileLocation)
+TransactionReader::TransactionReader(std::string fileLocation)
 {
     this->fileLocation = fileLocation;
 }
 
 
 void TransactionReader::printHello() {
-    cout << "hello world from transaction reader!" << endl;
+    std::cout << "hello world from transaction reader!" << std::endl;
 }
 
 // Get the next ID to add.
 int TransactionReader::getNextID() {
 
-    fstream tFile(fileLocation);
+    std::fstream tFile(fileLocation);
 
     if(!tFile.is_open()) {
-        std::cout << "Error opening " << fileLocation << ", returning NULL." << endl;
+        std::cout << "Error opening " << fileLocation << ", returning NULL." << std::endl;
         return 0;
     }
 
-    string idStr;
+    std::string idStr;
     int id;
 
-    string column;
+    std::string column;
     getline(tFile, column);             // Skip column headers
 
     while(tFile.good()) {
@@ -49,29 +49,29 @@ int TransactionReader::getNextID() {
     return id + 1;                      // Next ID is last ID + 1
 }
 
-optional<Transaction> TransactionReader::searchByID(int id) {
+std::optional<Transaction> TransactionReader::searchByID(int id) {
     bool existFlag = false;
 
-    fstream tFile(fileLocation);
+    std::fstream tFile(fileLocation);
 
     // If file open failed, return NULL and show error.
     if(!tFile.is_open()) {
-        std::cout << "Error opening " << fileLocation << ", returning NULL." << endl;
+        std::cout << "Error opening " << fileLocation << ", returning NULL." << std::endl;
         return {};
     }
 
     // Skip first line
-    string column;
+    std::string column;
     getline(tFile, column);
 
     // Variables to store csv column data
-    string transactionID;
-    string transactionDate;
-    string customerOut;
-    string customerIn;
-    string amountOut;
-    string amountIn;
-    string transType;
+    std::string transactionID;
+    std::string transactionDate;
+    std::string customerOut;
+    std::string customerIn;
+    std::string amountOut;
+    std::string amountIn;
+    std::string transType;
 
     // Load info from .csv file into Transaction object
     while(tFile.good()) {
@@ -90,7 +90,7 @@ optional<Transaction> TransactionReader::searchByID(int id) {
     }
 
     tFile.close();
-    cout << "File closed" << endl;
+    std::cout << "File closed" << std::endl;
 
     // If transaction exists,
     if (existFlag) {
@@ -117,29 +117,29 @@ optional<Transaction> TransactionReader::searchByID(int id) {
     return {};
 }
 
-vector<Transaction> TransactionReader::searchAllTransactions(int customerID) {
-    vector<Transaction> res;
+std::vector<Transaction> TransactionReader::searchAllTransactions(int customerID) {
+    std::vector<Transaction> res;
 
-    fstream tFile(fileLocation);
+    std::fstream tFile(fileLocation);
 
     // If file open failed, return empty vector and show error.
     if(!tFile.is_open()) {
-        std::cout << "Error opening " << fileLocation << ", returning NULL." << endl;
+        std::cout << "Error opening " << fileLocation << ", returning NULL." << std::endl;
         return res;
     }
 
     // Skip first line
-    string column;
+    std::string column;
     getline(tFile, column);
 
     // Variables to store csv column data
-    string transactionID;
-    string transactionDate;
-    string customerOut;
-    string customerIn;
-    string amountOut;
-    string amountIn;
-    string transType;
+    std::string transactionID;
+    std::string transactionDate;
+    std::string customerOut;
+    std::string customerIn;
+    std::string amountOut;
+    std::string amountIn;
+    std::string transType;
 
     // Load info from .csv file into Transaction object
     while(tFile.good()) {
@@ -187,7 +187,7 @@ vector<Transaction> TransactionReader::searchAllTransactions(int customerID) {
 // returns true if success, false if failed
 bool TransactionReader::write(Transaction transaction) {
 
-    ofstream tFile(fileLocation, ios_base::app);
+    std::ofstream tFile(fileLocation, std::ios_base::app);
 
     if (!tFile.is_open()) {
         return false;
@@ -200,7 +200,7 @@ bool TransactionReader::write(Transaction transaction) {
             << transaction.getReceiverID() << ","
             << transaction.getAmountSent() << ","
             << transaction.getAmountReceived() << ","
-            << Enums::convertString(transaction.getTransactionType()) << endl;
+            << Enums::convertString(transaction.getTransactionType()) << std::endl;
 
     tFile.close();
     return true;
@@ -213,19 +213,19 @@ bool TransactionReader::update(Transaction transaction) {
     // Update record
     // Delete old file, rename file
 
-    string newFileLocation = "../1009_BankingSystem/data/transactions_tmp.csv";    // to be updated, make more dynamic
-    fstream fin, fout;
+    std::string newFileLocation = "../1009_BankingSystem/data/transactions_tmp.csv";    // to be updated, make more dynamic
+    std::fstream fin, fout;
 
-    fin.open(fileLocation, ios::in);            // Existing file.
-    fout.open(newFileLocation, ios::out);       // New file to copy updated data to.
+    fin.open(fileLocation, std::ios::in);            // Existing file.
+    fout.open(newFileLocation, std::ios::out);       // New file to copy updated data to.
 
     bool found = false;                         // Denotes whether the Transaction exists in the .csv file.
-    vector<string> row;
-    string line, word;
+    std::vector<std::string> row;
+    std::string line, word;
     int id = transaction.getID();    // ID of transaction to update.
 
     // Get new transaction data as a vector
-    vector<string> updatedCustomerData = transaction.getCsvFormat();
+    std::vector<std::string> updatedCustomerData = transaction.getCsvFormat();
 
 //    // Check data is correct
 //    for (size_t i = 0; i < updatedCustomerData.size(); i++) {
@@ -241,7 +241,7 @@ bool TransactionReader::update(Transaction transaction) {
         row.clear();
 
         getline(fin, line);
-        stringstream s(line);
+        std::stringstream s(line);
 
         while(getline(s, word, ',')) {
             row.push_back(word);
@@ -285,8 +285,8 @@ bool TransactionReader::update(Transaction transaction) {
     fout.close();
 
     // Remove the old file, and update the tmp file to the old file's file name.
-    filesystem::remove(fileLocation);
-    filesystem::rename(newFileLocation, fileLocation);
+    std::filesystem::remove(fileLocation);
+    std::filesystem::rename(newFileLocation, fileLocation);
 
     // Return true if found and updated, false otherwise
     return found;

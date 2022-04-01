@@ -6,7 +6,7 @@ const float Customer::INITIAL_STARTING_BALANCE = 1000.00;
 // Constructors
 
 
-Customer::Customer(int id, string firstName, string lastName, int age, string username, string password, u_int year, u_int month, u_int day)
+Customer::Customer(int id, std::string firstName, std::string lastName, int age, std::string username, std::string password, u_int year, u_int month, u_int day)
     : CsvModel(id),
       dateRegistered(year, month, day),
       amountSpent(0),
@@ -20,7 +20,7 @@ Customer::Customer(int id, string firstName, string lastName, int age, string us
     this->balance = INITIAL_STARTING_BALANCE;
 }
 
-Customer::Customer(int id, string firstName, string lastName, int age, string username, string password, Date date)
+Customer::Customer(int id, std::string firstName, std::string lastName, int age, std::string username, std::string password, Date date)
     : CsvModel(id),
       dateRegistered(date.getDateString()),
       amountSpent(0),
@@ -35,7 +35,7 @@ Customer::Customer(int id, string firstName, string lastName, int age, string us
     this->balance = INITIAL_STARTING_BALANCE;
 }
 
-Customer::Customer(int id, string firstName, string lastName, int age, string username, string password, string dateString, float balance, float amountSpent, float amountSaved)
+Customer::Customer(int id, std::string firstName, std::string lastName, int age, std::string username, std::string password, std::string dateString, float balance, float amountSpent, float amountSaved)
     : CsvModel(id),
       dateRegistered(dateString)
 {
@@ -58,23 +58,23 @@ Customer::~Customer() {
 }
 
 // Public functions
-vector<string> Customer::getCsvFormat() const{
-    vector<string> csvRow;
+std::vector<std::string> Customer::getCsvFormat() const{
+    std::vector<std::string> csvRow;
 
     // convert float to string, round 2 dec
-    string balance = to_string(getBalance());
-    string balanceRounded = balance.substr(0, balance.find(".") + 3);
+    std::string balance = std::to_string(getBalance());
+    std::string balanceRounded = balance.substr(0, balance.find(".") + 3);
 
-    string amtSaved = to_string(getAmountSaved());
-    string amtSavedRounded = amtSaved.substr(0, amtSaved.find(".") + 3);
+    std::string amtSaved = std::to_string(getAmountSaved());
+    std::string amtSavedRounded = amtSaved.substr(0, amtSaved.find(".") + 3);
 
-    string amtSpent = to_string(getAmountSpent());
-    string amtSpentRounded = amtSpent.substr(0, amtSpent.find(".") + 3);
+    std::string amtSpent = std::to_string(getAmountSpent());
+    std::string amtSpentRounded = amtSpent.substr(0, amtSpent.find(".") + 3);
 
-    csvRow.push_back(to_string(getID()));
+    csvRow.push_back(std::to_string(getID()));
     csvRow.push_back(getFirstName());
     csvRow.push_back(getLastName());
-    csvRow.push_back(to_string(getAge()));
+    csvRow.push_back(std::to_string(getAge()));
     csvRow.push_back(getUsername());
     csvRow.push_back(getPassword());
     csvRow.push_back(getDateRegistered().getDateString());
@@ -87,30 +87,30 @@ vector<string> Customer::getCsvFormat() const{
 
 void Customer::printInfo() const{
     // Set printing precision to 2 decimal places.
-    streamsize ss = UtilityFunctions::setPrintingPrecision();
+    std::streamsize ss = UtilityFunctions::setPrintingPrecision();
 
-    cout << firstName + " " + lastName + ": $" << balance << endl;
-    cout << "Date registered: "; dateRegistered.printInfo(); cout << endl;
-    cout << "Age: " << age << endl;
+    std::cout << firstName + " " + lastName + ": $" << balance << std::endl;
+    std::cout << "Date registered: "; dateRegistered.printInfo(); std::cout << std::endl;
+    std::cout << "Age: " << age << std::endl;
 
-    cout << "--Credentials--" << endl;
-    cout << "username: " << username << endl;
-    cout << "password: " << password << endl;
+    std::cout << "--Credentials--" << std::endl;
+    std::cout << "username: " << username << std::endl;
+    std::cout << "password: " << password << std::endl;
 
-    cout << "--Statistics--" << endl;
-    cout << "Amount saved: $" << amountSaved << endl;
-    cout << "Amount spent: $" << amountSpent << endl;
+    std::cout << "--Statistics--" << std::endl;
+    std::cout << "Amount saved: $" << amountSaved << std::endl;
+    std::cout << "Amount spent: $" << amountSpent << std::endl;
 
     // Reset printing precision.
     UtilityFunctions::removePrintingPrecision(ss);
 }
 
 // Getters
-string Customer::getUsername() const{
+std::string Customer::getUsername() const{
     return username;
 }
 
-string Customer::getPassword() const{
+std::string Customer::getPassword() const{
     return password;
 }
 
@@ -118,15 +118,15 @@ int Customer::getAge() const {
     return age;
 }
 
-string Customer::getFirstName() const {
+std::string Customer::getFirstName() const {
     return firstName;
 }
 
-string Customer::getLastName() const {
+std::string Customer::getLastName() const {
     return lastName;
 }
 
-string Customer::getFullName() const {
+std::string Customer::getFullName() const {
     return firstName + " " + lastName;
 }
 

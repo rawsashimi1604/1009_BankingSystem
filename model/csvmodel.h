@@ -4,8 +4,6 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
 /**
  *  A CsvModel is an abstract class that can be extended to signify a data model that can be stored in a CSV format.
  *
@@ -21,7 +19,7 @@ public:
     CsvModel(int id);
     virtual ~CsvModel();
     virtual void printInfo() const;
-    virtual vector<string> getCsvFormat() const = 0;
+    virtual std::vector<std::string> getCsvFormat() const = 0;
 
     int getID() const;
 

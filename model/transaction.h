@@ -28,7 +28,7 @@ public:
     Transaction(int id, int receiverID, int senderID, float amountReceived, float amountSent, u_int year, u_int month, u_int day, Enums::TransactionType transactionType);
 
     void printInfo() const;
-    vector<string> getCsvFormat() const;
+    std::vector<std::string> getCsvFormat() const;
 
     // Getters
     Enums::TransactionType getTransactionType() const;
