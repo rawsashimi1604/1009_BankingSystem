@@ -27,7 +27,7 @@ SOURCES += \
     view/leaderboard.cpp \
     view/login.cpp \
     view/menu.cpp \
-    view/register.cpp \
+    view/registeracc.cpp \
     view/title.cpp \
     view/transfer.cpp \
     view/withdraw.cpp
@@ -50,7 +50,7 @@ HEADERS += \
     view/leaderboard.h \
     view/login.h \
     view/menu.h \
-    view/register.h \
+    view/registeracc.h \
     view/title.h \
     view/transfer.h \
     view/withdraw.h
@@ -61,7 +61,7 @@ FORMS += \
     view/leaderboard.ui \
     view/login.ui \
     view/menu.ui \
-    view/register.ui \
+    view/registeracc.ui \
     view/title.ui \
     view/transfer.ui \
     view/withdraw.ui

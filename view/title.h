@@ -3,7 +3,7 @@
 
 #include <QWidget>
 
-#include "view/register.h"
+#include "view/registeracc.h"
 #include "view/login.h"
 
 namespace Ui {
@@ -25,7 +25,7 @@ private slots:
 
 private:
     Ui::Title *ui;
-    Register reg;
+    RegisterAcc reg;
     Login login;
 };
 

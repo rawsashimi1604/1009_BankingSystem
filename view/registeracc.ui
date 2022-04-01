@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Register</class>
- <widget class="QWidget" name="Register">
+ <class>RegisterAcc</class>
+ <widget class="QWidget" name="RegisterAcc">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -54,35 +54,38 @@ font: 700 9pt &quot;Segoe UI&quot;;</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_4">
       <item>
-       <widget class="QLineEdit" name="lineEdit_5">
+       <widget class="QLineEdit" name="fnameField">
         <property name="styleSheet">
          <string notr="true">background-color: rgb(47, 167, 218);</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_6">
+       <widget class="QLineEdit" name="lnameField">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(47, 167, 218);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="usernameField">
         <property name="styleSheet">
          <string notr="true">background-color: rgb(47, 167, 218);</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_7">
+       <widget class="QLineEdit" name="passField">
         <property name="styleSheet">
          <string notr="true">background-color: rgb(47, 167, 218);</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_8">
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(47, 167, 218);</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="lineEdit">
+       <widget class="QLineEdit" name="ageField">
         <property name="styleSheet">
          <string notr="true">background-color: rgb(47, 167, 218);</string>
         </property>
