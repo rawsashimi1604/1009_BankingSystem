@@ -5,6 +5,7 @@
 #include <vector>
 #include <filesystem>
 
+#include "bankingapp.h"
 #include "controller/credentialsreader.h"
 #include "controller/transactionreader.h"
 #include "controller/registerhandler.h"
@@ -23,17 +24,17 @@ void myTest() {
     // Transaction Reader
     TransactionReader tReader;
     std::cout << tReader.getNextID() << std::endl;
-
-
-
 }
+
 
 int main(int argc, char *argv[])
 {
+    BankingApp bankApp;
+    BankingApp* bankApp_ptr = &bankApp;
 
     QApplication a(argc, argv);
-    Title main;
-    main.show();
+    Title mainApp(bankApp_ptr);
+    mainApp.show();
 
     myTest();
 

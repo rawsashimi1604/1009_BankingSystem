@@ -1,10 +1,14 @@
 #include "title.h"
 #include "ui_title.h"
 
-Title::Title(QWidget *parent) :
+Title::Title(BankingApp* bankApp, QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::Title)
+    ui(new Ui::Title),
+    login(bankApp),
+    reg(bankApp)
 {
+    this->bankApp = bankApp;
+    std::cout << bankApp << std::endl;
     ui->setupUi(this);
     ui->stackedWidget->insertWidget(1,&reg);
     ui->stackedWidget->insertWidget(2,&login);

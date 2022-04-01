@@ -3,6 +3,7 @@
 
 #include <QWidget>
 
+#include "bankingapp.h"
 #include "view/registeracc.h"
 #include "view/login.h"
 
@@ -15,7 +16,7 @@ class Title : public QWidget
     Q_OBJECT
 
 public:
-    explicit Title(QWidget *parent = nullptr);
+    explicit Title(BankingApp* bankApp, QWidget *parent = nullptr);
     ~Title();
 
 private slots:
@@ -24,6 +25,7 @@ private slots:
     void moveMenu();
 
 private:
+    BankingApp* bankApp;
     Ui::Title *ui;
     RegisterAcc reg;
     Login login;

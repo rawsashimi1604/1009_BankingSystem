@@ -1,10 +1,14 @@
 #include "transfer.h"
 #include "ui_transfer.h"
 
-Transfer::Transfer(QWidget *parent) :
+Transfer::Transfer(BankingApp* bankApp, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Transfer)
 {
+    this->bankApp = bankApp;
+
+    std::cout << bankApp << std::endl;
+
     ui->setupUi(this);
 }
 

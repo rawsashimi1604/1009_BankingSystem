@@ -1,10 +1,12 @@
 #include "registeracc.h"
 #include "ui_registeracc.h"
 
-RegisterAcc::RegisterAcc(QWidget *parent) :
+RegisterAcc::RegisterAcc(BankingApp* bankApp, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::RegisterAcc)
 {
+    this->bankApp = bankApp;
+    std::cout << bankApp << std::endl;
     ui->setupUi(this);
 }
 
