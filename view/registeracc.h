@@ -5,6 +5,7 @@
 
 #include "bankingapp.h"
 #include "controller/registerhandler.h"
+#include "utils.h"
 
 
 namespace Ui {
@@ -27,6 +28,8 @@ private slots:
 private:
     BankingApp* bankApp;
     Ui::RegisterAcc *ui;
+    bool checkFlag ;
+
 
 signals:
     void menuClicked();
