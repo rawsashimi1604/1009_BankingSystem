@@ -1,7 +1,5 @@
 #include "transaction.h"
 
-
-
 Transaction::Transaction(int id, int receiverID, int senderID, float amountReceived, float amountSent, Date date, Enums::TransactionType transactionType)
     : CsvModel(id),
       transactionDate(date.getDateString())
@@ -52,8 +50,6 @@ void Transaction::printInfo() const{
     // Set printing precision to 2 decimal places.
     std::streamsize ss = UtilityFunctions::setPrintingPrecision();
 
-//    cout << "====================================TRANSACTION HISTORY====================================" << endl;
-//    cout << "||   Type  ||    Date    ||    From    ||    To    ||    Amount In    ||    Amount Out   ||" << endl;
     if (transType == Enums::TransactionType::DEPOSIT){
         std::cout << "DEPOSIT, "; transactionDate.printInfo(); std::cout << ", " << "nil, " << receiverID << ", $" << amountReceived << ", $" << amountSent << std::endl;
     }
