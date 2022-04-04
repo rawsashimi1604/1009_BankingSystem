@@ -8,8 +8,9 @@
 #include "utils.h"
 #include "model/date.h"
 #include "model/csvmodel.h"
+#include "model/model.h"
 
-class Customer : public CsvModel
+class Customer : public CsvModel, public Model
 {
 
 private:
