@@ -227,12 +227,6 @@ bool TransactionReader::update(Transaction transaction) {
     // Get new transaction data as a vector
     std::vector<std::string> updatedCustomerData = transaction.getCsvFormat();
 
-//    // Check data is correct
-//    for (size_t i = 0; i < updatedCustomerData.size(); i++) {
-//        cout << updatedCustomerData[i] << " ";
-//    }
-//    cout << endl;
-
     // Copy column names
     getline(fin, line, '\n');
     fout << line << "\n";

@@ -9,20 +9,20 @@ bool TransactionHandler::logTransaction(int recieverId, int senderId, float amou
     TransactionReader TR;
 
     switch(type){
-        case(Enums::TransactionType::WITHDRAWAL):{
+        case(Enums::TransactionType::WITHDRAWAL): {
             Transaction T(TR.getNextID(), recieverId, senderId, amount_recieved, amount_sent, UtilityFunctions::getTodaysDate(), Enums::TransactionType::WITHDRAWAL);
             return TR.write(T);
         }
-        case(Enums::TransactionType::DEPOSIT):{
+        case(Enums::TransactionType::DEPOSIT): {
             Transaction T(TR.getNextID(), recieverId, senderId, amount_recieved, amount_sent, UtilityFunctions::getTodaysDate(), Enums::TransactionType::DEPOSIT);
             return TR.write(T);
         }
-        case(Enums::TransactionType::TRANSFER):{
+        case(Enums::TransactionType::TRANSFER): {
             Transaction T(TR.getNextID(), recieverId, senderId, amount_recieved, amount_sent, UtilityFunctions::getTodaysDate(), Enums::TransactionType::TRANSFER);
             return TR.write(T);
         }
-    default:
-        return false;
+        default:
+            return false;
     }
 }
 
@@ -37,11 +37,13 @@ TransactionStatus TransactionHandler::withdraw(Customer customer, float amt) {
         CredentialsReader CR;
 
         if (CR.update(customer)){
-            // If no transfer log happened, return TRANSACTION_LOG_FAILURE
+            // If no transfer log happened, return TRANSACTION_LOG_FAILURE, add back amount to bank balance
             if (!logTransaction(-1, customer.getID(), 0, amt, Enums::TransactionType::WITHDRAWAL)){
+                customer.setBalance(customer.getBalance() + amt);
                 return TRANSACTION_LOG_FAILURE;
             }
             // Else, update transactions.csv with new transaction
+            customer = *CR.searchByID(customer.getID());
             return TRANSACTION_SUCCESS;
         }
         else{
@@ -56,11 +58,13 @@ TransactionStatus TransactionHandler::deposit(Customer customer, float amt) {
     CredentialsReader CR;
 
     if (CR.update(customer)){
-        // If no transfer log happened, return TRANSACTION_LOG_FAILURE
+        // If no transfer log happened, return TRANSACTION_LOG_FAILURE, remove back amount to bank balance
         if (!logTransaction(customer.getID(), -1, amt, 0, Enums::TransactionType::DEPOSIT)){
+            customer.setBalance(customer.getBalance() - amt);
             return TRANSACTION_LOG_FAILURE;
         }
         // Else, update transactions.csv with new transaction
+        customer = *CR.searchByID(customer.getID());
         return TRANSACTION_SUCCESS;
     }
     else{
@@ -68,37 +72,36 @@ TransactionStatus TransactionHandler::deposit(Customer customer, float amt) {
     }
 }
 
-TransactionStatus TransactionHandler::transfer(Customer customerIn, Customer customerOut, float amt) {
+TransactionStatus TransactionHandler::transfer(Customer fromCustomer, Customer toCustomer, float amt) {
     // If customerOut has less than amt, can't transfer, return TRANSACTION_FAILURE
-    if (customerOut.getBalance() < amt){
+    if (fromCustomer.getBalance() < amt){
         return TRANSACTION_FAILURE;
     }
     // Else, minus amount from customerOut, add amount to customerIn, update .csv file with new values
     else{
-        customerOut.setBalance(customerOut.getBalance() - amt);
-        customerIn.setBalance(customerIn.getBalance() + amt);
+
+        fromCustomer.setBalance(fromCustomer.getBalance() - amt);
+        toCustomer.setBalance(toCustomer.getBalance() + amt);
 
         CredentialsReader CR;
 
-        if (CR.update(customerIn)){
-            if (CR.update(customerOut)){
-                // If no transfer log happened, return TRANSACTION_LOG_FAILURE
-                if(!logTransaction(customerIn.getID(), customerOut.getID(), amt, amt, Enums::TransactionType::TRANSFER)){
-                    return TRANSACTION_LOG_FAILURE;
-                }
-                // Else, update transactions.csv with new transaction
-                else{
-                    return TRANSACTION_SUCCESS;
-                }
+        if (CR.update(fromCustomer) && CR.update(toCustomer)) {
+
+            // If no transfer log happened, return TRANSACTION_LOG_FAILURE, remove and add back amount to bank balance
+            if(!logTransaction(toCustomer.getID(), fromCustomer.getID(), amt, amt, Enums::TransactionType::TRANSFER)){
+                fromCustomer.setBalance(fromCustomer.getBalance() + amt);
+                toCustomer.setBalance(toCustomer.getBalance() - amt);
+                return TRANSACTION_LOG_FAILURE;
             }
-            // If error updating, return TRANSACTION_FAILURE
+
+            // Else, update transactions.csv with new transaction
             else{
-                return TRANSACTION_FAILURE;
+                fromCustomer = *CR.searchByID(fromCustomer.getID());        // Update customer pointers to point to updated values.
+                toCustomer = *CR.searchByID(toCustomer.getID());
+                return TRANSACTION_SUCCESS;
             }
-        }
-        // If error updating, return TRANSACTION_FAILURE
-        else{
-            return TRANSACTION_FAILURE;
         }
     }
+
+    return TRANSACTION_FAILURE;
 }
