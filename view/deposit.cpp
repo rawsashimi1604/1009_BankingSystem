@@ -21,3 +21,10 @@ void Deposit::on_back_clicked()
     emit menuClicked();
 }
 
+void Deposit::updateScreenBalance(){
+    //When deposit button is clicked, it will update its view balance
+    std::cout << "Test" << std::endl;
+    QString balance = QString::number(bankApp->getCurrentCustomer()->getBalance());
+    ui->balance->display(balance);
+    std::cout << "Test1" << std::endl;
+}

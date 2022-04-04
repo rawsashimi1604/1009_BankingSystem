@@ -1,7 +1,7 @@
 #include "menu.h"
 #include "ui_menu.h"
 
-Menu::Menu(BankingApp* bankApp, QWidget *parent) :
+Menu::Menu(BankingApp* bankApp, QWidget *parent):
     QWidget(parent),
     ui(new Ui::Menu),
     withdraw(bankApp),
@@ -12,7 +12,6 @@ Menu::Menu(BankingApp* bankApp, QWidget *parent) :
 {
     this->bankApp = bankApp;
     std::cout << bankApp << std::endl;
-
     ui->setupUi(this);
 
     //insert all the menu object
@@ -29,6 +28,7 @@ Menu::Menu(BankingApp* bankApp, QWidget *parent) :
     connect(&leaderBoard, SIGNAL(menuClicked()),this, SLOT(moveMenu()));
 }
 
+
 Menu::~Menu()
 {
     delete ui;
@@ -42,9 +42,10 @@ void Menu::on_withdraw_clicked()
 
 void Menu::on_deposit_clicked()
 {
+    deposit.updateScreenBalance();
     ui->stackedWidget->setCurrentIndex(2);
-}
 
+}
 
 void Menu::on_transfer_clicked()
 {
@@ -65,7 +66,9 @@ void Menu::on_leaderboard_clicked()
 void Menu::moveMenu()
 {
     ui->stackedWidget->setCurrentIndex(0);
+
+    //When back button click it will update the main menu
+    QString balance = QString::number(bankApp->getCurrentCustomer()->getBalance());
+    ui->balance->display(balance);
+
 }
-
-
-

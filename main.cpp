@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     Title mainApp(bankApp_ptr);
     mainApp.show();
 
-    myTest();
+    //myTest();
 
     return a.exec();
     //test

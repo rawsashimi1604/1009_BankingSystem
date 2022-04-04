@@ -16,6 +16,7 @@ class Deposit : public QWidget
 public:
     explicit Deposit(BankingApp* bankApp, QWidget *parent = nullptr);
     ~Deposit();
+    void updateScreenBalance();
 
 private:
     BankingApp* bankApp;
@@ -25,8 +26,10 @@ signals:
     void menuClicked();
 
 
+
 private slots:
     void on_back_clicked();
+
 };
 
 #endif // DEPOSIT_H

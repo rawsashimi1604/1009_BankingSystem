@@ -49,6 +49,9 @@ private:
     History history;
     Leaderboard leaderBoard;
 
+ signals:
+    void buttonClicked();
+
 
 };
 

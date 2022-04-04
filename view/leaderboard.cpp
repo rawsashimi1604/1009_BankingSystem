@@ -17,7 +17,6 @@ Leaderboard::~Leaderboard()
 
 void Leaderboard::on_back_clicked()
 {
-    bankApp->getCurrentCustomer()->printInfo();
     emit menuClicked();
 }
 
