@@ -5,9 +5,10 @@
 #include "date.h"
 
 #include "controller/credentialsreader.h"
-#include "model/customer.h"
+#include "customer.h"
+#include "model.h"
 
-class Transaction : public CsvModel
+class Transaction : public CsvModel, public Model
 {
 
 private:

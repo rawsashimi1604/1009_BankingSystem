@@ -18,7 +18,7 @@ protected:
 public:
     CsvModel(int id);
     virtual ~CsvModel();
-    virtual void printInfo() const;
+
     virtual std::vector<std::string> getCsvFormat() const = 0;
 
     int getID() const;

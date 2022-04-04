@@ -4,10 +4,11 @@
 #include <iostream>
 
 #include "csvmodel.h"
+#include "model.h"
 
 typedef unsigned u_int;
 
-class Date
+class Date : public Model
 {
 private:
     u_int year;

@@ -6,6 +6,7 @@
 #include <filesystem>
 
 #include "bankingapp.h"
+#include "controller/transactionhandler.h"
 #include "controller/credentialsreader.h"
 #include "controller/transactionreader.h"
 #include "controller/registerhandler.h"
@@ -17,13 +18,25 @@
 
 void myTest() {
 
-    // Register Handler
-    RegisterHandler rHandler;
-    RegisterStatus status = rHandler.registerAcc("Gavin", "Loo", 23, "gavin", "gavin123");
+    // Transaction handler
+    TransactionHandler tHandler;
+    CredentialsReader cReader;
+    std::optional<Customer> customer = cReader.searchByID(1);
+    std::optional<Customer> customer2 = cReader.searchByID(2);
 
-    // Transaction Reader
-    TransactionReader tReader;
-    std::cout << tReader.getNextID() << std::endl;
+    TransactionStatus status = tHandler.transfer(*customer2, *customer, 100);
+    switch(status) {
+        case TRANSACTION_SUCCESS:
+            std::cout << "TRANSACTION_SUCCESS!" << std::endl;
+            break;
+        case TRANSACTION_FAILURE:
+            std::cout << "TRANSACTION_FAILURE!" << std::endl;
+            break;
+        case TRANSACTION_LOG_FAILURE:
+            std::cout << "TRANSACTION_LOG_FAILURE!" << std::endl;
+            break;
+    }
+    customer->printInfo();
 }
 
 
