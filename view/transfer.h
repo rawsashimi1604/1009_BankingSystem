@@ -16,6 +16,7 @@ class Transfer : public QWidget
 public:
     explicit Transfer(BankingApp* bankApp, QWidget *parent = nullptr);
     ~Transfer();
+    void updateScreenBalance();
 
 private:
     Ui::Transfer *ui;

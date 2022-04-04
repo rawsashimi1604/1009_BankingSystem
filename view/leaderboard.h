@@ -16,6 +16,7 @@ class Leaderboard : public QWidget
 public:
     explicit Leaderboard(BankingApp* bankApp, QWidget *parent = nullptr);
     ~Leaderboard();
+    void updateScreenBalance();
 
 private slots:
     void on_back_clicked();

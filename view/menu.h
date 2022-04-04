@@ -23,6 +23,7 @@ class Menu : public QWidget
 public:
     explicit Menu(BankingApp* bankApp, QWidget *parent = nullptr);
     ~Menu();
+    void updateScreenBalance();
 
 private slots:
     void on_withdraw_clicked();
@@ -48,10 +49,6 @@ private:
     Transfer transfer;
     History history;
     Leaderboard leaderBoard;
-
- signals:
-    void buttonClicked();
-
 
 };
 

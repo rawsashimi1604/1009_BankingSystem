@@ -57,9 +57,7 @@ void Login::on_loginButton_clicked()
         CredentialsReader cReader;
         std::optional<Customer> loggedInCustomer = cReader.searchByUsername(uName.toStdString());
         bankApp->setCurrentCustomer(loggedInCustomer);
-        //bankApp->getCurrentCustomer()->printInfo();
-        //std::cout << bankApp << std::endl;
-
+        menu.updateScreenBalance();
         ui->stackedWidget->setCurrentWidget(&menu);
 
     } else {

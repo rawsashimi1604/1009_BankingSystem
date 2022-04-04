@@ -20,3 +20,9 @@ void Withdraw::on_back_clicked()
     emit menuClicked();
 }
 
+void Withdraw::updateScreenBalance(){
+    //When deposit button is clicked, it will update its balance
+    QString balance = QString::number(bankApp->getCurrentCustomer()->getBalance());
+    ui->balance->display(balance);
+}
+

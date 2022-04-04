@@ -21,3 +21,9 @@ void History::on_back_clicked()
     emit menuClicked();
 }
 
+void History::updateScreenBalance(){
+    //When deposit button is clicked, it will update its balance
+    QString balance = QString::number(bankApp->getCurrentCustomer()->getBalance());
+    ui->balance->display(balance);
+}
+

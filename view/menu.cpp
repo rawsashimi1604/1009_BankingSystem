@@ -36,6 +36,7 @@ Menu::~Menu()
 
 void Menu::on_withdraw_clicked()
 {
+    withdraw.updateScreenBalance();
     ui->stackedWidget->setCurrentIndex(1);
 }
 
@@ -49,17 +50,20 @@ void Menu::on_deposit_clicked()
 
 void Menu::on_transfer_clicked()
 {
+    transfer.updateScreenBalance();
     ui->stackedWidget->setCurrentIndex(3);
 }
 
 
 void Menu::on_transactions_clicked()
 {
+    history.updateScreenBalance();
     ui->stackedWidget->setCurrentIndex(4);
 }
 
 void Menu::on_leaderboard_clicked()
 {
+    leaderBoard.updateScreenBalance();
     ui->stackedWidget->setCurrentIndex(5);
 }
 
@@ -71,4 +75,9 @@ void Menu::moveMenu()
     QString balance = QString::number(bankApp->getCurrentCustomer()->getBalance());
     ui->balance->display(balance);
 
+}
+
+void Menu::updateScreenBalance(){
+    QString balance = QString::number(bankApp->getCurrentCustomer()->getBalance());
+    ui->balance->display(balance);
 }

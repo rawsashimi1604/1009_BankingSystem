@@ -16,6 +16,7 @@ class History : public QWidget
 public:
     explicit History(BankingApp* bankApp, QWidget *parent = nullptr);
     ~History();
+    void updateScreenBalance();
 
 private:
     Ui::History *ui;

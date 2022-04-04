@@ -17,6 +17,7 @@ class Withdraw : public QWidget
 public:
     explicit Withdraw(BankingApp* bankApp, QWidget *parent = nullptr);
     ~Withdraw();
+    void updateScreenBalance();
 
 private slots:
     void on_back_clicked();
