@@ -1,9 +1,12 @@
 #ifndef DEPOSIT_H
 #define DEPOSIT_H
 
-#include <QWidget>
+#include <QtWidgets>
+
 
 #include "bankingapp.h"
+#include "controller/transactionhandler.h"
+#include "utils.h"
 
 namespace Ui {
 class Deposit;
@@ -21,14 +24,19 @@ public:
 private:
     BankingApp* bankApp;
     Ui::Deposit *ui;
+    TransactionHandler transactHandler;
+    QMessageBox msgBox;
+
+private slots:
+    void on_back_clicked();
+
+    void on_confirmDeposit_clicked();
 
 signals:
     void menuClicked();
 
 
 
-private slots:
-    void on_back_clicked();
 
 };
 

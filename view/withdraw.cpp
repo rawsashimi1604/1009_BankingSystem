@@ -26,3 +26,67 @@ void Withdraw::updateScreenBalance(){
     ui->balance->display(balance);
 }
 
+
+
+
+void Withdraw::on_cfmWithdraw_clicked()
+{
+    QString errorMsg = "";
+    bool flag = true;
+    QString withdrawAmt = ui->withdrawAmnt->text();
+
+    // check for empty field
+    if (withdrawAmt.size() == 0){
+        flag = false;
+        errorMsg = "Please insert a value to Withdraw.";
+    }
+
+    // check for null or input 0
+    if (withdrawAmt.toFloat() == 0 && flag == true){
+        flag = false;
+        ui->withdrawAmnt->clear();
+        errorMsg = "Please withdraw a value more than \"0\".";
+    }
+
+    //check if there is a negative input
+    if(UtilityFunctions::checkNumeric(withdrawAmt) && flag == true){
+        flag = false;
+        ui->withdrawAmnt->clear();
+        errorMsg = "Invalid input! Please input numbers only.";
+    }
+
+    //check if amount withdrawn is more than current balance
+    if ((withdrawAmt.toFloat() > bankApp->getCurrentCustomer()->getBalance()) && flag == true){
+        flag = false;
+        ui->withdrawAmnt->clear();
+        errorMsg = "Amount withdrawn has exceeded your limit!\nPlease try again.";
+    }
+
+    if (flag == true){
+        int result = transactHandler.withdraw(*bankApp->getCurrentCustomer(),withdrawAmt.toFloat());
+        if (result ==1){
+            msgBox.setText("You have successfully withdrawn $"+ui->withdrawAmnt->text() + "\nMoving back to main menu...");
+            msgBox.exec();
+            CredentialsReader cReader;
+            std::optional<Customer> updateCustomer = cReader.searchByUsername(bankApp->getCurrentCustomer()->getUsername());
+            bankApp->setCurrentCustomer(updateCustomer);
+            std::cout << bankApp->getCurrentCustomer()->getBalance() << std::endl;
+            ui->withdrawAmnt->clear();
+            emit menuClicked();
+            return;
+        }
+        if(result == -1){
+            errorMsg = "Transaction Log Failure, Please try again later.";
+        }
+        if (result == 0){
+            errorMsg = "Withdraw Failed, Please try again.";
+        }
+    }
+    msgBox.setText(errorMsg);
+    msgBox.exec();
+    return;
+
+
+
+}
+

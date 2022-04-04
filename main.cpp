@@ -23,6 +23,7 @@ void myTest() {
     CredentialsReader cReader;
     std::optional<Customer> customer = cReader.searchByID(1);
     std::optional<Customer> customer2 = cReader.searchByID(2);
+    //std::cout << customer << std::endl;
 
     TransactionStatus status = tHandler.transfer(*customer2, *customer, 100);
     switch(status) {

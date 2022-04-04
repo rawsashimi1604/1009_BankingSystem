@@ -1,10 +1,11 @@
 #ifndef WITHDRAW_H
 #define WITHDRAW_H
 
-#include <iostream>
-#include <QWidget>
+#include <QtWidgets>
 
 #include "bankingapp.h"
+#include "controller/transactionhandler.h"
+#include "utils.h"
 
 namespace Ui {
 class Withdraw;
@@ -19,12 +20,16 @@ public:
     ~Withdraw();
     void updateScreenBalance();
 
-private slots:
-    void on_back_clicked();
-
 private:
     Ui::Withdraw *ui;
     BankingApp* bankApp;
+    TransactionHandler transactHandler;
+    QMessageBox msgBox;
+
+private slots:
+    void on_back_clicked();
+
+    void on_cfmWithdraw_clicked();
 
 signals:
     void menuClicked();

@@ -43,17 +43,6 @@ font: 700 28pt &quot;Segoe UI&quot;;</string>
       <string>DEPOSIT</string>
      </property>
     </widget>
-    <widget class="QWidget" name="horizontalLayoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>100</y>
-       <width>371</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_2"/>
-    </widget>
     <widget class="QPushButton" name="back">
      <property name="geometry">
       <rect>
@@ -71,18 +60,7 @@ font: 700 9pt &quot;Segoe UI&quot;;</string>
       <string>back</string>
      </property>
     </widget>
-    <widget class="QWidget" name="verticalLayoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>110</x>
-       <y>340</y>
-       <width>171</width>
-       <height>80</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2"/>
-    </widget>
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="confirmDeposit">
      <property name="geometry">
       <rect>
        <x>380</x>
@@ -102,8 +80,8 @@ font: 700 9pt &quot;Segoe UI&quot;;</string>
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>260</x>
-       <y>220</y>
+       <x>250</x>
+       <y>230</y>
        <width>167</width>
        <height>59</height>
       </rect>
@@ -116,17 +94,20 @@ font: 700 15pt &quot;Segoe UI&quot;;</string>
       <string>Enter amount:</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="depositAmnt">
      <property name="geometry">
       <rect>
-       <x>430</x>
-       <y>230</y>
-       <width>141</width>
-       <height>50</height>
+       <x>400</x>
+       <y>239</y>
+       <width>171</width>
+       <height>51</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(47, 167, 218);</string>
+      <string notr="true">QLineEdit{
+	background-color: rgb(47, 167, 218);
+	border-radius: 20px;
+}</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_2">

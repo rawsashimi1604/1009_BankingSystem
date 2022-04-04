@@ -26,17 +26,6 @@
     </rect>
    </property>
    <widget class="QWidget" name="page_1">
-    <widget class="QWidget" name="verticalLayoutWidget_3">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>370</y>
-       <width>160</width>
-       <height>80</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_3"/>
-    </widget>
     <widget class="QPushButton" name="back">
      <property name="geometry">
       <rect>
@@ -74,18 +63,7 @@ font: 700 28pt &quot;Segoe UI&quot;;</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QWidget" name="horizontalLayoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>130</y>
-       <width>191</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout"/>
-    </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="cfmWithdraw">
      <property name="geometry">
       <rect>
        <x>390</x>
@@ -119,7 +97,7 @@ font: 700 15pt &quot;Segoe UI&quot;;</string>
       <string>Enter Amount:</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="withdrawAmnt">
      <property name="geometry">
       <rect>
        <x>450</x>
