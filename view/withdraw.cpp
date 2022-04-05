@@ -70,7 +70,6 @@ void Withdraw::on_cfmWithdraw_clicked()
             CredentialsReader cReader;
             std::optional<Customer> updateCustomer = cReader.searchByUsername(bankApp->getCurrentCustomer()->getUsername());
             bankApp->setCurrentCustomer(updateCustomer);
-            std::cout << bankApp->getCurrentCustomer()->getBalance() << std::endl;
             ui->withdrawAmnt->clear();
             emit menuClicked();
             return;

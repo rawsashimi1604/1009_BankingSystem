@@ -43,29 +43,47 @@ void Login::on_loginButton_clicked()
 
     QString uName =  ui->usernameField->text();
     QString uPass = ui->passwordField->text();
+    std::cout << "Username:" + uName.toStdString() + "Password:" + uPass.toStdString() << std::endl;
+
 
     LoginHandler loginHandler;                      // Login logic class
     QMessageBox msgBox;                             // Pop up message.
+    bool flag = true;
+    QString errorMsg = "";
 
-    if(loginHandler.login(uName.toStdString(),uPass.toStdString()) == AUTHENTICATED) {
-        std::cout << "success" << std::endl;
-
-        msgBox.setText("Login successful.");
-        msgBox.exec();
-
-        // Set BankingApp to logged in customer
-        CredentialsReader cReader;
-        std::optional<Customer> loggedInCustomer = cReader.searchByUsername(uName.toStdString());
-        bankApp->setCurrentCustomer(loggedInCustomer);
-        menu.updateScreenBalance();
-        ui->stackedWidget->setCurrentWidget(&menu);
-
-    } else {
-        std::cout << "failure" << std::endl;
-
-        msgBox.setText("Login unsuccessful. Please try again.");
-        msgBox.exec();
+    if (uName.size() == 0 || uName.size() == 0){
+        flag = false;
+        errorMsg = "Please Enter a username or password.";
     }
+
+    if (flag == true){
+        if(loginHandler.login(uName.toStdString(),uPass.toStdString()) == AUTHENTICATED) {
+            std::cout << "success" << std::endl;
+
+            msgBox.setText("Login successful.");
+            msgBox.exec();
+
+            // Set BankingApp to logged in customer
+            CredentialsReader cReader;
+            std::optional<Customer> loggedInCustomer = cReader.searchByUsername(uName.toStdString());
+            bankApp->setCurrentCustomer(loggedInCustomer);
+            std::cout <<"logged in as: " << bankApp->getCurrentCustomer()->getUsername() << std::endl;
+            menu.updateScreenBalance();
+            ui->stackedWidget->setCurrentWidget(&menu);
+            return;
+
+        } else {
+            std::cout << "failure" << std::endl;
+
+            msgBox.setText("Login unsuccessful. Please try again.");
+            msgBox.exec();
+            return;
+        }
+    }
+    msgBox.setText(errorMsg);
+    msgBox.exec();
+    return;
+
 }
 
 

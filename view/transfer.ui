@@ -60,7 +60,7 @@ font: 700 28pt &quot;Segoe UI&quot;;</string>
       <string>TRANSFER MONEY</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="cfmTransfer">
      <property name="geometry">
       <rect>
        <x>390</x>
@@ -80,9 +80,9 @@ font: 700 9pt &quot;Segoe UI&quot;;</string>
     <widget class="QLabel" name="label_5">
      <property name="geometry">
       <rect>
-       <x>230</x>
+       <x>240</x>
        <y>270</y>
-       <width>211</width>
+       <width>191</width>
        <height>35</height>
       </rect>
      </property>
@@ -91,7 +91,7 @@ font: 700 9pt &quot;Segoe UI&quot;;</string>
 font: 700 15pt &quot;Segoe UI&quot;;</string>
      </property>
      <property name="text">
-      <string>Account number:</string>
+      <string>Recipient Username</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_4">
@@ -111,7 +111,7 @@ font: 700 15pt &quot;Segoe UI&quot;;</string>
       <string>Enter amount:</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_4">
+    <widget class="QLineEdit" name="transferName">
      <property name="geometry">
       <rect>
        <x>440</x>
@@ -124,7 +124,7 @@ font: 700 15pt &quot;Segoe UI&quot;;</string>
       <string notr="true">background-color: rgb(47, 167, 218);</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_3">
+    <widget class="QLineEdit" name="transferAmnt">
      <property name="geometry">
       <rect>
        <x>440</x>
