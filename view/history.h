@@ -4,6 +4,7 @@
 #include <QWidget>
 
 #include "bankingapp.h"
+#include "controller/transactionreader.h"
 
 namespace Ui {
 class History;
@@ -17,15 +18,19 @@ public:
     explicit History(BankingApp* bankApp, QWidget *parent = nullptr);
     ~History();
     void updateScreenBalance();
+    void tableWidgetDisplay();
 
 private:
     Ui::History *ui;
     BankingApp* bankApp;
+    TransactionReader cReader;
+
+private slots:
+    void on_back_clicked();
 
 signals:
     void menuClicked();
-private slots:
-    void on_back_clicked();
+
 };
 
 #endif // HISTORY_H

@@ -58,6 +58,7 @@ void Menu::on_transfer_clicked()
 void Menu::on_transactions_clicked()
 {
     history.updateScreenBalance();
+    history.tableWidgetDisplay();
     ui->stackedWidget->setCurrentIndex(4);
 }
 
