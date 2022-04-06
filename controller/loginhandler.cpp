@@ -5,26 +5,25 @@ LoginHandler::LoginHandler()
 
 }
 
-std::string LoginHandler::encrypt(const std::string& str) {
-    return "";
-}
-
 LoginStatus LoginHandler::login(const std::string& username, const std::string& password) const{
 
     CredentialsReader cReader;
+    Encrypter e;
 
     std::optional<Customer> customer = cReader.searchByUsername(username);
 
     if (!customer) {                 // Unable to find username.
-
         return NOT_AUTHENTICATED;
     }
 
     std::string retrievedUsername = customer->getUsername();
     std::string retrievedPassword = customer->getPassword();
 
+    std::cout << e.hash(password) << std::endl;
+    std::cout << retrievedPassword << std::endl;
+
     // Compare the 2 passwords
-    if (password == retrievedPassword) {    // Correct password! Authenticate.
+    if (e.hash(password) == retrievedPassword) {    // Correct password! Authenticate.
         return AUTHENTICATED;
     }
 

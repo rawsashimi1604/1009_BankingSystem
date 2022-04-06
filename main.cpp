@@ -22,6 +22,9 @@ void myTest() {
 
     Encrypter e;
     CredentialsReader cReader;
+    LoginHandler l;
+
+    l.login("test", "test");
 
 //    std::string s = "obama123";
 
@@ -32,17 +35,17 @@ void myTest() {
 //    s = e.decryptASCII(s);
 //    std::cout << "Decrypted is: " << s << std::endl;
 
-    int id = cReader.getNextID();
-    std::string fName = "test";
-    std::string lName = "test";
-    int age = 60;
-    std::string username = "test";
-    std::string password = "test";
+//    int id = cReader.getNextID();
+//    std::string fName = "test";
+//    std::string lName = "test";
+//    int age = 60;
+//    std::string username = "test";
+//    std::string password = "test";
 
-    Customer c(id, fName, lName, age, username, password, UtilityFunctions::getTodaysDate());   // write encrypted customer
-    cReader.write(c);
-    Customer getC = *(cReader.searchByID(id));
-    getC.printInfo();
+//    Customer c(id, fName, lName, age, username, password, UtilityFunctions::getTodaysDate());   // write encrypted customer
+//    cReader.write(c);
+//    Customer getC = *(cReader.searchByID(id));
+//    getC.printInfo();
 }
 
 

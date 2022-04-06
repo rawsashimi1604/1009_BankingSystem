@@ -5,7 +5,7 @@ Encrypter::Encrypter()
 
 }
 
-Customer Encrypter::encryptCustomer(Customer &customer) {
+Customer& Encrypter::encryptCustomer(Customer &customer) {
     customer.firstName = encryptASCII(customer.firstName);
     customer.lastName = encryptASCII(customer.lastName);
     customer.username = encryptASCII(customer.username);
@@ -15,7 +15,7 @@ Customer Encrypter::encryptCustomer(Customer &customer) {
 
 }
 
-Customer Encrypter::decryptCustomer(Customer &customer) {
+Customer& Encrypter::decryptCustomer(Customer &customer) {
     customer.firstName = decryptASCII(customer.firstName);
     customer.lastName = decryptASCII(customer.lastName);
     customer.username = decryptASCII(customer.username);

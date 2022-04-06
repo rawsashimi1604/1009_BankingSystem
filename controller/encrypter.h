@@ -20,8 +20,8 @@ private:
 public:
     Encrypter();
 
-    Customer encryptCustomer(Customer& customer);
-    Customer decryptCustomer(Customer& customer);
+    Customer& encryptCustomer(Customer& customer);
+    Customer& decryptCustomer(Customer& customer);
     std::string hash(std::string input);
     std::string encryptASCII(std::string);
     std::string decryptASCII(std::string);

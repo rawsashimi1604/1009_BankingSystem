@@ -110,7 +110,7 @@ std::optional<Customer> CredentialsReader::searchByID(int id) {
         // Construct Customer Object, decrypt
         Customer customer(id, fName, lName, convertedAge, uName, pNo, dateRegistered, convertedBalance, convertedAmountSpent, convertedAmountSaved);
         Encrypter e;
-        e.decryptCustomer(customer);
+        customer = e.decryptCustomer(customer);
         return customer;
     }
 
@@ -120,6 +120,7 @@ std::optional<Customer> CredentialsReader::searchByID(int id) {
 // Search for customer by Username
 std::optional<Customer> CredentialsReader::searchByUsername(std::string username) {
 
+    Encrypter e;                        // Encrypts ASCII (security)
     bool existFlag = false;
 
     std::fstream cFile(fileLocation);
@@ -169,7 +170,7 @@ std::optional<Customer> CredentialsReader::searchByUsername(std::string username
             break;
         }
 
-        if (username == uName) {
+        if (e.encryptASCII(username) == uName) {
             existFlag = true;
             break;
         }
@@ -189,8 +190,7 @@ std::optional<Customer> CredentialsReader::searchByUsername(std::string username
 
         // Construct Customer Object, Decrypt
         Customer customer(id, fName, lName, convertedAge, uName, pNo, dateRegistered, convertedBalance, convertedAmountSpent, convertedAmountSaved);
-        Encrypter e;
-        e.decryptCustomer(customer);
+        customer = e.decryptCustomer(customer);
 
         cFile.close();
 
