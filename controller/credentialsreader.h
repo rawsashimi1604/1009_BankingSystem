@@ -10,6 +10,7 @@
 #include <filesystem>
 
 #include "model/customer.h"
+#include "controller/encrypter.h"
 
 class CredentialsReader
 {

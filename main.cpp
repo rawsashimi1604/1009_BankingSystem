@@ -11,6 +11,7 @@
 #include "controller/transactionreader.h"
 #include "controller/registerhandler.h"
 #include "controller/loginhandler.h"
+#include "controller/encrypter.h"
 
 #include "model/customer.h"
 #include "model/transaction.h"
@@ -18,26 +19,33 @@
 
 void myTest() {
 
-    // Transaction handler
-    TransactionHandler tHandler;
-    CredentialsReader cReader;
-    std::optional<Customer> customer = cReader.searchByID(1);
-    std::optional<Customer> customer2 = cReader.searchByID(2);
-    //std::cout << customer << std::endl;
 
-    TransactionStatus status = tHandler.transfer(*customer2, *customer, 100);
-    switch(status) {
-        case TRANSACTION_SUCCESS:
-            std::cout << "TRANSACTION_SUCCESS!" << std::endl;
-            break;
-        case TRANSACTION_FAILURE:
-            std::cout << "TRANSACTION_FAILURE!" << std::endl;
-            break;
-        case TRANSACTION_LOG_FAILURE:
-            std::cout << "TRANSACTION_LOG_FAILURE!" << std::endl;
-            break;
-    }
-    customer->printInfo();
+    Encrypter e;
+    CredentialsReader cReader;
+    LoginHandler l;
+
+    l.login("test", "test");
+
+//    std::string s = "obama123";
+
+//    std::cout << "String is: " << s << std::endl;
+
+//    s = e.encryptASCII(s);
+//    std::cout << "Encrypted is: " << s << std::endl;
+//    s = e.decryptASCII(s);
+//    std::cout << "Decrypted is: " << s << std::endl;
+
+//    int id = cReader.getNextID();
+//    std::string fName = "test";
+//    std::string lName = "test";
+//    int age = 60;
+//    std::string username = "test";
+//    std::string password = "test";
+
+//    Customer c(id, fName, lName, age, username, password, UtilityFunctions::getTodaysDate());   // write encrypted customer
+//    cReader.write(c);
+//    Customer getC = *(cReader.searchByID(id));
+//    getC.printInfo();
 }
 
 
@@ -50,7 +58,7 @@ int main(int argc, char *argv[])
     Title mainApp(bankApp_ptr);
     mainApp.show();
 
-    //myTest();
+    myTest();
 
     return a.exec();
     //test

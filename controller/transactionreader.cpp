@@ -28,7 +28,7 @@ int TransactionReader::getNextID() {
     }
 
     std::string idStr;
-    int id;
+    int id = 0;
 
     std::string column;
     getline(tFile, column);             // Skip column headers

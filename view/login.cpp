@@ -8,7 +8,6 @@ Login::Login(BankingApp* bankApp, QWidget *parent)
       menu(bankApp)
 {
     this->bankApp = bankApp;
-    std::cout << bankApp << std::endl;
     ui->setupUi(this);
 
     //insert a menu object

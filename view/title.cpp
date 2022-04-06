@@ -8,7 +8,6 @@ Title::Title(BankingApp* bankApp, QWidget *parent) :
     reg(bankApp)
 {
     this->bankApp = bankApp;
-    std::cout << bankApp << std::endl;
     ui->setupUi(this);
     ui->stackedWidget->insertWidget(1,&reg);
     ui->stackedWidget->insertWidget(2,&login);

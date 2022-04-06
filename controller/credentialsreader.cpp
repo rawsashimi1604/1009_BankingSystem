@@ -107,8 +107,10 @@ std::optional<Customer> CredentialsReader::searchByID(int id) {
         float convertedAmountSpent = stof(aSpent);
         float convertedAmountSaved = stof(aSaved);
 
-        // Construct Customer Object
+        // Construct Customer Object, decrypt
         Customer customer(id, fName, lName, convertedAge, uName, pNo, dateRegistered, convertedBalance, convertedAmountSpent, convertedAmountSaved);
+        Encrypter e;
+        customer = e.decryptCustomer(customer);
         return customer;
     }
 
@@ -118,6 +120,7 @@ std::optional<Customer> CredentialsReader::searchByID(int id) {
 // Search for customer by Username
 std::optional<Customer> CredentialsReader::searchByUsername(std::string username) {
 
+    Encrypter e;                        // Encrypts ASCII (security)
     bool existFlag = false;
 
     std::fstream cFile(fileLocation);
@@ -167,7 +170,7 @@ std::optional<Customer> CredentialsReader::searchByUsername(std::string username
             break;
         }
 
-        if (username == uName) {
+        if (e.encryptASCII(username) == uName) {
             existFlag = true;
             break;
         }
@@ -185,8 +188,10 @@ std::optional<Customer> CredentialsReader::searchByUsername(std::string username
         float convertedAmountSpent = stof(aSpent);
         float convertedAmountSaved = stof(aSaved);
 
-        // Construct Customer Object
+        // Construct Customer Object, Decrypt
         Customer customer(id, fName, lName, convertedAge, uName, pNo, dateRegistered, convertedBalance, convertedAmountSpent, convertedAmountSaved);
+        customer = e.decryptCustomer(customer);
+
         cFile.close();
 
         return customer;
@@ -195,11 +200,13 @@ std::optional<Customer> CredentialsReader::searchByUsername(std::string username
     return {};    // Customer dosent exist
 }
 
-// This function writes the userCredential struct to the given fileName's csv file
+// This function writes Customer information (encrypted) into ./data/customers.csv
 // returns true if success, false if failed
 bool CredentialsReader::write(Customer customer) {
 
     std::ofstream cFile(fileLocation, std::ios_base::app);
+    Encrypter e;                            // Used to encrypt ASCII characters for security (customers.csv)
+    e.encryptCustomer(customer);            // Encrypt customer data.
 
     if (!cFile.is_open()) {
         return false;
@@ -229,6 +236,11 @@ bool CredentialsReader::update(Customer customer) {
     // Update record
     // Delete old file, rename file
 
+    // Encrypt customer data
+    Encrypter e;
+    e.encryptCustomer(customer);
+
+
     std::string newFileLocation = "../1009_BankingSystem/data/customers_tmp.csv";    // to be updated, make more dynamic
     std::fstream fin, fout;
 
@@ -242,12 +254,6 @@ bool CredentialsReader::update(Customer customer) {
 
     // Get new customer data as a vector
     std::vector<std::string> updatedCustomerData = customer.getCsvFormat();
-
-//    // Check data is correct
-//    for (size_t i = 0; i < updatedCustomerData.size(); i++) {
-//        cout << updatedCustomerData[i] << " ";
-//    }
-//    cout << endl;
 
     // Copy column names
     getline(fin, line, '\n');

@@ -7,7 +7,6 @@ RegisterAcc::RegisterAcc(BankingApp* bankApp, QWidget *parent) :
     ui(new Ui::RegisterAcc)
 {
     this->bankApp = bankApp;
-    std::cout << bankApp << std::endl;
     ui->setupUi(this);
 }
 
