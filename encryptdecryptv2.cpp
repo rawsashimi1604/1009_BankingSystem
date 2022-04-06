@@ -14,10 +14,18 @@ char encryptch(char ch) {
         } else {
             return ch;
         }
-    } else {
+    } else if (ch > 65){
         if (ch> 90) {
             ch = ch - 90;
             ch = ch + 64;
+            return ch;
+        } else {
+            return ch;
+        }
+    } else if (ch > 30) {
+        if (ch > 57) {
+            ch = ch - 57;
+            ch = ch + 29;
             return ch;
         } else {
             return ch;
@@ -27,7 +35,15 @@ char encryptch(char ch) {
 
 char decryptch(char ch) {
     ch = ch  - CIPHER_KEY;
-    if (ch < 90) {
+    if (ch < 57){
+        if (ch < 48) {
+            ch = ch - 48;
+            ch = ch + 58;
+            return ch;
+        } else {
+            return ch;
+        }
+    } else if (ch < 90) {
         if (ch < 65) {
             ch = ch - 65;
             ch = ch + 91;
@@ -35,7 +51,7 @@ char decryptch(char ch) {
         } else {
             return ch;
         }
-    } else {
+    } else if (ch < 122) {
         if (ch < 97) {
             ch = ch - 97;
             ch = ch + 123;
