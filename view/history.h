@@ -25,7 +25,8 @@ public:
 private:
     Ui::History *ui;
     BankingApp* bankApp;
-    TransactionReader cReader;
+    TransactionReader tReader;
+    CredentialsReader cReader;
 
 private slots:
     void on_back_clicked();

@@ -30,7 +30,7 @@ void History::updateScreenBalance(){
 
 void History::tableWidgetDisplay(){
     std::cout << "test" << std::endl;
-    std::vector<Transaction> transaction = cReader.searchAllTransactions(bankApp->getCurrentCustomer()->getID());
+    std::vector<Transaction> transaction = tReader.searchAllTransactions(bankApp->getCurrentCustomer()->getID());
     int rowCount = 0;
 
 //    for (Transaction tract: transaction){
@@ -61,14 +61,16 @@ void History::tableWidgetDisplay(){
             if (j ==1){
                 int id1 = transaction[reverseList].getSenderID();
                 if (id1 != -1){
-                    QString s = QString::number(id1);
+                    std::optional<Customer> cust =  cReader.searchByID(id1);
+                    QString s = QString::fromStdString(cust->getUsername());
                     ui->tableWidget->setItem(i,j,new QTableWidgetItem(s));
                 }
             }
             if (j == 2){
                int id2 = transaction[reverseList].getReceiverID();
                if (id2 != -1){
-                   QString s = QString::number(id2);
+                   std::optional<Customer> cust =  cReader.searchByID(id2);
+                   QString s = QString::fromStdString(cust->getUsername());
                    ui->tableWidget->setItem(i,j,new QTableWidgetItem(s));
                }
             }
