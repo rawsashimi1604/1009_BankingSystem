@@ -22,10 +22,10 @@ char encryptch(char ch) {
         } else {
             return ch;
         }
-    } else if (ch > 30) {
+    } else if (ch > 48) {
         if (ch > 57) {
             ch = ch - 57;
-            ch = ch + 29;
+            ch = ch + 47;
             return ch;
         } else {
             return ch;
