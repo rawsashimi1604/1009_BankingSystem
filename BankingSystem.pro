@@ -12,6 +12,7 @@ SOURCES += \
     bankingapp.cpp \
     controller/credentialsreader.cpp \
     controller/encrypter.cpp \
+    controller/leaderboardhandler.cpp \
     controller/loginhandler.cpp \
     controller/registerhandler.cpp \
     controller/transactionhandler.cpp \
@@ -37,6 +38,7 @@ HEADERS += \
     bankingapp.h \
     controller/credentialsreader.h \
     controller/encrypter.h \
+    controller/leaderboardhandler.h \
     controller/loginhandler.h \
     controller/registerhandler.h \
     controller/transactionhandler.h \

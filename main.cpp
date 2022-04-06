@@ -24,28 +24,25 @@ void myTest() {
     CredentialsReader cReader;
     LoginHandler l;
 
-    l.login("test", "test");
-
-//    std::string s = "obama123";
-
-//    std::cout << "String is: " << s << std::endl;
-
-//    s = e.encryptASCII(s);
-//    std::cout << "Encrypted is: " << s << std::endl;
-//    s = e.decryptASCII(s);
-//    std::cout << "Decrypted is: " << s << std::endl;
-
+//    // Test Add User
 //    int id = cReader.getNextID();
-//    std::string fName = "test";
-//    std::string lName = "test";
-//    int age = 60;
-//    std::string username = "test";
-//    std::string password = "test";
+//    std::string fName = "Barack";
+//    std::string lName = "Obama";
+//    int age = 70;
+//    std::string username = "barack";
+//    std::string password = "obama123";
 
 //    Customer c(id, fName, lName, age, username, password, UtilityFunctions::getTodaysDate());   // write encrypted customer
 //    cReader.write(c);
 //    Customer getC = *(cReader.searchByID(id));
 //    getC.printInfo();
+
+    std::vector<Customer> customers = cReader.getAllCustomers();
+
+    for (Customer& c : customers) {
+        std::cout << c.getFullName() << std::endl;
+    }
+
 }
 
 

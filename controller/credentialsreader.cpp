@@ -120,7 +120,7 @@ std::optional<Customer> CredentialsReader::searchByID(int id) {
 // Search for customer by Username
 std::optional<Customer> CredentialsReader::searchByUsername(std::string username) {
 
-    Encrypter e;                        // Encrypts ASCII (security)
+    Encrypter e;                        // Decrypts ASCII (security)
     bool existFlag = false;
 
     std::fstream cFile(fileLocation);
@@ -178,6 +178,8 @@ std::optional<Customer> CredentialsReader::searchByUsername(std::string username
         row++;  // Update row number
     }
 
+    cFile.close();
+
     // If customer exists,
     if (existFlag) {
         // Convert all floats and ints from strings
@@ -192,12 +194,83 @@ std::optional<Customer> CredentialsReader::searchByUsername(std::string username
         Customer customer(id, fName, lName, convertedAge, uName, pNo, dateRegistered, convertedBalance, convertedAmountSpent, convertedAmountSaved);
         customer = e.decryptCustomer(customer);
 
-        cFile.close();
+
 
         return customer;
     }
 
     return {};    // Customer dosent exist
+}
+
+std::vector<Customer> CredentialsReader::getAllCustomers() {
+
+    std::vector<Customer> result;
+
+    Encrypter e;                        // Decrypts ASCII (security)
+
+    std::fstream cFile(fileLocation);
+    int row = 1;                        // track current row.
+
+    // Skip first line (row columns)
+    std::string column;
+    getline(cFile, column);
+
+    std::string customerID;
+    std::string fName;
+    std::string lName;
+    std::string age;
+    std::string uName;
+    std::string pNo;
+    std::string dateRegistered;
+    std::string Bal;
+    std::string aSpent;
+    std::string aSaved;
+
+
+    // If file open failed, return NULL and show error.
+    if(!cFile.is_open()) {
+        std::cout << "Error opening " << fileLocation << ", returning NULL." << std::endl;
+        return result;
+    }
+
+
+    // Load info from .csv file into Customer object
+    while(cFile.good()) {
+        getline(cFile, customerID,',');
+        getline(cFile, fName,',');
+        getline(cFile, lName,',');
+        getline(cFile, age,',');
+        getline(cFile, uName,',');
+        getline(cFile, pNo,',');
+        getline(cFile, dateRegistered,',');
+        getline(cFile, Bal,',');
+        getline(cFile, aSpent,',');
+        getline(cFile, aSaved,'\n');
+
+        // If reached EOF, stop searching
+        if (cFile.eof()) {
+            break;
+        }
+
+        // Convert all floats and ints from strings
+        int id = stoi(customerID);
+        int convertedAge = stoi(age);
+
+        float convertedBalance = stof(Bal);
+        float convertedAmountSpent = stof(aSpent);
+        float convertedAmountSaved = stof(aSaved);
+
+        // Construct Customer Object, Decrypt
+        Customer customer(id, fName, lName, convertedAge, uName, pNo, dateRegistered, convertedBalance, convertedAmountSpent, convertedAmountSaved);
+        customer = e.decryptCustomer(customer);
+        result.push_back(customer);
+
+        row++;  // Update row number
+    }
+
+    cFile.close();
+    return result;    // Customer dosent exist
+
 }
 
 // This function writes Customer information (encrypted) into ./data/customers.csv

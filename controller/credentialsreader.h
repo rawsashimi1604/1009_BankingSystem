@@ -25,6 +25,7 @@ public:
     int getNextID();
     std::optional<Customer> searchByID(int id);
     std::optional<Customer> searchByUsername(std::string username);
+    std::vector<Customer> getAllCustomers();
     bool write(Customer customer);
     bool update(Customer customer);
 };

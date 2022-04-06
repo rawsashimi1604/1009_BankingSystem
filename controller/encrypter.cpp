@@ -23,31 +23,48 @@ Customer& Encrypter::decryptCustomer(Customer &customer) {
     return customer;
 }
 
-
 char Encrypter::encryptChar(char ch) {
     ch = ch + CIPHER_KEY;
-        if (ch > 97){
-            if (ch > 122) {
-                ch = ch - 122;
-                ch = ch + 96;
-                return ch;
-            } else {
-                return ch;
-            }
+    if (ch > 97){
+        if (ch > 122) {
+            ch = ch - 122;
+            ch = ch + 96;
+            return ch;
         } else {
-            if (ch> 90) {
-                ch = ch - 90;
-                ch = ch + 64;
-                return ch;
-            } else {
-                return ch;
-            }
+            return ch;
         }
+    } else if (ch > 65){
+        if (ch> 90) {
+            ch = ch - 90;
+            ch = ch + 64;
+            return ch;
+        } else {
+            return ch;
+        }
+    } else if (ch > 48) {
+        if (ch > 57) {
+            ch = ch - 57;
+            ch = ch + 47;
+            return ch;
+        } else {
+            return ch;
+        }
+    }
+
+    return ch;
 }
 
 char Encrypter::decryptChar(char ch) {
     ch = ch  - CIPHER_KEY;
-    if (ch < 90) {
+    if (ch < 57){
+        if (ch < 48) {
+            ch = ch - 48;
+            ch = ch + 58;
+            return ch;
+        } else {
+            return ch;
+        }
+    } else if (ch < 90) {
         if (ch < 65) {
             ch = ch - 65;
             ch = ch + 91;
@@ -55,7 +72,7 @@ char Encrypter::decryptChar(char ch) {
         } else {
             return ch;
         }
-    } else {
+    } else if (ch < 122) {
         if (ch < 97) {
             ch = ch - 97;
             ch = ch + 123;
@@ -64,6 +81,8 @@ char Encrypter::decryptChar(char ch) {
             return ch;
         }
     }
+
+    return ch;
 }
 
 
