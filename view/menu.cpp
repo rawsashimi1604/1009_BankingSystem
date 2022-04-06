@@ -11,7 +11,6 @@ Menu::Menu(BankingApp* bankApp, QWidget *parent):
     leaderBoard(bankApp)
 {
     this->bankApp = bankApp;
-    std::cout << bankApp << std::endl;
     ui->setupUi(this);
 
     //insert all the menu object

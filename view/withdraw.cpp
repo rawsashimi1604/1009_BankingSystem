@@ -6,7 +6,6 @@ Withdraw::Withdraw(BankingApp* bankApp, QWidget *parent) :
     ui(new Ui::Withdraw)
 {
     this->bankApp = bankApp;
-    std::cout << bankApp << std::endl;
     ui->setupUi(this);
 }
 

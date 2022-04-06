@@ -6,7 +6,6 @@ Leaderboard::Leaderboard(BankingApp* bankApp, QWidget *parent) :
     ui(new Ui::Leaderboard)
 {
     this->bankApp = bankApp;
-    std::cout << bankApp << std::endl;
     ui->setupUi(this);
 }
 

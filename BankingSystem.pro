@@ -11,7 +11,6 @@ CONFIG += c++11
 SOURCES += \
     bankingapp.cpp \
     controller/credentialsreader.cpp \
-    controller/decrypter.cpp \
     controller/encrypter.cpp \
     controller/loginhandler.cpp \
     controller/registerhandler.cpp \
@@ -37,7 +36,6 @@ SOURCES += \
 HEADERS += \
     bankingapp.h \
     controller/credentialsreader.h \
-    controller/decrypter.h \
     controller/encrypter.h \
     controller/loginhandler.h \
     controller/registerhandler.h \

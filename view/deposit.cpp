@@ -7,7 +7,6 @@ Deposit::Deposit(BankingApp* bankApp, QWidget *parent) :
 {
 
     this->bankApp = bankApp;
-    std::cout << bankApp << std::endl;
     ui->setupUi(this);
 }
 
