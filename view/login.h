@@ -7,6 +7,7 @@
 #include "bankingapp.h"
 #include "view/menu.h"
 #include "controller/loginhandler.h"
+#include "controller/encrypter.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Login; }
@@ -32,6 +33,7 @@ private:
     Ui::Login *ui;
     //initialise the menu class
     Menu menu;
+    Encrypter encrypt;
 
     BankingApp* bankApp;
 
