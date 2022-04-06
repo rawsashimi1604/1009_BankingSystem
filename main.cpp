@@ -19,19 +19,32 @@
 
 void myTest() {
 
-    std::string password = "password123";
+
     Encrypter e;
+    CredentialsReader cReader;
 
-    std::string hashed = e.hash(password);
+    std::string s = "obama123";
 
-    std::cout << "password: " << password << std::endl;
-    std::cout << "hashed: " << hashed << std::endl;
+    std::cout << "String is: " << s << std::endl;
 
-    std::string username = "100.00";
-    std::string encrypted = e.encryptASCII(username);
+    s = e.encryptASCII(s);
+    std::cout << "Encrypted is: " << s << std::endl;
+    s = e.decryptASCII(s);
+    std::cout << "Decrypted is: " << s << std::endl;
 
-    std::cout << "encrypted username: " << encrypted << std::endl;
 
+
+//    int id = cReader.getNextID();
+//    std::string fName = "Barack";
+//    std::string lName = "Obama";
+//    int age = 60;
+//    std::string username = "obama123";
+//    std::string password = "usabest";
+
+//    Customer c(id, fName, lName, age, username, password, UtilityFunctions::getTodaysDate());   // write encrypted customer
+//    cReader.write(c);
+//    Customer getC = *(cReader.searchByID(id));
+//    getC.printInfo();
 }
 
 

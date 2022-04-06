@@ -6,6 +6,8 @@
 #include <sstream>
 #include <algorithm>
 
+#include "model/customer.h"
+
 #define CIPHER_KEY 3
 
 class Encrypter
@@ -18,6 +20,8 @@ private:
 public:
     Encrypter();
 
+    Customer encryptCustomer(Customer& customer);
+    Customer decryptCustomer(Customer& customer);
     std::string hash(std::string input);
     std::string encryptASCII(std::string);
     std::string decryptASCII(std::string);

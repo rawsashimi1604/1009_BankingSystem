@@ -5,6 +5,7 @@
 #include "model/transaction.h"
 #include "controller/transactionreader.h"
 
+
 #define TRANSACTION_SUCCESS 1
 #define TRANSACTION_FAILURE 0
 #define TRANSACTION_LOG_FAILURE -1
