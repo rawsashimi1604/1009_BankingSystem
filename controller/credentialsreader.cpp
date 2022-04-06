@@ -311,7 +311,7 @@ bool CredentialsReader::update(Customer customer) {
 
     // Encrypt customer data
     Encrypter e;
-    e.encryptCustomer(customer);
+    e.encryptCustomerWithoutPassword(customer);
 
 
     std::string newFileLocation = "../1009_BankingSystem/data/customers_tmp.csv";    // to be updated, make more dynamic

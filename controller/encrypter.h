@@ -21,6 +21,7 @@ public:
     Encrypter();
 
     Customer& encryptCustomer(Customer& customer);
+    Customer& encryptCustomerWithoutPassword(Customer& customer);
     Customer& decryptCustomer(Customer& customer);
     std::string hash(std::string input);
     std::string encryptASCII(std::string);

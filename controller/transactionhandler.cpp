@@ -53,6 +53,9 @@ TransactionStatus TransactionHandler::withdraw(Customer customer, float amt) {
 }
 
 TransactionStatus TransactionHandler::deposit(Customer customer, float amt) {
+
+    customer.printInfo();
+
     // Add amount to Customer, update .csv file with new values
     customer.setBalance(customer.getBalance() + amt);
     CredentialsReader CR;
@@ -65,6 +68,7 @@ TransactionStatus TransactionHandler::deposit(Customer customer, float amt) {
         }
         // Else, update transactions.csv with new transaction
         customer = *CR.searchByID(customer.getID());
+        customer.printInfo();
         return TRANSACTION_SUCCESS;
     }
     else{
