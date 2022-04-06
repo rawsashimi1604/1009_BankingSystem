@@ -23,28 +23,26 @@ void myTest() {
     Encrypter e;
     CredentialsReader cReader;
 
-    std::string s = "obama123";
+//    std::string s = "obama123";
 
-    std::cout << "String is: " << s << std::endl;
+//    std::cout << "String is: " << s << std::endl;
 
-    s = e.encryptASCII(s);
-    std::cout << "Encrypted is: " << s << std::endl;
-    s = e.decryptASCII(s);
-    std::cout << "Decrypted is: " << s << std::endl;
+//    s = e.encryptASCII(s);
+//    std::cout << "Encrypted is: " << s << std::endl;
+//    s = e.decryptASCII(s);
+//    std::cout << "Decrypted is: " << s << std::endl;
 
+    int id = cReader.getNextID();
+    std::string fName = "test";
+    std::string lName = "test";
+    int age = 60;
+    std::string username = "test";
+    std::string password = "test";
 
-
-//    int id = cReader.getNextID();
-//    std::string fName = "Barack";
-//    std::string lName = "Obama";
-//    int age = 60;
-//    std::string username = "obama123";
-//    std::string password = "usabest";
-
-//    Customer c(id, fName, lName, age, username, password, UtilityFunctions::getTodaysDate());   // write encrypted customer
-//    cReader.write(c);
-//    Customer getC = *(cReader.searchByID(id));
-//    getC.printInfo();
+    Customer c(id, fName, lName, age, username, password, UtilityFunctions::getTodaysDate());   // write encrypted customer
+    cReader.write(c);
+    Customer getC = *(cReader.searchByID(id));
+    getC.printInfo();
 }
 
 
