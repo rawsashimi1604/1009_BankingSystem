@@ -4,7 +4,6 @@
 #include "csvmodel.h"
 #include "date.h"
 
-#include "controller/credentialsreader.h"
 #include "customer.h"
 
 class Transaction : public CsvModel
@@ -14,7 +13,6 @@ class Transaction : public CsvModel
     friend std::ostream& operator<<(std::ostream&, Transaction transactionObj);
 
 private:
-    CredentialsReader cReader;
 
     Date transactionDate;
 
