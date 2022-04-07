@@ -1,54 +1,36 @@
-//#include "leaderboardhandler.h"
+#include "leaderboardhandler.h"
 
-//LeaderboardHandler::LeaderboardHandler()
-//{
+LeaderboardHandler::LeaderboardHandler()
+{
 
-//}
+}
 
-//std::vector<Customer> LeaderboardHandler::getTopThreeSpenders() {
-//    std::vector<Customer> customers = cReader.getAllCustomers();
-//    //std::vector<Customer> res;
-//    std::vector<Customer> res;
+std::vector<Customer> LeaderboardHandler::getTopThreeSpenders() {
+    std::vector<Customer> customers = cReader.getAllCustomers();
+    //std::vector<Customer> res;
+    std::vector<Customer> res;
 
-//    // Add your logic to get top three spenders here
-//    int topspend = 0, secondspend=0, thirdspend=0;
-//    std::string topspender,secondspender,thirdspender;
+    // Sort customers by top 3 spenders ( Insertion Sort )
+    for (size_t i = 1; i < customers.size(); i++) {
 
-//    // Accessing customers vector
-//    for (size_t i = 0; i < customers.size(); i++) {
-//        customers[i].getAmountSpent();
-//        if (customers[i].getAmountSpent() > topspend){
-//            topspend = customers[i].getAmountSpent();
-//            topspender = customers[i].getUsername();
-//        }
-//    }
-//    for (size_t i = 0; i < customers.size(); i++) {
-//        customers[i].getAmountSpent();
-//        if (customers[i].getAmountSpent() > secondspend && customers[i].getAmountSpent() < topspend){
-//            secondspend = customers[i].getAmountSpent();
-//            secondspender = customers[i].getUsername();
-//        }
-//    }
-//    for (size_t i = 0; i < customers.size(); i++) {
-//        customers[i].getAmountSpent();
-//        if (customers[i].getAmountSpent() > thirdspend && customers[i].getAmountSpent() < secondspend){
-//            thirdspend = customers[i].getAmountSpent();
-//            thirdspender = customers[i].getUsername();
-//        }
-//    }
+        float currSpend = customers[i].getAmountSpent();
+        int position = i;
 
-//    std::string topspending = std::to_string(topspend);
-//    std::string secondspending = std::to_string(secondspend);
-//    std::string thirdspending = std::to_string(thirdspend);
-//    Leaderboard Leaderboard(topspending, secondspending, thirdspending, topspender, secondspender, thirdspender);
-////    res.push_back(topspend);
-////    res.push_back(secondspend);
-////    res.push_back(thirdspend);
-////    res.push_back(topspender);
-////    res.push_back(secondspender);
-//    res.push_back(Leaderboard);
-//    return res;
-//}
+        while (position > 0 && customers[position-1].getAmountSpent() > currSpend) {
+            customers[position] = customers[position-1];
+            position--;
+        }
+
+        customers[position] = customers[i];
+    }
+
+    for (size_t i = 0; i < customers.size(); i++) {
+        std::cout << "Customer name: " << customers[i].getFullName() << std::endl;
+        std::cout << "Customer spend: $" << customers[i].getAmountSpent() << std::endl << std::endl;
+    }
+
+    return res;
+}
 
 //std::vector<Customer> LeaderboardHandler::getTopThreeSavers() {
 //    std::vector<Customer> customers = cReader.getAllCustomers();
@@ -95,26 +77,26 @@
 
 //}
 
-//double LeaderboardHandler::calculatePrcSpend(Customer customer) {
+double LeaderboardHandler::calculatePrcSpend(Customer customer) {
 
-//    if (!cReader.searchByID(customer.getID())) {
-//        std::cout << "Customer does not exist." << std::endl;
-//        return -1;
-//    }
+    if (!cReader.searchByID(customer.getID())) {
+        std::cout << "Customer does not exist." << std::endl;
+        return -1;
+    }
 
-//    // Add your logic to get percentile for prc spent for inputted customer here
+    // Add your logic to get percentile for prc spent for inputted customer here
 
-//    return 0;
-//}
+    return 0;
+}
 
-//double LeaderboardHandler::calculatePrcSave(Customer customer) {
+double LeaderboardHandler::calculatePrcSave(Customer customer) {
 
-//    if (!cReader.searchByID(customer.getID())) {
-//        std::cout << "Customer does not exist." << std::endl;
-//        return -1;
-//    }
+    if (!cReader.searchByID(customer.getID())) {
+        std::cout << "Customer does not exist." << std::endl;
+        return -1;
+    }
 
-//    // Add your logic to get percentile for prc saved for inputted customer here
+    // Add your logic to get percentile for prc saved for inputted customer here
 
-//    return 0;
-//}
+    return 0;
+}

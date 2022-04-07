@@ -8,6 +8,7 @@
 #include "bankingapp.h"
 #include "controller/transactionhandler.h"
 #include "controller/credentialsreader.h"
+#include "controller/leaderboardhandler.h"
 #include "controller/transactionreader.h"
 #include "controller/registerhandler.h"
 #include "controller/loginhandler.h"
@@ -23,34 +24,10 @@ void myTest() {
     Encrypter e;
     CredentialsReader cReader;
     TransactionReader tReader;
+    LeaderboardHandler lHandler;
     LoginHandler l;
 
-//    // Test Add User
-//    int id = cReader.getNextID();
-//    std::string fName = "Barack";
-//    std::string lName = "Obama";
-//    int age = 70;
-//    std::string username = "barack";
-//    std::string password = "obama123";
-
-//    Customer c(id, fName, lName, age, username, password, UtilityFunctions::getTodaysDate());   // write encrypted customer
-//    cReader.write(c);
-//    Customer getC = *(cReader.searchByID(id));
-//    getC.printInfo();
-
-    std::vector<Customer> customers = cReader.getAllCustomers();
-
-    for (Customer& c : customers) {
-        std::cout << c;
-    }
-
-    std::vector<Transaction> transactions = tReader.searchAllTransactions(1);
-
-    for(Transaction& t : transactions) {
-        std::cout << t;
-    }
-
-
+    lHandler.getTopThreeSpenders();
 }
 
 

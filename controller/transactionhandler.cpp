@@ -34,12 +34,15 @@ TransactionStatus TransactionHandler::withdraw(Customer customer, float amt) {
     // Else, minus amount from Customer, update .csv file with new values
     else{
         customer.setBalance(customer.getBalance() - amt);
+        customer.setAmountSpent(customer.getAmountSpent() + amt);
+
         CredentialsReader CR;
 
         if (CR.update(customer)){
             // If no transfer log happened, return TRANSACTION_LOG_FAILURE, add back amount to bank balance
             if (!logTransaction(-1, customer.getID(), 0, amt, Enums::TransactionType::WITHDRAWAL)){
                 customer.setBalance(customer.getBalance() + amt);
+                customer.setAmountSpent(customer.getAmountSpent() - amt);
                 return TRANSACTION_LOG_FAILURE;
             }
             // Else, update transactions.csv with new transaction
@@ -58,12 +61,15 @@ TransactionStatus TransactionHandler::deposit(Customer customer, float amt) {
 
     // Add amount to Customer, update .csv file with new values
     customer.setBalance(customer.getBalance() + amt);
+    customer.setAmountSaved(customer.getAmountSaved() + amt);
+
     CredentialsReader CR;
 
     if (CR.update(customer)){
         // If no transfer log happened, return TRANSACTION_LOG_FAILURE, remove back amount to bank balance
         if (!logTransaction(customer.getID(), -1, amt, 0, Enums::TransactionType::DEPOSIT)){
             customer.setBalance(customer.getBalance() - amt);
+            customer.setAmountSaved(customer.getAmountSaved() - amt);
             return TRANSACTION_LOG_FAILURE;
         }
         // Else, update transactions.csv with new transaction
@@ -85,7 +91,10 @@ TransactionStatus TransactionHandler::transfer(Customer fromCustomer, Customer t
     else{
 
         fromCustomer.setBalance(fromCustomer.getBalance() - amt);
+        fromCustomer.setAmountSpent(fromCustomer.getAmountSpent() + amt);
+
         toCustomer.setBalance(toCustomer.getBalance() + amt);
+        toCustomer.setAmountSaved(toCustomer.getAmountSaved() + amt);
 
         CredentialsReader CR;
 
@@ -94,7 +103,9 @@ TransactionStatus TransactionHandler::transfer(Customer fromCustomer, Customer t
             // If no transfer log happened, return TRANSACTION_LOG_FAILURE, remove and add back amount to bank balance
             if(!logTransaction(toCustomer.getID(), fromCustomer.getID(), amt, amt, Enums::TransactionType::TRANSFER)){
                 fromCustomer.setBalance(fromCustomer.getBalance() + amt);
+                fromCustomer.setAmountSpent(fromCustomer.getAmountSpent() - amt);
                 toCustomer.setBalance(toCustomer.getBalance() - amt);
+                toCustomer.setAmountSaved(toCustomer.getAmountSaved() - amt);
                 return TRANSACTION_LOG_FAILURE;
             }
 
