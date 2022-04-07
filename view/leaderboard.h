@@ -18,6 +18,7 @@ private:
     Ui::Leaderboard *ui;
 
 public:
+    Leaderboard(std::string, std::string, std::string, std::string, std::string, std::string);
     explicit Leaderboard(BankingApp* bankApp, QWidget *parent = nullptr);
     ~Leaderboard();
     void updateScreenBalance();
