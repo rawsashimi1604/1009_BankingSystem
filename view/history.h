@@ -5,7 +5,10 @@
 
 #include "bankingapp.h"
 #include "controller/transactionreader.h"
+#include "controller/credentialsreader.h"
+
 #include "utils.h"
+
 #include "model/customer.h"
 
 namespace Ui {

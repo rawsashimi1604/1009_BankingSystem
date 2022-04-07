@@ -4,6 +4,7 @@
 #include "model/customer.h"
 #include "model/transaction.h"
 #include "controller/transactionreader.h"
+#include "controller/credentialsreader.h"
 
 
 #define TRANSACTION_SUCCESS 1

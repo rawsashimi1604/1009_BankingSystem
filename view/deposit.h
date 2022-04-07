@@ -6,6 +6,7 @@
 
 #include "bankingapp.h"
 #include "controller/transactionhandler.h"
+#include "controller/credentialsreader.h"
 #include "utils.h"
 
 namespace Ui {

@@ -2,6 +2,7 @@
 #define TRANSACTIONREADER_H
 
 #include "model/transaction.h"
+#include "controller/credentialsreader.h"
 
 #include <vector>
 
