@@ -22,10 +22,10 @@ std::vector<Customer> LeaderboardHandler::getTopThreeSpenders() {
     }
 
     // After sort
-    for (size_t i = 0; i < res.size(); i++) {
-        std::cout << "Customer name: " << res[i].getFullName() << std::endl;
-        std::cout << "Customer spend: $" << res[i].getAmountSpent() << std::endl << std::endl;
-    }
+//    for (size_t i = 0; i < res.size(); i++) {
+//        std::cout << "Customer name: " << res[i].getFullName() << std::endl;
+//        std::cout << "Customer spend: $" << res[i].getAmountSpent() << std::endl << std::endl;
+//    }
 
     return res;
 }
@@ -47,10 +47,10 @@ std::vector<Customer> LeaderboardHandler::getTopThreeSavers() {
     }
 
     // After sort
-    for (size_t i = 0; i < res.size(); i++) {
-        std::cout << "Customer name: " << res[i].getFullName() << std::endl;
-        std::cout << "Customer spend: $" << res[i].getAmountSaved() << std::endl << std::endl;
-    }
+//    for (size_t i = 0; i < res.size(); i++) {
+//        std::cout << "Customer name: " << res[i].getFullName() << std::endl;
+//        std::cout << "Customer spend: $" << res[i].getAmountSaved() << std::endl << std::endl;
+//    }
 
     return res;
 

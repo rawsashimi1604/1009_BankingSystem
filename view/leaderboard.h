@@ -4,6 +4,7 @@
 #include <QWidget>
 
 #include "bankingapp.h"
+#include "controller/leaderboardhandler.h"
 
 namespace Ui {
 class Leaderboard;
@@ -22,6 +23,7 @@ public:
     explicit Leaderboard(BankingApp* bankApp, QWidget *parent = nullptr);
     ~Leaderboard();
     void updateScreenBalance();
+    void displayTables();
 
 private slots:
     void on_back_clicked();
