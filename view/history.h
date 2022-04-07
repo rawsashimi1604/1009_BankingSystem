@@ -16,17 +16,18 @@ class History : public QWidget
 {
     Q_OBJECT
 
+private:
+    BankingApp* bankApp;
+    Ui::History *ui;
+    TransactionReader tReader;
+    CredentialsReader cReader;
+
 public:
     explicit History(BankingApp* bankApp, QWidget *parent = nullptr);
     ~History();
     void updateScreenBalance();
     void tableWidgetDisplay();
 
-private:
-    Ui::History *ui;
-    BankingApp* bankApp;
-    TransactionReader tReader;
-    CredentialsReader cReader;
 
 private slots:
     void on_back_clicked();

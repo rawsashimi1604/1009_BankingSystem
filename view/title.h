@@ -15,6 +15,13 @@ class Title : public QWidget
 {
     Q_OBJECT
 
+
+private:
+    BankingApp* bankApp;
+    Ui::Title *ui;
+    RegisterAcc reg;
+    Login login;
+
 public:
     explicit Title(BankingApp* bankApp, QWidget *parent = nullptr);
     ~Title();
@@ -24,11 +31,6 @@ private slots:
     void on_login_clicked();
     void moveMenu();
 
-private:
-    BankingApp* bankApp;
-    Ui::Title *ui;
-    RegisterAcc reg;
-    Login login;
 };
 
 #endif // TITLE_H

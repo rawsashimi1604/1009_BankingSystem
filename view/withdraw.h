@@ -15,16 +15,16 @@ class Withdraw : public QWidget
 {
     Q_OBJECT
 
-public:
-    explicit Withdraw(BankingApp* bankApp, QWidget *parent = nullptr);
-    ~Withdraw();
-    void updateScreenBalance();
-
 private:
     Ui::Withdraw *ui;
     BankingApp* bankApp;
     TransactionHandler transactHandler;
     QMessageBox msgBox;
+
+public:
+    explicit Withdraw(BankingApp* bankApp, QWidget *parent = nullptr);
+    ~Withdraw();
+    void updateScreenBalance();
 
 private slots:
     void on_back_clicked();

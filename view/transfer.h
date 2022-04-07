@@ -13,14 +13,11 @@ namespace Ui {
 class Transfer;
 }
 
+
+
 class Transfer : public QWidget
 {
     Q_OBJECT
-
-public:
-    explicit Transfer(BankingApp* bankApp, QWidget *parent = nullptr);
-    ~Transfer();
-    void updateScreenBalance();
 
 private:
     Ui::Transfer *ui;
@@ -29,6 +26,10 @@ private:
     CredentialsReader cReader;
     TransactionHandler transactHandler;
 
+public:
+    explicit Transfer(BankingApp* bankApp, QWidget *parent = nullptr);
+    ~Transfer();
+    void updateScreenBalance();
 
 
 signals:

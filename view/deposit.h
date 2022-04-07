@@ -16,21 +16,24 @@ class Deposit : public QWidget
 {
     Q_OBJECT
 
-public:
-    explicit Deposit(BankingApp* bankApp, QWidget *parent = nullptr);
-    ~Deposit();
-    void updateScreenBalance();
-
 private:
     BankingApp* bankApp;
     Ui::Deposit *ui;
     TransactionHandler transactHandler;
     QMessageBox msgBox;
 
+public:
+    explicit Deposit(BankingApp* bankApp, QWidget *parent = nullptr);
+    ~Deposit();
+    void updateScreenBalance();
+
+
+
 private slots:
     void on_back_clicked();
 
     void on_confirmDeposit_clicked();
+
 
 signals:
     void menuClicked();

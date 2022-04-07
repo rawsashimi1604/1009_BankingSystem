@@ -13,6 +13,10 @@ class Leaderboard : public QWidget
 {
     Q_OBJECT
 
+private:
+    BankingApp* bankApp;
+    Ui::Leaderboard *ui;
+
 public:
     explicit Leaderboard(BankingApp* bankApp, QWidget *parent = nullptr);
     ~Leaderboard();
@@ -21,9 +25,7 @@ public:
 private slots:
     void on_back_clicked();
 
-private:
-    BankingApp* bankApp;
-    Ui::Leaderboard *ui;
+
 
 signals:
     void menuClicked();

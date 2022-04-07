@@ -20,6 +20,18 @@ class Menu : public QWidget
 {
     Q_OBJECT
 
+private:
+    Ui::Menu *ui;
+
+    BankingApp* bankApp;
+
+    //initialise all the menu ui classes
+    Withdraw withdraw;
+    Deposit deposit;
+    Transfer transfer;
+    History history;
+    Leaderboard leaderBoard;
+
 public:
     explicit Menu(BankingApp* bankApp, QWidget *parent = nullptr);
     ~Menu();
@@ -37,18 +49,6 @@ private slots:
     void moveMenu();
 
     void on_leaderboard_clicked();
-
-private:
-    Ui::Menu *ui;
-
-    BankingApp* bankApp;
-
-    //initialise all the menu ui classes
-    Withdraw withdraw;
-    Deposit deposit;
-    Transfer transfer;
-    History history;
-    Leaderboard leaderBoard;
 
 };
 

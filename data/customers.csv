@@ -1,5 +1,6 @@
 customerID,firstName,lastName,age,username,password,dateRegistered,balance,amountSpent,amountSaved
 1,whvw,whvw,60,whvw,622F754,6/4/2022,1100,0,0
-2,Jdylq,Orr,23,jdylq,573C52E1,6/4/2022,1000,0,0
+2,Jdylq,Orr,23,jdylq,573C52E1,6/4/2022,2000.00,0.00,0.00
 3,Edudfn,Redpd,70,edudfn,59BA880A,6/4/2022,1000,0,0
 4,whvw,whvw,12,whvw456,296659F3,6/4/2022,1200.00,0.00,0.00
+5,whvw,whvw,20,whvwlqj,296659F3,6/4/2022,0.00,0.00,0.00

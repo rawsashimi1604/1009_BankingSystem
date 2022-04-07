@@ -19,8 +19,8 @@ private:
 
 public:
     RegisterHandler();
-    std::string encrypt(const std::string& str);
-    RegisterStatus registerAcc(const std::string& firstName, const std::string& lastName, const int age, const std::string& username, const std::string& password) const;
+    std::string encrypt(const std::string &str);
+    RegisterStatus registerAcc(const std::string &firstName, const std::string &lastName, const int age, const std::string &username, const std::string &password) const;
 };
 
 #endif // REGISTERHANDLER_H
