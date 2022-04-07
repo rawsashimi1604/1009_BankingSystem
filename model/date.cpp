@@ -50,3 +50,9 @@ std::string Date::getDateString() {
 
     return s;
 }
+
+// Friend functions
+std::ostream& operator<<(std::ostream& COUT, const Date& dateObj) {
+    COUT << dateObj.day << "/" << dateObj.month << "/" << dateObj.year;
+    return COUT;
+}

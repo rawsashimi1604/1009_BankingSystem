@@ -2,7 +2,7 @@
 #define MODEL_H
 
 /**
- * @brief The Model class is an abstract class, that specifies what each Model type object's behaviour
+ * @brief The Model class is an abstract class, that specifies each Model type object's behaviour
  */
 
 #include <iostream>

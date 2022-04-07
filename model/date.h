@@ -10,6 +10,10 @@ typedef unsigned u_int;
 
 class Date : public Model
 {
+
+    // Friend classes / functions
+    friend std::ostream& operator<<(std::ostream&, const Date& dateObj);
+
 private:
     u_int year;
     u_int month;
@@ -22,5 +26,7 @@ public:
     void printInfo() const;
     std::string getDateString();
 };
+
+std::ostream& operator<<(std::ostream&, const Date& dateObj);
 
 #endif // DATE_H

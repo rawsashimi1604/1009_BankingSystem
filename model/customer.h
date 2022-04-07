@@ -13,8 +13,9 @@
 class Customer : public CsvModel, public Model
 {
 
-    // Friend classes/ functions
+    // Friend classes / functions
     friend class Encrypter;
+    friend std::ostream& operator<<(std::ostream&, Customer& customerObj);
 
 private:
     static const float INITIAL_STARTING_BALANCE;     // Starting balance when creaing bank account;
@@ -40,8 +41,6 @@ public:
     Customer(int id, std::string firstName, std::string lastName, int age, std::string username, std::string password, std::string dateString, float balance, float amountSpent, float amountSaved);
     ~Customer();
 
-
-
     void printInfo() const;
     std::vector<std::string> getCsvFormat() const;
 
@@ -61,8 +60,8 @@ public:
     void setBalance(float newBalance);
     void setAmountSpent(float newAmountSpent);
     void setAmountSaved(float newAmountSaved);
-
-
 };
+
+std::ostream& operator<<(std::ostream&, Customer& customerObj);
 
 #endif // CUSTOMER_H

@@ -22,6 +22,7 @@ void myTest() {
 
     Encrypter e;
     CredentialsReader cReader;
+    TransactionReader tReader;
     LoginHandler l;
 
 //    // Test Add User
@@ -40,8 +41,15 @@ void myTest() {
     std::vector<Customer> customers = cReader.getAllCustomers();
 
     for (Customer& c : customers) {
-        std::cout << c.getFullName() << std::endl;
+        std::cout << c;
     }
+
+    std::vector<Transaction> transactions = tReader.searchAllTransactions(1);
+
+    for(Transaction& t : transactions) {
+        std::cout << t;
+    }
+
 
 }
 

@@ -89,6 +89,7 @@ void Customer::printInfo() const{
     // Set printing precision to 2 decimal places.
     std::streamsize ss = UtilityFunctions::setPrintingPrecision();
 
+    std::cout <<"---Customer Information---" << std::endl;
     std::cout << firstName + " " + lastName + ": $" << balance << std::endl;
     std::cout << "Date registered: "; dateRegistered.printInfo(); std::cout << std::endl;
     std::cout << "Age: " << age << std::endl;
@@ -160,6 +161,30 @@ void Customer::setAmountSaved(float newAmountSaved)
 void Customer::setAmountSpent(float newAmountSpent)
 {
     amountSpent = newAmountSpent;
+}
+
+// Operator overloading
+std::ostream& operator<<(std::ostream& COUT, Customer& customerObj) {
+    // Set printing precision to 2 decimal places.
+    std::streamsize ss = UtilityFunctions::setPrintingPrecision();
+
+    COUT    <<"---Customer Information---" << std::endl
+            << customerObj.firstName + " " + customerObj.lastName + ": $" << customerObj.balance << std::endl
+            << "Date registered: "; customerObj.dateRegistered.printInfo(); std::cout << std::endl
+            << "Age: " << customerObj.age << std::endl
+
+            << "--Credentials--" << std::endl
+            << "username: " << customerObj.username << std::endl
+            << "password: " << customerObj.password << std::endl
+
+            << "--Statistics--" << std::endl
+            << "Amount saved: $" << customerObj.amountSaved << std::endl
+            << "Amount spent: $" << customerObj.amountSpent << std::endl;
+
+    // Reset printing precision.
+    UtilityFunctions::removePrintingPrecision(ss);
+
+    return COUT;
 }
 
 

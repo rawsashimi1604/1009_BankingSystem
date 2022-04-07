@@ -51,13 +51,19 @@ void Transaction::printInfo() const{
     std::streamsize ss = UtilityFunctions::setPrintingPrecision();
 
     if (transType == Enums::TransactionType::DEPOSIT){
-        std::cout << "DEPOSIT, "; transactionDate.printInfo(); std::cout << ", " << "nil, " << receiverID << ", $" << amountReceived << ", $" << amountSent << std::endl;
+        std::cout << "DEPOSIT, ";
+        std::cout << transactionDate;
+        std::cout << ", " << "nil, " << receiverID << ", $" << amountReceived << ", $" << amountSent << std::endl;
     }
     else if (transType == Enums::TransactionType::WITHDRAWAL) {
-        std::cout << "WITHDRAWAL, "; transactionDate.printInfo(); std::cout << ", " << senderID << " nil, " << ", $" << amountReceived << ", $" << amountSent << std::endl;
+        std::cout << "WITHDRAWAL, ";
+        std::cout << transactionDate;
+        std::cout << ", " << senderID << " nil, " << ", $" << amountReceived << ", $" << amountSent << std::endl;
     }
     else if (transType == Enums::TransactionType::TRANSFER) {
-        std::cout << "TRANSFER, "; transactionDate.printInfo(); std::cout << ", " << senderID << ", " << receiverID << ", $" << amountReceived << ", $" << amountSent << std::endl;
+        std::cout << "TRANSFER, ";
+        std::cout << transactionDate;
+        std::cout << ", " << senderID << ", " << receiverID << ", $" << amountReceived << ", $" << amountSent << std::endl;
     }
     else {
         std::cout << "ERROR GETTING TRANSFER." << std::endl;
@@ -94,4 +100,43 @@ float Transaction::getAmountSent() const
 
 Enums::TransactionType Transaction::getTransactionType() const{
     return transType;
+}
+
+std::ostream& operator<<(std::ostream& COUT, Transaction transactionObj) {
+    // Set printing precision to 2 decimal places.
+    std::streamsize ss = UtilityFunctions::setPrintingPrecision();
+
+    if (transactionObj.transType == Enums::TransactionType::DEPOSIT){
+        COUT << "DEPOSIT, " <<
+        transactionObj.transactionDate <<
+        ", " << "nil, " <<
+        transactionObj.receiverID <<
+        ", $" << transactionObj.amountReceived <<
+        ", $" << transactionObj.amountSent << std::endl;
+    }
+
+    else if (transactionObj.transType == Enums::TransactionType::WITHDRAWAL) {
+        COUT << "WITHDRAWAL, " <<
+        transactionObj.transactionDate <<
+        ", " << transactionObj.senderID <<
+        " nil, " <<
+        ", $" << transactionObj.amountReceived <<
+        ", $" << transactionObj.amountSent << std::endl;
+    }
+    else if (transactionObj.transType == Enums::TransactionType::TRANSFER) {
+        COUT << "TRANSFER, " <<
+        transactionObj.transactionDate <<
+        ", " << transactionObj.senderID <<
+        ", " << transactionObj.receiverID <<
+        ", $" << transactionObj.amountReceived <<
+        ", $" << transactionObj.amountSent << std::endl;
+    }
+    else {
+        COUT << "ERROR GETTING TRANSFER." << std::endl;
+    }
+
+    // Reset printing precision.
+    UtilityFunctions::removePrintingPrecision(ss);
+
+    return COUT;
 }

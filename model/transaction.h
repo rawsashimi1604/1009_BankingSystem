@@ -11,6 +11,9 @@
 class Transaction : public CsvModel, public Model
 {
 
+    // Friend classes / functions
+    friend std::ostream& operator<<(std::ostream&, Transaction transactionObj);
+
 private:
     CredentialsReader cReader;
 
@@ -19,8 +22,8 @@ private:
     int receiverID;             // ID of customer receiving $
     int senderID;               // ID of customer sending $
 
-    float amountReceived;             // Amount of $ received
-    float amountSent;            // Amount of $ sent
+    float amountReceived;       // Amount of $ received
+    float amountSent;           // Amount of $ sent
 
     Enums::TransactionType transType;
 
@@ -39,5 +42,7 @@ public:
     float getAmountReceived() const;
     float getAmountSent() const;
 };
+
+std::ostream& operator<<(std::ostream&, Transaction transactionObj);
 
 #endif // TRANSACTION_H
