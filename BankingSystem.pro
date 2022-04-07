@@ -23,7 +23,6 @@ SOURCES += \
     model/csvmodel.cpp \
     model/customer.cpp \
     model/date.cpp \
-    model/model.cpp \
     model/transaction.cpp \
     utils.cpp \
     view/deposit.cpp \
@@ -48,7 +47,6 @@ HEADERS += \
     model/csvmodel.h \
     model/customer.h \
     model/date.h \
-    model/model.h \
     model/transaction.h \
     utils.h \
     view/deposit.h \

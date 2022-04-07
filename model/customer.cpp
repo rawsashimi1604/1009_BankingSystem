@@ -85,27 +85,6 @@ std::vector<std::string> Customer::getCsvFormat() const{
     return csvRow;
 }
 
-void Customer::printInfo() const{
-    // Set printing precision to 2 decimal places.
-    std::streamsize ss = UtilityFunctions::setPrintingPrecision();
-
-    std::cout <<"---Customer Information---" << std::endl;
-    std::cout << firstName + " " + lastName + ": $" << balance << std::endl;
-    std::cout << "Date registered: "; dateRegistered.printInfo(); std::cout << std::endl;
-    std::cout << "Age: " << age << std::endl;
-
-    std::cout << "--Credentials--" << std::endl;
-    std::cout << "username: " << username << std::endl;
-    std::cout << "password: " << password << std::endl;
-
-    std::cout << "--Statistics--" << std::endl;
-    std::cout << "Amount saved: $" << amountSaved << std::endl;
-    std::cout << "Amount spent: $" << amountSpent << std::endl;
-
-    // Reset printing precision.
-    UtilityFunctions::removePrintingPrecision(ss);
-}
-
 // Getters
 std::string Customer::getUsername() const{
     return username;
@@ -170,7 +149,7 @@ std::ostream& operator<<(std::ostream& COUT, Customer& customerObj) {
 
     COUT    <<"---Customer Information---" << std::endl
             << customerObj.firstName + " " + customerObj.lastName + ": $" << customerObj.balance << std::endl
-            << "Date registered: "; customerObj.dateRegistered.printInfo(); std::cout << std::endl
+            << "Date registered: " << customerObj.dateRegistered << std::endl
             << "Age: " << customerObj.age << std::endl
 
             << "--Credentials--" << std::endl

@@ -8,9 +8,8 @@
 #include "utils.h"
 #include "model/date.h"
 #include "model/csvmodel.h"
-#include "model/model.h"
 
-class Customer : public CsvModel, public Model
+class Customer : public CsvModel
 {
 
     // Friend classes / functions
@@ -41,7 +40,6 @@ public:
     Customer(int id, std::string firstName, std::string lastName, int age, std::string username, std::string password, std::string dateString, float balance, float amountSpent, float amountSaved);
     ~Customer();
 
-    void printInfo() const;
     std::vector<std::string> getCsvFormat() const;
 
     // Getters   

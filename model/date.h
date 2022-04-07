@@ -4,11 +4,10 @@
 #include <iostream>
 
 #include "csvmodel.h"
-#include "model.h"
 
 typedef unsigned u_int;
 
-class Date : public Model
+class Date
 {
 
     // Friend classes / functions
@@ -23,7 +22,6 @@ public:
     Date(std::string dateString);
     Date(u_int year, u_int month, u_int day);
 
-    void printInfo() const;
     std::string getDateString();
 };
 

@@ -5,10 +5,6 @@ RegisterHandler::RegisterHandler()
 
 }
 
-std::string RegisterHandler::encrypt(const std::string& str) {
-    return "";
-}
-
 RegisterStatus RegisterHandler::registerAcc(const std::string& firstName, const std::string& lastName, const int age, const std::string& username, const std::string& password) const {
 
     // check if username exists,

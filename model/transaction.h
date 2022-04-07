@@ -6,9 +6,8 @@
 
 #include "controller/credentialsreader.h"
 #include "customer.h"
-#include "model.h"
 
-class Transaction : public CsvModel, public Model
+class Transaction : public CsvModel
 {
 
     // Friend classes / functions
@@ -31,7 +30,6 @@ public:
     Transaction(int id, int receiverID, int senderID, float amountReceived, float amountSent, Date date, Enums::TransactionType transactionType);
     Transaction(int id, int receiverID, int senderID, float amountReceived, float amountSent, u_int year, u_int month, u_int day, Enums::TransactionType transactionType);
 
-    void printInfo() const;
     std::vector<std::string> getCsvFormat() const;
 
     // Getters

@@ -35,10 +35,6 @@ Date::Date(u_int year, u_int month, u_int day)
     this->day = day;
 }
 
-void Date::printInfo() const{
-    std::cout << day << "/" << month << "/" << year;
-}
-
 std::string Date::getDateString() {
     std::string s = "";
 

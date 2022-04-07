@@ -45,34 +45,6 @@ std::vector<std::string> Transaction::getCsvFormat() const{
     return csvRow;
 }
 
-void Transaction::printInfo() const{
-
-    // Set printing precision to 2 decimal places.
-    std::streamsize ss = UtilityFunctions::setPrintingPrecision();
-
-    if (transType == Enums::TransactionType::DEPOSIT){
-        std::cout << "DEPOSIT, ";
-        std::cout << transactionDate;
-        std::cout << ", " << "nil, " << receiverID << ", $" << amountReceived << ", $" << amountSent << std::endl;
-    }
-    else if (transType == Enums::TransactionType::WITHDRAWAL) {
-        std::cout << "WITHDRAWAL, ";
-        std::cout << transactionDate;
-        std::cout << ", " << senderID << " nil, " << ", $" << amountReceived << ", $" << amountSent << std::endl;
-    }
-    else if (transType == Enums::TransactionType::TRANSFER) {
-        std::cout << "TRANSFER, ";
-        std::cout << transactionDate;
-        std::cout << ", " << senderID << ", " << receiverID << ", $" << amountReceived << ", $" << amountSent << std::endl;
-    }
-    else {
-        std::cout << "ERROR GETTING TRANSFER." << std::endl;
-    }
-
-    // Reset printing precision.
-    UtilityFunctions::removePrintingPrecision(ss);
-}
-
 Date Transaction::getTransactionDate() const
 {
     return transactionDate;

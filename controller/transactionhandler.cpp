@@ -54,7 +54,7 @@ TransactionStatus TransactionHandler::withdraw(Customer customer, float amt) {
 
 TransactionStatus TransactionHandler::deposit(Customer customer, float amt) {
 
-    customer.printInfo();
+    std::cout << customer;
 
     // Add amount to Customer, update .csv file with new values
     customer.setBalance(customer.getBalance() + amt);
@@ -68,7 +68,7 @@ TransactionStatus TransactionHandler::deposit(Customer customer, float amt) {
         }
         // Else, update transactions.csv with new transaction
         customer = *CR.searchByID(customer.getID());
-        customer.printInfo();
+        std::cout << customer;
         return TRANSACTION_SUCCESS;
     }
     else{
