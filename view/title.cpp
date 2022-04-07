@@ -9,6 +9,8 @@ Title::Title(BankingApp* bankApp, QWidget *parent) :
 {
     this->bankApp = bankApp;
     ui->setupUi(this);
+    setWindowTitle(QString::fromStdString(bankApp->APPLICATION_NAME));
+    QCoreApplication::setApplicationName(QString::fromStdString(bankApp->APPLICATION_NAME));
     ui->stackedWidget->insertWidget(1,&reg);
     ui->stackedWidget->insertWidget(2,&login);
     connect(&reg,SIGNAL(menuClicked()),this,SLOT(moveMenu()));

@@ -12,6 +12,8 @@ Menu::Menu(BankingApp* bankApp, QWidget *parent):
 {
     this->bankApp = bankApp;
     ui->setupUi(this);
+    setWindowTitle(QString::fromStdString(bankApp->APPLICATION_NAME));
+    QCoreApplication::setApplicationName(QString::fromStdString(bankApp->APPLICATION_NAME));
 
     //insert all the menu object
     ui->stackedWidget->insertWidget(1,&withdraw);

@@ -1,5 +1,7 @@
 #include "bankingapp.h"
 
+const std::string BankingApp::APPLICATION_NAME = "Banking Simulation Application";
+
 BankingApp::BankingApp()
 {
 

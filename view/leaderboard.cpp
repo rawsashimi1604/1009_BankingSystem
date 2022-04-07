@@ -7,6 +7,8 @@ Leaderboard::Leaderboard(BankingApp* bankApp, QWidget *parent) :
 {
     this->bankApp = bankApp;
     ui->setupUi(this);
+    setWindowTitle(QString::fromStdString(bankApp->APPLICATION_NAME));
+    QCoreApplication::setApplicationName(QString::fromStdString(bankApp->APPLICATION_NAME));
 }
 
 Leaderboard::~Leaderboard()
