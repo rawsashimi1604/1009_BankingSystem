@@ -15,6 +15,7 @@
 class CredentialsReader
 {
 private:
+    Encrypter e;
     static const std::string DEFAULT_FILE_LOCATION;
     std::string fileLocation;
 

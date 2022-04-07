@@ -12,7 +12,6 @@ Customer& Encrypter::encryptCustomer(Customer &customer) {
     customer.password = hash(customer.password);
 
     return customer;
-
 }
 
 Customer& Encrypter::encryptCustomerWithoutPassword(Customer& customer) {

@@ -28,18 +28,12 @@ public:
     ~Deposit();
     void updateScreenBalance();
 
-
-
 private slots:
     void on_back_clicked();
-
     void on_confirmDeposit_clicked();
-
 
 signals:
     void menuClicked();
-
-
 
 
 };

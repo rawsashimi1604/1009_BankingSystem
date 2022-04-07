@@ -27,7 +27,7 @@ int CredentialsReader::getNextID() {
     }
 
     std::string idStr;
-    int id;
+    int id = 0;
 
     std::string column;
     getline(cFile, column);             // Skip column headers
@@ -109,7 +109,6 @@ std::optional<Customer> CredentialsReader::searchByID(int id) {
 
         // Construct Customer Object, decrypt
         Customer customer(id, fName, lName, convertedAge, uName, pNo, dateRegistered, convertedBalance, convertedAmountSpent, convertedAmountSaved);
-        Encrypter e;
         customer = e.decryptCustomer(customer);
         return customer;
     }
@@ -120,7 +119,6 @@ std::optional<Customer> CredentialsReader::searchByID(int id) {
 // Search for customer by Username
 std::optional<Customer> CredentialsReader::searchByUsername(std::string username) {
 
-    Encrypter e;                        // Decrypts ASCII (security)
     bool existFlag = false;
 
     std::fstream cFile(fileLocation);
@@ -206,7 +204,6 @@ std::vector<Customer> CredentialsReader::getAllCustomers() {
 
     std::vector<Customer> result;
 
-    Encrypter e;                        // Decrypts ASCII (security)
 
     std::fstream cFile(fileLocation);
     int row = 1;                        // track current row.
@@ -269,8 +266,7 @@ std::vector<Customer> CredentialsReader::getAllCustomers() {
     }
 
     cFile.close();
-    return result;    // Customer dosent exist
-
+    return result;
 }
 
 // This function writes Customer information (encrypted) into ./data/customers.csv
@@ -278,8 +274,7 @@ std::vector<Customer> CredentialsReader::getAllCustomers() {
 bool CredentialsReader::write(Customer customer) {
 
     std::ofstream cFile(fileLocation, std::ios_base::app);
-    Encrypter e;                            // Used to encrypt ASCII characters for security (customers.csv)
-    e.encryptCustomer(customer);            // Encrypt customer data.
+    e.encryptCustomer(customer);                            // Encrypt customer data.
 
     if (!cFile.is_open()) {
         return false;
@@ -310,20 +305,19 @@ bool CredentialsReader::update(Customer customer) {
     // Delete old file, rename file
 
     // Encrypt customer data
-    Encrypter e;
     e.encryptCustomerWithoutPassword(customer);
 
 
     std::string newFileLocation = "../1009_BankingSystem/data/customers_tmp.csv";    // to be updated, make more dynamic
     std::fstream fin, fout;
 
-    fin.open(fileLocation, std::ios::in);            // Existing file.
-    fout.open(newFileLocation, std::ios::out);       // New file to copy updated data to.
+    fin.open(fileLocation, std::ios::in);           // Existing file.
+    fout.open(newFileLocation, std::ios::out);      // New file to copy updated data to.
 
-    bool found = false;                         // Denotes whether the Customer exists in the .csv file.
+    bool found = false;                             // Denotes whether the Customer exists in the .csv file.
     std::vector<std::string> row;
     std::string line, word;
-    int id = customer.getID();                  // ID of customer to update.
+    int id = customer.getID();                      // ID of customer to update.
 
     // Get new customer data as a vector
     std::vector<std::string> updatedCustomerData = customer.getCsvFormat();

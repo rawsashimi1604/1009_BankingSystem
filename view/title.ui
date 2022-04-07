@@ -16,20 +16,20 @@
   <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>941</width>
-     <height>491</height>
+     <x>0</x>
+     <y>0</y>
+     <width>954</width>
+     <height>507</height>
     </rect>
    </property>
    <widget class="QWidget" name="page">
     <widget class="QFrame" name="frame">
      <property name="geometry">
       <rect>
-       <x>-1</x>
-       <y>-1</y>
-       <width>931</width>
-       <height>481</height>
+       <x>0</x>
+       <y>0</y>
+       <width>954</width>
+       <height>507</height>
       </rect>
      </property>
      <property name="styleSheet">

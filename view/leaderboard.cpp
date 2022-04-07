@@ -9,6 +9,8 @@ Leaderboard::Leaderboard(BankingApp* bankApp, QWidget *parent) :
     ui->setupUi(this);
     setWindowTitle(QString::fromStdString(bankApp->APPLICATION_NAME));
     QCoreApplication::setApplicationName(QString::fromStdString(bankApp->APPLICATION_NAME));
+
+    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 }
 
 Leaderboard::~Leaderboard()
