@@ -7,75 +7,54 @@ LeaderboardHandler::LeaderboardHandler()
 
 std::vector<Customer> LeaderboardHandler::getTopThreeSpenders() {
     std::vector<Customer> customers = cReader.getAllCustomers();
-    //std::vector<Customer> res;
     std::vector<Customer> res;
 
-    // Sort customers by top 3 spenders ( Insertion Sort )
-    for (size_t i = 1; i < customers.size(); i++) {
-
-        float currSpend = customers[i].getAmountSpent();
-        int position = i;
-
-        while (position > 0 && customers[position-1].getAmountSpent() > currSpend) {
-            customers[position] = customers[position-1];
-            position--;
-        }
-
-        customers[position] = customers[i];
-    }
+    std::sort(customers.begin(), customers.end(), [](const Customer& c1, const Customer& c2) {
+        return c1.getAmountSpent() > c2.getAmountSpent();
+    });
 
     for (size_t i = 0; i < customers.size(); i++) {
-        std::cout << "Customer name: " << customers[i].getFullName() << std::endl;
-        std::cout << "Customer spend: $" << customers[i].getAmountSpent() << std::endl << std::endl;
+        if (i == 3) {
+            break;
+        }
+
+        res.push_back(customers[i]);
+    }
+
+    // After sort
+    for (size_t i = 0; i < res.size(); i++) {
+        std::cout << "Customer name: " << res[i].getFullName() << std::endl;
+        std::cout << "Customer spend: $" << res[i].getAmountSpent() << std::endl << std::endl;
     }
 
     return res;
 }
 
-//std::vector<Customer> LeaderboardHandler::getTopThreeSavers() {
-//    std::vector<Customer> customers = cReader.getAllCustomers();
-//    std::vector<Customer> res;
+std::vector<Customer> LeaderboardHandler::getTopThreeSavers() {
+    std::vector<Customer> customers = cReader.getAllCustomers();
+    std::vector<Customer> res;
 
-//    // Add your logic to get top three spenders here
-//    int topsave = 0, secondsave=0, thirdsave=0;
-//    std::string topsaver, secondsaver, thirdsaver;
+    std::sort(customers.begin(), customers.end(), [](const Customer& c1, const Customer& c2) {
+        return c1.getAmountSaved() > c2.getAmountSaved();
+    });
 
-//    // Accessing customers vector
-//    for (size_t i = 0; i < customers.size(); i++) {
-//        customers[i].getAmountSpent();
-//        if (customers[i].getAmountSpent() > topsave){
-//            topsave = customers[i].getAmountSpent();
-//            topsaver = customers[i].getUsername();
-//        }
-//    }
-//    for (size_t i = 0; i < customers.size(); i++) {
-//        customers[i].getAmountSpent();
-//        if (customers[i].getAmountSpent() > secondsave && customers[i].getAmountSpent() < topsave){
-//            secondsave = customers[i].getAmountSpent();
-//            secondsaver = customers[i].getUsername();
-//        }
-//    }
-//    for (size_t i = 0; i < customers.size(); i++) {
-//        customers[i].getAmountSpent();
-//        if (customers[i].getAmountSpent() > thirdsave && customers[i].getAmountSpent() < secondsave){
-//            thirdsave = customers[i].getAmountSpent();
-//            thirdsaver = customers[i].getUsername();
-//        }
-//    }
+    for (size_t i = 0; i < customers.size(); i++) {
+        if (i == 3) {
+            break;
+        }
 
-//    std::string topsaving = std::to_string(topsave);
-//    std::string secondsaving = std::to_string(secondsave);
-//    std::string thirdsaving = std::to_string(thirdsave);
-//    Leaderboard Leaderboard(topsaving, secondsaving, thirdsaving, topsaver, secondsaver, thirdsaver);
-////    res.push_back(topspend);
-////    res.push_back(secondspend);
-////    res.push_back(thirdspend);
-////    res.push_back(topspender);
-////    res.push_back(secondspender);
-//    res.push_back(Leaderboard);
-//    return res;
+        res.push_back(customers[i]);
+    }
 
-//}
+    // After sort
+    for (size_t i = 0; i < res.size(); i++) {
+        std::cout << "Customer name: " << res[i].getFullName() << std::endl;
+        std::cout << "Customer spend: $" << res[i].getAmountSaved() << std::endl << std::endl;
+    }
+
+    return res;
+
+}
 
 double LeaderboardHandler::calculatePrcSpend(Customer customer) {
 
