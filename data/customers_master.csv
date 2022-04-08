@@ -1,5 +1,0 @@
-customerID,firstName,lastName,age,username,password,dateRegistered,balance,amountSpent,amountSaved
-1,Jason,Ng,25,jasonng,123456,1/2/2003,1000,500,600
-2,Andy,Tan,26,andytan,1100,2/2/2003,2000,600,700
-3,Cole,Ng,27,coleng,123458,3/2/2003,3000,700,800
-5,Admin,Test,99,test,test,30/3/2022,1000,0,0
