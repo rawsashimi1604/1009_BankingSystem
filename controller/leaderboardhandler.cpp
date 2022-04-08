@@ -74,6 +74,11 @@ double LeaderboardHandler::calculatePrcSpend(Customer customer) {
          std::cout << "Customer does not exist." << std::endl;
          return -1;
      }
+
+     if (customer.getAmountSpent() == 0) {
+         return -1;
+     }
+
      float customerIndex = 0;
      float totalNumSpenders = 0;
 
@@ -116,6 +121,11 @@ double LeaderboardHandler::calculatePrcSave(Customer customer) {
          std::cout << "Customer does not exist." << std::endl;
          return -1;
      }
+
+     if (customer.getAmountSaved() == 0) {
+         return -1;
+     }
+
      float customerIndex = 0;
      float totalNumSavers = 0;
 

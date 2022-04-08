@@ -41,27 +41,43 @@ void Leaderboard::getSpendPercentage(){
 
     double spendPercentile = lHandler.calculatePrcSpend(*bankApp->getCurrentCustomer());
 
-    std::stringstream stream;
-    stream << std::fixed << std::setprecision(2) << spendPercentile;
-    std::string spendPrcStr = stream.str();
+    if (spendPercentile == -1) {
+        ui->spendingsPrc->setText("You have not spent any money!");
+        ui->spendingsPrc->setWordWrap(true);
+    }
 
-    std::string message = "You are in the top " + spendPrcStr + "% of all spenders";
-    QString s = QString::fromStdString(message);
-    ui->spendingsPrc->setText(s);
-    ui->spendingsPrc->setWordWrap(true);
+    else {
+        std::stringstream stream;
+        stream << std::fixed << std::setprecision(2) << spendPercentile;
+        std::string spendPrcStr = stream.str();
+
+        std::string message = "You are in the top " + spendPrcStr + "% of all spenders";
+        QString s = QString::fromStdString(message);
+        ui->spendingsPrc->setText(s);
+        ui->spendingsPrc->setWordWrap(true);
+    }
+
 }
 
 void Leaderboard::getSavePercentage(){
     double savePercentile = lHandler.calculatePrcSave(*bankApp->getCurrentCustomer());
 
-    std::stringstream stream;
-    stream << std::fixed << std::setprecision(2) << savePercentile;
-    std::string savePrcStr = stream.str();
+    if (savePercentile == -1) {
+        ui->savingsPrc->setText("You have not saved any money!");
+        ui->savingsPrc->setWordWrap(true);
+    }
 
-    std::string message = "You are in the top " + savePrcStr + "% of all savers";
-    QString s = QString::fromStdString(message);
-    ui->savingsPrc->setText(s);
-    ui->savingsPrc->setWordWrap(true);
+    else {
+        std::stringstream stream;
+        stream << std::fixed << std::setprecision(2) << savePercentile;
+        std::string savePrcStr = stream.str();
+
+        std::string message = "You are in the top " + savePrcStr + "% of all savers";
+        QString s = QString::fromStdString(message);
+        ui->savingsPrc->setText(s);
+        ui->savingsPrc->setWordWrap(true);
+    }
+
 }
 
 void Leaderboard::displayTables(){

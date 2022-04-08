@@ -1,7 +1,12 @@
 #include "date.h"
 
-// 01/01/2000
 
+/**
+ * Construct Date object with date String "dd/mm/yyyy"
+ *
+ * @param dateString -> string in the format "dd/mm/yyyy"
+ *
+ */
 Date::Date(std::string dateString) {
 
     std::string dateStore[3];
@@ -28,6 +33,14 @@ Date::Date(std::string dateString) {
     this->year = stoi(dateStore[2]);
 }
 
+/**
+ * Construct Date object with integer values.
+ *
+ * @param year -> current Year
+ * @param month -> current Month
+ * @param day -> current Day
+ *
+ */
 Date::Date(u_int year, u_int month, u_int day)
 {
     this->year = year;
@@ -35,6 +48,12 @@ Date::Date(u_int year, u_int month, u_int day)
     this->day = day;
 }
 
+/**
+ * Get the String representation of the date.
+ *
+ * @param None
+ * @return Returns the String representation of the date.
+ */
 std::string Date::getDateString() {
     std::string s = "";
 
@@ -47,7 +66,13 @@ std::string Date::getDateString() {
     return s;
 }
 
-// Friend functions
+/**
+ * Prints all information about date object to specified ostream.
+ *
+ * @param COUT -> ostream object to overload (std::cout)
+ * @param dateObj -> date to output.
+ * @return Returns ostream object
+ */
 std::ostream& operator<<(std::ostream& COUT, const Date& dateObj) {
     COUT << dateObj.day << "/" << dateObj.month << "/" << dateObj.year;
     return COUT;
