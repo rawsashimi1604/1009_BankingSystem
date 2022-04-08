@@ -70,6 +70,7 @@ void Menu::on_leaderboard_clicked()
     leaderBoard.getSpendPercentage();
     leaderBoard.displayTables();
     ui->stackedWidget->setCurrentIndex(5);
+    leaderBoard.getCustomerUsername();
 }
 
 void Menu::moveMenu()

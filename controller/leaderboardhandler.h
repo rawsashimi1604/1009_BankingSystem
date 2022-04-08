@@ -3,14 +3,19 @@
 
 #include "model/customer.h"
 #include "controller/credentialsreader.h"
+#include "view/leaderboard.h"
 
+/**
+ * LeaderboardHandler contains a set of functions that interface with the Leaderboard View page.
+ *
+ */
 class LeaderboardHandler
 {
 private:
-    CredentialsReader cReader;
+    CredentialsReader cReader;                                          // Object used to access customers database
 
 public:
-    LeaderboardHandler();
+    LeaderboardHandler();                                               // Constructs the LeaderboardHandler object.
     std::vector<Customer> getTopThreeSpenders();                        // Get a vector of the top three spenders
     std::vector<Customer> getTopThreeSavers();                          // Get a vector of the top three savers
     double calculatePrcSpend(Customer customer);                        // Calculate Customer's percentile (spending)

@@ -1,9 +1,25 @@
 #include "transactionhandler.h"
 
+/**
+ * Constructs TransactionHandler object
+ *
+ * @param None
+ *
+ */
 TransactionHandler::TransactionHandler()
 {
 }
 
+/**
+ * Logs transaction in transaction database.
+ *
+ * @param receiverID -> Id of receiving customer
+ * @param senderID -> Id of sending customer
+ * @param amount_received -> Amount received by customer
+ * @param amount_sent -> Amount sent by customer
+ * @param type -> Transaction Type Enum (DEPOSIT, WITHDRAWAL, TRANSFER, NONE)
+ * @return True if transaction was successfully logged in database, False otherwise.
+ */
 bool TransactionHandler::logTransaction(int recieverId, int senderId, float amount_recieved, float amount_sent, Enums::TransactionType type) {
     // Use this function as a helper function to help with the other 3 functions
     TransactionReader TR;
@@ -26,6 +42,15 @@ bool TransactionHandler::logTransaction(int recieverId, int senderId, float amou
     }
 }
 
+/**
+ * Withdraws specfied amount from Customer account.
+ *
+ * @param customer -> Customer object to withdraw money from
+ * @param amt -> Amount to withdraw
+ * @return TRANSACTION_SUCCESS if successfully withdrawn and logged into database.
+ * TRANSACTION_FAILURE if invalid transaction,
+ * TRANSACTION_LOG_FAILURE if unable to log into transactions database.
+ */
 TransactionStatus TransactionHandler::withdraw(Customer customer, float amt) {
     // If customer has less than amt, can't withdraw, return TRANSACTION_FAILURE
     if (customer.getBalance() < amt){
@@ -55,6 +80,15 @@ TransactionStatus TransactionHandler::withdraw(Customer customer, float amt) {
     }
 }
 
+/**
+ * Deposits specfied amount into Customer account.
+ *
+ * @param customer -> Customer object to deposit money to
+ * @param amt -> Amount to deposit
+ * @return TRANSACTION_SUCCESS if successfully deposited and logged into database.
+ * TRANSACTION_FAILURE if invalid transaction,
+ * TRANSACTION_LOG_FAILURE if unable to log into transactions database.
+ */
 TransactionStatus TransactionHandler::deposit(Customer customer, float amt) {
 
     std::cout << customer;
@@ -82,6 +116,16 @@ TransactionStatus TransactionHandler::deposit(Customer customer, float amt) {
     }
 }
 
+/**
+ * Transfer specified amount between 2 Customer accounts.
+ *
+ * @param fromCustomer -> Customer object to withdraw money from
+ * @param toCustomer -> Customer object to deposit money to
+ * @param amt -> Amount to transfer
+ * @return TRANSACTION_SUCCESS if successfully transferred and logged into database.
+ * TRANSACTION_FAILURE if invalid transaction,
+ * TRANSACTION_LOG_FAILURE if unable to log into transactions database.
+ */
 TransactionStatus TransactionHandler::transfer(Customer fromCustomer, Customer toCustomer, float amt) {
     // If customerOut has less than amt, can't transfer, return TRANSACTION_FAILURE
     if (fromCustomer.getBalance() < amt){

@@ -45,6 +45,7 @@ void Leaderboard::getSpendPercentage(){
     ui->spendingsPrc->setText(s);
 }
 
+<<<<<<< HEAD
 void Leaderboard::getSavePercentage(){
     double savePercentile = lHandler.calculatePrcSave(*bankApp->getCurrentCustomer());
     std::string message = "You are in the top " + std::to_string(savePercentile) + "% of all savers";
@@ -53,6 +54,8 @@ void Leaderboard::getSavePercentage(){
 }
 
 
+=======
+>>>>>>> 8d10e2d972101232dab13c9ad05099d8f43c07bb
 void Leaderboard::displayTables(){
     
     std::vector<Customer> topSpenders = lHandler.getTopThreeSpenders();
@@ -86,4 +89,8 @@ void Leaderboard::displayTables(){
             }
         }
     }
+}
+void Leaderboard::getCustomerUsername(){
+    std::string username = std::string(bankApp->getCurrentCustomer()->getUsername());
+
 }

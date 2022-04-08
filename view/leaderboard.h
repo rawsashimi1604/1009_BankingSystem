@@ -30,8 +30,8 @@ public:
     void getCustomerAmountspend();
     void getSavePercentage();
     void getSpendPercentage();
-    //void tableWidgetDisplay();
     void displayTables();
+    void getCustomerUsername();
 
 private slots:
     void on_back_clicked();

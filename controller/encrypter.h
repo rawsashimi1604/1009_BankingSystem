@@ -8,24 +8,31 @@
 
 #include "model/customer.h"
 
-#define CIPHER_KEY 3
+/**
+ * Encrypter has encryption and decryption features.
+ *
+ * It uses Caesar Cipher to encrypt Customer's username, first name, and last name.
+ * For password, it is encrypted using hashing.
+ */
+
+#define CIPHER_KEY 3                                                    // Cipher Key for Caesar Cipher
 
 class Encrypter
 {
 
 private:
-    char encryptChar(char ch);
-    char decryptChar(char ch);
+    char encryptChar(char ch);                                          // Encrypts character using Caesar Cipher
+    char decryptChar(char ch);                                          // Decrypts character using Caesar Cipher
 
 public:
-    Encrypter();
+    Encrypter();                                                        // Constructs Encrypter object
 
-    Customer& encryptCustomer(Customer& customer);
-    Customer& encryptCustomerWithoutPassword(Customer& customer);
-    Customer& decryptCustomer(Customer& customer);
-    std::string hash(std::string input);
-    std::string encryptASCII(std::string);
-    std::string decryptASCII(std::string);
+    Customer& encryptCustomer(Customer& customer);                      // Encrypts customer's username, first name, last name and password
+    Customer& encryptCustomerWithoutPassword(Customer& customer);       // Encrypts customer's username, first name, last name
+    Customer& decryptCustomer(Customer& customer);                      // Decrypts customer's username, first name, last name
+    std::string hash(std::string input);                                // Hashes input string, used for password
+    std::string encryptASCII(std::string);                              // Encrypts input string using Caesar Cipher
+    std::string decryptASCII(std::string);                              // Decrypts input string using Caesar Cipher
 };
 
 #endif // ENCRYPTER_H
