@@ -3,7 +3,6 @@
 
 #include "model/customer.h"
 #include "controller/credentialsreader.h"
-#include "view/leaderboard.h" // added a constructor there
 
 class LeaderboardHandler
 {

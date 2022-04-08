@@ -4,6 +4,7 @@
 #include <QWidget>
 
 #include "bankingapp.h"
+#include "controller/leaderboardhandler.h"
 
 namespace Ui {
 class Leaderboard;
@@ -16,12 +17,19 @@ class Leaderboard : public QWidget
 private:
     BankingApp* bankApp;
     Ui::Leaderboard *ui;
+    QString percentSpend;
+    QString percentSave;
+    LeaderboardHandler cReader;
 
 public:
-    Leaderboard(std::string, std::string, std::string, std::string, std::string, std::string);
     explicit Leaderboard(BankingApp* bankApp, QWidget *parent = nullptr);
     ~Leaderboard();
     void updateScreenBalance();
+    void getCustomerAmountsave();
+    void getCustomerAmountspend();
+    void getSavePercentage();
+    void getSpendPercentage();
+    void tableWidgetDisplay();
 
 private slots:
     void on_back_clicked();
