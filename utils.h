@@ -23,7 +23,10 @@ namespace UtilityFunctions {
 
 }
 
-// List of enums and their functions
+/**
+ * The Enums namespace contains a bunch of utility functions and Enums related to various Enums defined in the code base.
+ *
+ */
 namespace Enums {
     // Transaction
     enum class TransactionType {DEPOSIT, WITHDRAWAL, TRANSFER, NONE};   // Defines possible TransactionTypes
