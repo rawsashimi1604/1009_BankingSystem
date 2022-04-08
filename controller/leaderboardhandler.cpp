@@ -61,6 +61,7 @@ std::vector<Customer> LeaderboardHandler::getTopThreeSavers() {
     return res;
 
 }
+// percentage spend and save function is moved to Leaderboard.h and Leaderboard.cpp
 
 /**
  * Calculate Customer's percentile (spending)
@@ -69,16 +70,18 @@ std::vector<Customer> LeaderboardHandler::getTopThreeSavers() {
  * @return Returns the Customer's spending percentile.
  */
 double LeaderboardHandler::calculatePrcSpend(Customer customer) {
+// double LeaderboardHandler::calculatePrcSpend(Customer customer) {
 
-    if (!cReader.searchByID(customer.getID())) {
-        std::cout << "Customer does not exist." << std::endl;
-        return -1;
-    }
+//     if (!cReader.searchByID(customer.getID())) {
+//         std::cout << "Customer does not exist." << std::endl;
+//         return -1;
+//     }
 
-    // Add your logic to get percentile for prc spent for inputted customer here
+//     float spending = customer.getAmountSpent();
+//     float saving = customer.getBalance();
+//     double percentspend = spending/(spending+saving) *100;
 
-    return 0;
-}
+//     // Add your logic to get percentile for prc spent for inputted customer here
 
 /**
  * Calculate Customer's percentile (saving)
@@ -87,13 +90,20 @@ double LeaderboardHandler::calculatePrcSpend(Customer customer) {
  * @return Returns the Customer's saving percentile.
  */
 double LeaderboardHandler::calculatePrcSave(Customer customer) {
+//     return percentspend;
+// }
 
-    if (!cReader.searchByID(customer.getID())) {
-        std::cout << "Customer does not exist." << std::endl;
-        return -1;
-    }
+// double LeaderboardHandler::calculatePrcSave(Customer customer) {
 
-    // Add your logic to get percentile for prc saved for inputted customer here
+//     if (!cReader.searchByID(customer.getID())) {
+//         std::cout << "Customer does not exist." << std::endl;
+//         return -1;
+//     }
+//     float spending = customer.getAmountSpent();
+//     float saving = customer.getBalance();
+//     double percentsave = saving/(spending+saving) *100;
 
-    return 0;
-}
+//     // Add your logic to get percentile for prc saved for inputted customer here
+
+//     return percentsave;
+

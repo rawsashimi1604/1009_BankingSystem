@@ -1,5 +1,7 @@
 customerID,firstName,lastName,age,username,password,dateRegistered,balance,amountSpent,amountSaved
-1,whvw,whvw,20,whvw456,296659F3,7/4/2022,3100.00,300.00,1300.00
-2,edudfn,redpd,60,redpd456,296659F3,7/4/2022,1100.00,100.00,200.00
-3,mrh,elghq,70,elghq456,296659F3,7/4/2022,1000.00,10.00,10.00
-4,whvw,whvw,20,whvwlqj,296659F3,8/4/2022,11002.00,10000.00,20002.00
+1,whvw,whvw,60,whvw,622F754,6/4/2022,1100,0,0
+2,whvw,whvw,20,whvw456,296659F3,7/4/2022,3100,300,1300
+3,edudfn,redpd,60,redpd456,296659F3,7/4/2022,1100,100,200
+4,mrh,elghq,70,elghq456,296659F3,7/4/2022,1000,10,10
+5,whvw,whvw,20,whvwlqj,296659F3,8/4/2022,11002,10000,20002
+6,Mrkqb,Ghus,100,mghus,10B76B30,7/4/2022,900,100,0

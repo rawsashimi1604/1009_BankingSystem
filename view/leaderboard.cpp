@@ -1,5 +1,6 @@
 #include "leaderboard.h"
 #include "ui_leaderboard.h"
+#include "controller/leaderboardhandler.h"
 
 Leaderboard::Leaderboard(BankingApp* bankApp, QWidget *parent) :
     QWidget(parent),
@@ -34,6 +35,56 @@ void Leaderboard::updateScreenBalance(){
     //When deposit button is clicked, it will update its balance
     QString balance = QString::number(bankApp->getCurrentCustomer()->getBalance());
     ui->balance->display(balance);
+}
+void Leaderboard::getCustomerAmountsave(){
+    QString AmtSave = QString::number(bankApp->getCurrentCustomer()->getBalance()); //currently getAmountSave() gives 0
+    ui->amtSave->display(AmtSave);
+}
+void Leaderboard::getCustomerAmountspend(){
+    QString AmtSpend = QString::number(bankApp->getCurrentCustomer()->getAmountSpent());
+    ui->amtSpend->display(AmtSpend);
+}
+void Leaderboard::getSavePercentage(){
+    QString saving = QString::number(bankApp->getCurrentCustomer()->getBalance());
+    QString spending = QString::number(bankApp->getCurrentCustomer()->getAmountSpent());
+
+    bool ok1,ok2;
+    int save = saving.toInt(&ok1);
+    int spend = spending.toInt(&ok2);
+
+    if (!ok1) {
+      // conversion failed
+        std::cout << "save conversion fail"<<std::endl;
+    }
+    if (!ok2) {
+      // conversion failed
+        std::cout << "spend conversion fail"<<std::endl;
+    }
+    int percent = 100* save/(save + spend);
+    QString percentSave = QString::number(percent);
+
+    ui->savepercent->display(percentSave);
+}
+void Leaderboard::getSpendPercentage(){
+    QString saving = QString::number(bankApp->getCurrentCustomer()->getBalance());
+    QString spending = QString::number(bankApp->getCurrentCustomer()->getAmountSpent());
+
+    bool ok1,ok2;
+    int save = saving.toInt(&ok1);
+    int spend = spending.toInt(&ok2);
+
+    if (!ok1) {
+      // conversion failed
+        std::cout << "save conversion fail"<<std::endl;
+    }
+    if (!ok2) {
+      // conversion failed
+        std::cout << "spend conversion fail"<<std::endl;
+    }
+    int percent = 100* spend/(save + spend);
+    QString percentSpend = QString::number(percent);
+
+    ui->spendpercent->display(percentSpend);
 }
 
 void Leaderboard::displayTables(){
@@ -71,5 +122,9 @@ void Leaderboard::displayTables(){
     }
     ui->spendingsPrc->setText("testing1");
     ui->savingsPrc->setText("testing2");
+
+}
+void Leaderboard::getCustomerUsername(){
+    std::string username = std::string(bankApp->getCurrentCustomer()->getUsername());
 
 }

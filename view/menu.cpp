@@ -66,8 +66,13 @@ void Menu::on_transactions_clicked()
 void Menu::on_leaderboard_clicked()
 {
     leaderBoard.updateScreenBalance();
+    leaderBoard.getCustomerAmountsave();
+    leaderBoard.getCustomerAmountspend();
+    leaderBoard.getSavePercentage();
+    leaderBoard.getSpendPercentage();
     leaderBoard.displayTables();
     ui->stackedWidget->setCurrentIndex(5);
+    leaderBoard.getCustomerUsername();
 }
 
 void Menu::moveMenu()
