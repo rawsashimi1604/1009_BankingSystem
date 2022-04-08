@@ -20,6 +20,7 @@ private:
     QString percentSpend;
     QString percentSave;
     LeaderboardHandler cReader;
+    LeaderboardHandler lHandler;
 
 public:
     explicit Leaderboard(BankingApp* bankApp, QWidget *parent = nullptr);

@@ -55,35 +55,90 @@ std::vector<Customer> LeaderboardHandler::getTopThreeSavers() {
     return res;
 
 }
+
 // percentage spend and save function is moved to Leaderboard.h and Leaderboard.cpp
 
-// double LeaderboardHandler::calculatePrcSpend(Customer customer) {
+ double LeaderboardHandler::calculatePrcSpend(Customer customer) {
 
-//     if (!cReader.searchByID(customer.getID())) {
-//         std::cout << "Customer does not exist." << std::endl;
-//         return -1;
-//     }
+     if (!cReader.searchByID(customer.getID())) {
+         std::cout << "Customer does not exist." << std::endl;
+         return -1;
+     }
+     float customerIndex = 0;
+     float totalNumSpenders = 0;
 
-//     float spending = customer.getAmountSpent();
-//     float saving = customer.getBalance();
-//     double percentspend = spending/(spending+saving) *100;
+     //get the sorted spenders list
+     std::vector<Customer> customers = cReader.getAllCustomers();
+     std::vector<Customer> res;
 
-//     // Add your logic to get percentile for prc spent for inputted customer here
+     std::sort(customers.begin(), customers.end(), [](const Customer& c1, const Customer& c2) {
+         return c1.getAmountSpent() > c2.getAmountSpent();
+     });
 
-//     return percentspend;
-// }
+     for (size_t i = 0; i < customers.size(); i++) {
 
-// double LeaderboardHandler::calculatePrcSave(Customer customer) {
+         res.push_back(customers[i]);
+     }
 
-//     if (!cReader.searchByID(customer.getID())) {
-//         std::cout << "Customer does not exist." << std::endl;
-//         return -1;
-//     }
-//     float spending = customer.getAmountSpent();
-//     float saving = customer.getBalance();
-//     double percentsave = saving/(spending+saving) *100;
+     //After sort
+     for (size_t i = 0; i < res.size(); i++) {
+         if (res[i].getUsername() == customer.getUsername()){
+             customerIndex = i+1;
 
-//     // Add your logic to get percentile for prc saved for inputted customer here
+         }
+         totalNumSpenders++;
+     }
 
-//     return percentsave;
+
+
+     double prcSpend = (customerIndex/totalNumSpenders)*100;
+//     std::cout << customerIndex << std::endl;
+//     std::cout << totalNumSpenders << std::endl;
+//     std::cout << prcSpend << std::endl;
+
+     return prcSpend;
+ }
+
+
+ double LeaderboardHandler::calculatePrcSave(Customer customer) {
+     if (!cReader.searchByID(customer.getID())) {
+         std::cout << "Customer does not exist." << std::endl;
+         return -1;
+     }
+     float customerIndex = 0;
+     float totalNumSavers = 0;
+
+     //get the sorted spenders list
+     std::vector<Customer> customers = cReader.getAllCustomers();
+     std::vector<Customer> res;
+
+     std::sort(customers.begin(), customers.end(), [](const Customer& c1, const Customer& c2) {
+         return c1.getAmountSaved() > c2.getAmountSaved();
+     });
+
+     for (size_t i = 0; i < customers.size(); i++) {
+
+         res.push_back(customers[i]);
+     }
+
+     //After sort
+     for (size_t i = 0; i < res.size(); i++) {
+         if (res[i].getUsername() == customer.getUsername()){
+             customerIndex = i+1;
+
+         }
+         totalNumSavers++;
+     }
+
+
+
+     double prcSave = (customerIndex/totalNumSavers)*100;
+//     std::cout << customerIndex << std::endl;
+//     std::cout << totalNumSpenders << std::endl;
+//     std::cout << prcSave << std::endl;
+
+
+
+
+     return prcSave;
 }
