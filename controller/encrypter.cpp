@@ -1,10 +1,22 @@
 #include "encrypter.h"
 
+/**
+ * Constructs Encrypter object
+ *
+ * @param None
+ *
+ */
 Encrypter::Encrypter()
 {
 
 }
 
+/**
+ * Encrypts customer's username, first name, last name and password
+ *
+ * @param customer -> Customer object to encrypt.
+ * @return Customer object with encrypted data fields.
+ */
 Customer& Encrypter::encryptCustomer(Customer &customer) {
     customer.firstName = encryptASCII(customer.firstName);
     customer.lastName = encryptASCII(customer.lastName);
@@ -14,6 +26,12 @@ Customer& Encrypter::encryptCustomer(Customer &customer) {
     return customer;
 }
 
+/**
+ * Encrypts customer's username, first name, last name
+ *
+ * @param customer -> Customer object to encrypt.
+ * @return Customer object with encrypted data fields.
+ */
 Customer& Encrypter::encryptCustomerWithoutPassword(Customer& customer) {
     customer.firstName = encryptASCII(customer.firstName);
     customer.lastName = encryptASCII(customer.lastName);
@@ -21,6 +39,12 @@ Customer& Encrypter::encryptCustomerWithoutPassword(Customer& customer) {
     return customer;
 }
 
+/**
+ * Decrypts customer's username, first name, last name
+ *
+ * @param customer -> Customer object to decrypt.
+ * @return Customer object with decrypted data fields.
+ */
 Customer& Encrypter::decryptCustomer(Customer &customer) {
     customer.firstName = decryptASCII(customer.firstName);
     customer.lastName = decryptASCII(customer.lastName);
@@ -29,6 +53,12 @@ Customer& Encrypter::decryptCustomer(Customer &customer) {
     return customer;
 }
 
+/**
+ * Encrypts character using Caesar Cipher
+ *
+ * @param char -> character to encrypt
+ * @return Encrypted character
+ */
 char Encrypter::encryptChar(char ch) {
     ch = ch + CIPHER_KEY;
     if (ch > 97){
@@ -60,6 +90,12 @@ char Encrypter::encryptChar(char ch) {
     return ch;
 }
 
+/**
+ * Decrypts character using Caesar Cipher
+ *
+ * @param char -> character to decrypt
+ * @return Decrypted character
+ */
 char Encrypter::decryptChar(char ch) {
     ch = ch  - CIPHER_KEY;
     if (ch < 57){
@@ -91,7 +127,12 @@ char Encrypter::decryptChar(char ch) {
     return ch;
 }
 
-
+/**
+ * // Hashes input string, used for password
+ *
+ * @param input -> input string to hash
+ * @return Hashed string
+ */
 std::string Encrypter::hash(std::string input) {
 
     const unsigned int magicNumber = 3415431;
@@ -112,7 +153,12 @@ std::string Encrypter::hash(std::string input) {
     return output;
 }
 
-
+/**
+ * Encrypts input string using Caesar Cipher
+ *
+ * @param input -> input string to encrypt
+ * @return Encrypted string
+ */
 std::string Encrypter::encryptASCII(std::string plainTXT){
     std::string cipherTXT;
     int count = 0;
@@ -123,7 +169,12 @@ std::string Encrypter::encryptASCII(std::string plainTXT){
     return cipherTXT;
 }
 
-
+/**
+ * Decrypts input string using Caesar Cipher
+ *
+ * @param input -> input string to decrypt
+ * @return Decrypted string
+ */
 std::string Encrypter::decryptASCII(std::string cipherTXT){
     std::string plainTXT;
     int count = 0;

@@ -1,10 +1,23 @@
 #include "loginhandler.h"
 
+/**
+ * Constructs LoginHandler object
+ *
+ * @param None
+ *
+ */
 LoginHandler::LoginHandler()
 {
 
 }
 
+/**
+ * Attempts to login using username and password
+ *
+ * @param username -> Decrypted username
+ * @param password -> Decrypted password
+ * @return AUTHENTICATED if success, NOT_AUTHENTICATED if failure.
+ */
 LoginStatus LoginHandler::login(const std::string& username, const std::string& password) const{
 
     CredentialsReader cReader;

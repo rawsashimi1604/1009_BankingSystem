@@ -7,10 +7,14 @@
 #include "controller/credentialsreader.h"
 #include "controller/encrypter.h"
 
-#define AUTHENTICATED 1
-#define NOT_AUTHENTICATED 0
+/**
+ * LoginHandler contains a set of functions that interface with the Login View page.
+ *
+ */
+#define AUTHENTICATED 1                     // Customer AUTHENTICATION successful
+#define NOT_AUTHENTICATED 0                 // Customer AUTHENTICATION faillure
 
-typedef int LoginStatus;
+typedef int LoginStatus;                    // Defines LoginStatus type (int)
 
 class LoginHandler
 {
@@ -18,8 +22,8 @@ class LoginHandler
 private:
 
 public:
-    LoginHandler();
-    LoginStatus login(const std::string& username, const std::string& password) const;
+    LoginHandler();                         // Constructs LoginHandler object
+    LoginStatus login(const std::string& username, const std::string& password) const;  // Attempts to login using username and password
 
 };
 

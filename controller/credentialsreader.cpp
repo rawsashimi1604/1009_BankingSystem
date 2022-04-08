@@ -2,21 +2,45 @@
 
 const std::string CredentialsReader::DEFAULT_FILE_LOCATION = "../1009_BankingSystem/data/customers.csv";
 
+/**
+ * Constructs CredentialsReader with the DEFAULT_FILE_LOCATION
+ *
+ * @param None
+ *
+ */
 CredentialsReader::CredentialsReader()
 {
     this->fileLocation = DEFAULT_FILE_LOCATION;
 }
 
+/**
+ * Constructs CredentialsReader with specified file location.
+ *
+ * @param fileLocation -> PATH of customers.csv file.
+ *
+ */
 CredentialsReader::CredentialsReader(std::string fileLocation)
 {
     this->fileLocation = fileLocation;
 }
 
+/**
+ * Test function.
+ *
+ * @param None
+ * @return None
+ */
 void CredentialsReader::printHello() {
     std::cout << "hello world from credentials reader!" << std::endl;
 }
 
-// Get the next ID to add.
+
+/**
+ * Gets the next ID available for use in the database.
+ *
+ * @param None
+ * @return The next ID available for use in the database.
+ */
 int CredentialsReader::getNextID() {
 
     std::fstream cFile(fileLocation);
@@ -48,7 +72,13 @@ int CredentialsReader::getNextID() {
     return id + 1;                      // Next ID is last ID + 1
 }
 
-// Search for customer by ID
+
+/**
+ * Returns Customer object pointer with the given ID, NULL if not found.
+ *
+ * @param id -> customer ID to search for.
+ * @return Returns Customer object pointer with the given ID, NULL if not found.
+ */
 std::optional<Customer> CredentialsReader::searchByID(int id) {
     bool existFlag = false;
 
@@ -116,7 +146,13 @@ std::optional<Customer> CredentialsReader::searchByID(int id) {
     return {};    // Customer dosent exist
 }
 
-// Search for customer by Username
+
+/**
+ * Returns Customer object pointer with the given username, NULL if not found.
+ *
+ * @param username -> customer username to search for.
+ * @return Returns Customer object pointer with the given username, NULL if not found.
+ */
 std::optional<Customer> CredentialsReader::searchByUsername(std::string username) {
 
     bool existFlag = false;
@@ -200,6 +236,12 @@ std::optional<Customer> CredentialsReader::searchByUsername(std::string username
     return {};    // Customer dosent exist
 }
 
+/**
+ * Returns a vector of all Customers in the database.
+ *
+ * @param None
+ * @return Returns a vector of all Customers in the database.
+ */
 std::vector<Customer> CredentialsReader::getAllCustomers() {
 
     std::vector<Customer> result;
@@ -269,8 +311,12 @@ std::vector<Customer> CredentialsReader::getAllCustomers() {
     return result;
 }
 
-// This function writes Customer information (encrypted) into ./data/customers.csv
-// returns true if success, false if failed
+/**
+ * Appends a Customer to the database.
+ *
+ * @param customer -> Customer object to append to database.
+ * @return Returns true if append was successful, false otherwise.
+ */
 bool CredentialsReader::write(Customer customer) {
 
     std::ofstream cFile(fileLocation, std::ios_base::app);
@@ -297,7 +343,12 @@ bool CredentialsReader::write(Customer customer) {
 }
 
 
-// Update customer.csv based on inputted customer's ID.
+/**
+ * Updates a Customer to the database.
+ *
+ * @param customer -> Customer object to update in database.
+ * @return Returns true if update was successful, false otherwise.
+ */
 bool CredentialsReader::update(Customer customer) {
     // Create 1 additional file (diff name)
     // Copy data until reach row to change

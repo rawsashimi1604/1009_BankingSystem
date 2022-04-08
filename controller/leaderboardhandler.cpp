@@ -1,10 +1,22 @@
 #include "leaderboardhandler.h"
 
+/**
+ * Constructs LeaderboardHandler object
+ *
+ * @param None
+ *
+ */
 LeaderboardHandler::LeaderboardHandler()
 {
 
 }
 
+/**
+ * Get a vector of the top three spenders
+ *
+ * @param None
+ * @return Returns a vector of Customers (the top three spenders)
+ */
 std::vector<Customer> LeaderboardHandler::getTopThreeSpenders() {
     std::vector<Customer> customers = cReader.getAllCustomers();
     std::vector<Customer> res;
@@ -21,15 +33,15 @@ std::vector<Customer> LeaderboardHandler::getTopThreeSpenders() {
         res.push_back(customers[i]);
     }
 
-    // After sort
-//    for (size_t i = 0; i < res.size(); i++) {
-//        std::cout << "Customer name: " << res[i].getFullName() << std::endl;
-//        std::cout << "Customer spend: $" << res[i].getAmountSpent() << std::endl << std::endl;
-//    }
-
     return res;
 }
 
+/**
+ * Get a vector of the top three savers
+ *
+ * @param None
+ * @return Returns a vector of Customers (the top three savers)
+ */
 std::vector<Customer> LeaderboardHandler::getTopThreeSavers() {
     std::vector<Customer> customers = cReader.getAllCustomers();
     std::vector<Customer> res;
@@ -46,16 +58,16 @@ std::vector<Customer> LeaderboardHandler::getTopThreeSavers() {
         res.push_back(customers[i]);
     }
 
-    // After sort
-//    for (size_t i = 0; i < res.size(); i++) {
-//        std::cout << "Customer name: " << res[i].getFullName() << std::endl;
-//        std::cout << "Customer spend: $" << res[i].getAmountSaved() << std::endl << std::endl;
-//    }
-
     return res;
 
 }
 
+/**
+ * Calculate Customer's percentile (spending)
+ *
+ * @param Customer to check percentile spending
+ * @return Returns the Customer's spending percentile.
+ */
 double LeaderboardHandler::calculatePrcSpend(Customer customer) {
 
     if (!cReader.searchByID(customer.getID())) {
@@ -68,6 +80,12 @@ double LeaderboardHandler::calculatePrcSpend(Customer customer) {
     return 0;
 }
 
+/**
+ * Calculate Customer's percentile (saving)
+ *
+ * @param Customer to check percentile saving
+ * @return Returns the Customer's saving percentile.
+ */
 double LeaderboardHandler::calculatePrcSave(Customer customer) {
 
     if (!cReader.searchByID(customer.getID())) {

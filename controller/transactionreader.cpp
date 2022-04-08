@@ -2,22 +2,44 @@
 
 const std::string TransactionReader::DEFAULT_FILE_LOCATION = "../1009_BankingSystem/data/transactions.csv";
 
+/**
+ * Constructs TransactionReader with the DEFAULT_FILE_LOCATION
+ *
+ * @param None
+ *
+ */
 TransactionReader::TransactionReader()
 {
     this->fileLocation = DEFAULT_FILE_LOCATION;
 }
 
+/**
+ * File location of transactions.csv (customizable)
+ *
+ * @param fileLocation -> PATH of transactions.csv file.
+ *
+ */
 TransactionReader::TransactionReader(std::string fileLocation)
 {
     this->fileLocation = fileLocation;
 }
 
-
+/**
+ * Test function.
+ *
+ * @param None
+ * @return None
+ */
 void TransactionReader::printHello() {
     std::cout << "hello world from transaction reader!" << std::endl;
 }
 
-// Get the next ID to add.
+/**
+ * Gets the next ID available for use in the database.
+ *
+ * @param None
+ * @return The next ID available for use in the database.
+ */
 int TransactionReader::getNextID() {
 
     std::fstream tFile(fileLocation);
@@ -49,6 +71,12 @@ int TransactionReader::getNextID() {
     return id + 1;                      // Next ID is last ID + 1
 }
 
+/**
+ * Returns Transaction object pointer with the given ID, NULL if not found.
+ *
+ * @param id -> transaction ID to search for.
+ * @return Returns Transaction object pointer with the given ID, NULL if not found.
+ */
 std::optional<Transaction> TransactionReader::searchByID(int id) {
     bool existFlag = false;
 
@@ -117,6 +145,12 @@ std::optional<Transaction> TransactionReader::searchByID(int id) {
     return {};
 }
 
+/**
+ * Returns a vector of all Transactions in the database with the specified Customer ID.
+ *
+ * @param id -> customer ID to search for.
+ * @return Returns vector of Transactions with the specified Customer ID.
+ */
 std::vector<Transaction> TransactionReader::searchAllTransactions(int customerID) {
     std::vector<Transaction> res;
 
@@ -183,8 +217,12 @@ std::vector<Transaction> TransactionReader::searchAllTransactions(int customerID
     return res;
 }
 
-// This function writes the userCredential struct to the given fileName's csv file
-// returns true if success, false if failed
+/**
+ * Appends a Transaction to the database.
+ *
+ * @param transaction -> Transaction object to append to database.
+ * @return Returns true if append was successful, false otherwise.
+ */
 bool TransactionReader::write(Transaction transaction) {
 
     std::ofstream tFile(fileLocation, std::ios_base::app);
@@ -206,6 +244,12 @@ bool TransactionReader::write(Transaction transaction) {
     return true;
 }
 
+/**
+ * Updates a Transaction in the database. (Uses ID to identify transaction)
+ *
+ * @param transaction -> Transaction object to append to database.
+ * @return Returns true if update was successful, false otherwise.
+ */
 bool TransactionReader::update(Transaction transaction) {
 
     // Create 1 additional file (diff name)
