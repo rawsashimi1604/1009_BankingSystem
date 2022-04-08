@@ -3,7 +3,6 @@
 
 #include "model/customer.h"
 #include "controller/credentialsreader.h"
-#include "view/leaderboard.h"
 
 /**
  * LeaderboardHandler contains a set of functions that interface with the Leaderboard View page.

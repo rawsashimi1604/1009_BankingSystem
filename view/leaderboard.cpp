@@ -40,22 +40,30 @@ void Leaderboard::updateScreenBalance(){
 void Leaderboard::getSpendPercentage(){
 
     double spendPercentile = lHandler.calculatePrcSpend(*bankApp->getCurrentCustomer());
-    std::string message = "You are in the top " + std::to_string(spendPercentile) + "% of all spenders";
+
+    std::stringstream stream;
+    stream << std::fixed << std::setprecision(2) << spendPercentile;
+    std::string spendPrcStr = stream.str();
+
+    std::string message = "You are in the top " + spendPrcStr + "% of all spenders";
     QString s = QString::fromStdString(message);
     ui->spendingsPrc->setText(s);
+    ui->spendingsPrc->setWordWrap(true);
 }
 
-<<<<<<< HEAD
 void Leaderboard::getSavePercentage(){
     double savePercentile = lHandler.calculatePrcSave(*bankApp->getCurrentCustomer());
-    std::string message = "You are in the top " + std::to_string(savePercentile) + "% of all savers";
+
+    std::stringstream stream;
+    stream << std::fixed << std::setprecision(2) << savePercentile;
+    std::string savePrcStr = stream.str();
+
+    std::string message = "You are in the top " + savePrcStr + "% of all savers";
     QString s = QString::fromStdString(message);
     ui->savingsPrc->setText(s);
+    ui->savingsPrc->setWordWrap(true);
 }
 
-
-=======
->>>>>>> 8d10e2d972101232dab13c9ad05099d8f43c07bb
 void Leaderboard::displayTables(){
     
     std::vector<Customer> topSpenders = lHandler.getTopThreeSpenders();

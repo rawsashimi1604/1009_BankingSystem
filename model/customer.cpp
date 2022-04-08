@@ -3,9 +3,13 @@
 // Constant Variables
 const float Customer::INITIAL_STARTING_BALANCE = 1000.00;
 
-// Constructors
 
-
+/**
+ * Constructs Customer object using date values
+ *
+ * @param None
+ *
+ */
 Customer::Customer(int id, std::string firstName, std::string lastName, int age, std::string username, std::string password, u_int year, u_int month, u_int day)
     : CsvModel(id),
       dateRegistered(year, month, day),
@@ -20,6 +24,12 @@ Customer::Customer(int id, std::string firstName, std::string lastName, int age,
     this->balance = INITIAL_STARTING_BALANCE;
 }
 
+/**
+ * Constructs customer object using Date object
+ *
+ * @param None
+ *
+ */
 Customer::Customer(int id, std::string firstName, std::string lastName, int age, std::string username, std::string password, Date date)
     : CsvModel(id),
       dateRegistered(date.getDateString()),
@@ -35,6 +45,12 @@ Customer::Customer(int id, std::string firstName, std::string lastName, int age,
     this->balance = INITIAL_STARTING_BALANCE;
 }
 
+/**
+ * Constructs customer object using date string and customized balanced, amountSpent and amountSaved.
+ *
+ * @param None
+ *
+ */
 Customer::Customer(int id, std::string firstName, std::string lastName, int age, std::string username, std::string password, std::string dateString, float balance, float amountSpent, float amountSaved)
     : CsvModel(id),
       dateRegistered(dateString)
@@ -51,13 +67,23 @@ Customer::Customer(int id, std::string firstName, std::string lastName, int age,
     this->amountSaved = amountSaved;
 }
 
-
-// Deconstructors
+/**
+ * Desconstructs Customer object
+ *
+ * @param None
+ *
+ */
 Customer::~Customer() {
 
 }
 
-// Public functions
+
+/**
+ * Gets Customer data from database as a vector of strings.
+ *
+ * @param None
+ * @return Vector of customer object csv model in string format
+ */
 std::vector<std::string> Customer::getCsvFormat() const{
     std::vector<std::string> csvRow;
 
@@ -85,7 +111,7 @@ std::vector<std::string> Customer::getCsvFormat() const{
     return csvRow;
 }
 
-// Getters
+
 std::string Customer::getUsername() const{
     return username;
 }

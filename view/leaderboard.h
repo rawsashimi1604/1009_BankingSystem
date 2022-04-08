@@ -19,7 +19,6 @@ private:
     Ui::Leaderboard *ui;
     QString percentSpend;
     QString percentSave;
-    LeaderboardHandler cReader;
     LeaderboardHandler lHandler;
 
 public:

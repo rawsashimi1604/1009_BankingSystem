@@ -173,7 +173,7 @@ color: rgb(0, 0, 0);</string>
       </column>
       <column>
        <property name="text">
-        <string>Spendings Amount</string>
+        <string>Total Expenditure</string>
        </property>
       </column>
      </widget>
@@ -214,7 +214,7 @@ color: rgb(0, 0, 0);</string>
       </column>
       <column>
        <property name="text">
-        <string>Savings Amount</string>
+        <string>Total Savings</string>
        </property>
       </column>
      </widget>
@@ -229,14 +229,15 @@ color: rgb(0, 0, 0);</string>
       </property>
       <property name="font">
        <font>
-        <pointsize>18</pointsize>
+        <pointsize>8</pointsize>
         <italic>false</italic>
         <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
        <string notr="true">color: rgb(75,73,157);
-font: 700 18pt &quot;Segoe UI&quot;;</string>
+font: 700 8pt &quot;Segoe UI&quot;;
+word-wrap:: break-word;</string>
       </property>
       <property name="text">
        <string/>
@@ -247,20 +248,21 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
        <rect>
         <x>590</x>
         <y>360</y>
-        <width>191</width>
+        <width>250</width>
         <height>81</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>18</pointsize>
+        <pointsize>8</pointsize>
         <italic>false</italic>
         <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
        <string notr="true">color: rgb(75,73,157);
-font: 700 18pt &quot;Segoe UI&quot;;</string>
+font: 700 8pt &quot;Segoe UI&quot;;
+word-wrap:: break-word;</string>
       </property>
       <property name="text">
        <string/>

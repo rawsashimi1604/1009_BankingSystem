@@ -5,21 +5,21 @@
 #include <vector>
 
 /**
- *  A CsvModel is an abstract class that can be extended to signify a data model that can be stored in a CSV format.
+ * A CsvModel signifies any Model object that is represented in the database
  *
-**/
-
+ * It contains methods and attributes of any database Model object.
+ */
 class CsvModel
 {
 
 protected:
-    int id;
+    int id;                                                                 // ID of object in database
 
 public:
-    CsvModel(int id);
-    virtual ~CsvModel();
-    virtual std::vector<std::string> getCsvFormat() const = 0;
-    int getID() const;
+    CsvModel(int id);                                                       // Constructs CSV model object with ID
+    virtual ~CsvModel();                                                    // Destructs CSV model object
+    virtual std::vector<std::string> getCsvFormat() const = 0;              // Pure virtual function, get CsvFormat as vector
+    int getID() const;                                                      // Getter function for ID
 
 };
 

@@ -62,10 +62,13 @@ std::vector<Customer> LeaderboardHandler::getTopThreeSavers() {
 
 }
 
-// percentage spend and save function is moved to Leaderboard.h and Leaderboard.cpp
-
-<<<<<<< HEAD
- double LeaderboardHandler::calculatePrcSpend(Customer customer) {
+/**
+ * Calculate Customer's percentile (spending)
+ *
+ * @param Customer to check percentile spending
+ * @return Returns the Customer's spending percentile.
+ */
+double LeaderboardHandler::calculatePrcSpend(Customer customer) {
 
      if (!cReader.searchByID(customer.getID())) {
          std::cout << "Customer does not exist." << std::endl;
@@ -99,15 +102,16 @@ std::vector<Customer> LeaderboardHandler::getTopThreeSavers() {
 
 
      double prcSpend = (customerIndex/totalNumSpenders)*100;
-//     std::cout << customerIndex << std::endl;
-//     std::cout << totalNumSpenders << std::endl;
-//     std::cout << prcSpend << std::endl;
-
      return prcSpend;
  }
 
-
- double LeaderboardHandler::calculatePrcSave(Customer customer) {
+/**
+ * Calculate Customer's percentile (saving)
+ *
+ * @param Customer to check percentile saving
+ * @return Returns the Customer's saving percentile.
+ */
+double LeaderboardHandler::calculatePrcSave(Customer customer) {
      if (!cReader.searchByID(customer.getID())) {
          std::cout << "Customer does not exist." << std::endl;
          return -1;
@@ -132,47 +136,14 @@ std::vector<Customer> LeaderboardHandler::getTopThreeSavers() {
      for (size_t i = 0; i < res.size(); i++) {
          if (res[i].getUsername() == customer.getUsername()){
              customerIndex = i+1;
-=======
-/**
- * Calculate Customer's percentile (spending)
- *
- * @param Customer to check percentile spending
- * @return Returns the Customer's spending percentile.
- */
-double LeaderboardHandler::calculatePrcSpend(Customer customer) {
-// double LeaderboardHandler::calculatePrcSpend(Customer customer) {
->>>>>>> 8d10e2d972101232dab13c9ad05099d8f43c07bb
+
 
          }
          totalNumSavers++;
      }
 
-
-
-<<<<<<< HEAD
      double prcSave = (customerIndex/totalNumSavers)*100;
-//     std::cout << customerIndex << std::endl;
-//     std::cout << totalNumSpenders << std::endl;
-//     std::cout << prcSave << std::endl;
-=======
-/**
- * Calculate Customer's percentile (saving)
- *
- * @param Customer to check percentile saving
- * @return Returns the Customer's saving percentile.
- */
-double LeaderboardHandler::calculatePrcSave(Customer customer) {
-//     return percentspend;
-// }
->>>>>>> 8d10e2d972101232dab13c9ad05099d8f43c07bb
 
-
-
-
-<<<<<<< HEAD
      return prcSave;
 }
-=======
-//     return percentsave;
 
->>>>>>> 8d10e2d972101232dab13c9ad05099d8f43c07bb
