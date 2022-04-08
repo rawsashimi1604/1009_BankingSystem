@@ -98,7 +98,4 @@ void Leaderboard::displayTables(){
         }
     }
 }
-void Leaderboard::getCustomerUsername(){
-    std::string username = std::string(bankApp->getCurrentCustomer()->getUsername());
 
-}

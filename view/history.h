@@ -15,29 +15,37 @@ namespace Ui {
 class History;
 }
 
+/**
+ * History contains functionality and attributes of History UI
+ *
+ * It consist of various function to update the History UI and logics user interaction
+ *
+ * It is a class that inherits from QWidget
+ */
+
 class History : public QWidget
 {
     Q_OBJECT
 
 private:
-    BankingApp* bankApp;
-    Ui::History *ui;
-    TransactionReader tReader;
-    CredentialsReader cReader;
+    BankingApp* bankApp;                                                        // Pointer to a shared Data object
+    Ui::History *ui;                                                            // Pointer to UI object
+    TransactionReader tReader;                                                  // Initialises TransactionReader object as tReader
+    CredentialsReader cReader;                                                  // Initialises CredentialReader object as cReader
 
 public:
-    explicit History(BankingApp* bankApp, QWidget *parent = nullptr);
-    ~History();
-    void updateScreenBalance();
-    void tableWidgetDisplay();
+    explicit History(BankingApp* bankApp, QWidget *parent = nullptr);           // History constructor
+    ~History();                                                                 // History Destructor
+    void updateScreenBalance();                                                 // Updates the balance on the screen of current customer
+    void tableWidgetDisplay();                                                  // Updates the top 3 Spenders and Savers to the Spenders and Savers Table
 
 
 private slots:
-    void on_back_clicked();
+    void on_back_clicked();                                                     // Allows user to move back to previous screen (Menu)
 
 signals:
-    void menuClicked();
+    void menuClicked();                                                         //Signal to track if the back button is clicked
 
 };
 
-#endif // HISTORY_H
+#endif                                                                          // HISTORY_H

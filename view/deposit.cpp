@@ -1,6 +1,14 @@
 #include "deposit.h"
 #include "ui_deposit.h"
 
+/**
+ * Constructs Deposit object which sets up the UI with parent and bankApp pointer
+ *
+ * @param parent ->  pointer that points to the Qwidget object
+ * @param bankApp -> pointer that points BankingApp object 
+ *
+ */
+
 Deposit::Deposit(BankingApp* bankApp, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Deposit)
@@ -12,22 +20,48 @@ Deposit::Deposit(BankingApp* bankApp, QWidget *parent) :
     QCoreApplication::setApplicationName(QString::fromStdString(bankApp->APPLICATION_NAME));
 }
 
+/**
+ * Destructor for Deposit object
+ *
+ * @param None
+ *
+ */
 Deposit::~Deposit()
 {
     delete ui;
 }
 
+/**
+ * Detect click on the back button
+ *
+ * @param None
+ *
+ */
 void Deposit::on_back_clicked()
 {
     emit menuClicked();
 }
 
+/**
+ * Detect click for the back button
+ *
+ * @param None
+ * @return None
+ *
+ */
 void Deposit::updateScreenBalance(){
     //When deposit button is clicked, it will update its balance
     QString balance = QString::number(bankApp->getCurrentCustomer()->getBalance());
     ui->balance->display(balance);
 }
 
+/**
+ * Function that detect click for the Confirm Deposit button that includes logic to check user input
+ * It will show a dialog box if it detects error in the user input
+ *
+ * @param None
+ *
+ */
 void Deposit::on_confirmDeposit_clicked()
 {
     QString errorMsg = "";
