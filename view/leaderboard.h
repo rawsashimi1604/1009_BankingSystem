@@ -29,7 +29,8 @@ public:
     void getCustomerAmountspend();
     void getSavePercentage();
     void getSpendPercentage();
-    void tableWidgetDisplay();
+    //void tableWidgetDisplay();
+    void displayTables();
 
 private slots:
     void on_back_clicked();

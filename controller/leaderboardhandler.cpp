@@ -7,59 +7,83 @@ LeaderboardHandler::LeaderboardHandler()
 
 std::vector<Customer> LeaderboardHandler::getTopThreeSpenders() {
     std::vector<Customer> customers = cReader.getAllCustomers();
-    //std::vector<Customer> res;
     std::vector<Customer> res;
 
-    // Sort customers by top 3 spenders ( Insertion Sort )
-    for (size_t i = 1; i < customers.size(); i++) {
-
-        float currSpend = customers[i].getAmountSpent();
-        int position = i;
-
-        while (position > 0 && customers[position-1].getAmountSpent() > currSpend) {
-            customers[position] = customers[position-1];
-            position--;
-        }
-
-        customers[position] = customers[i];
-    }
+    std::sort(customers.begin(), customers.end(), [](const Customer& c1, const Customer& c2) {
+        return c1.getAmountSpent() > c2.getAmountSpent();
+    });
 
     for (size_t i = 0; i < customers.size(); i++) {
-        std::cout << "Customer name: " << customers[i].getFullName() << std::endl;
-        std::cout << "Customer spend: $" << customers[i].getAmountSpent() << std::endl << std::endl;
+        if (i == 3) {
+            break;
+        }
+
+        res.push_back(customers[i]);
     }
+
+    // After sort
+//    for (size_t i = 0; i < res.size(); i++) {
+//        std::cout << "Customer name: " << res[i].getFullName() << std::endl;
+//        std::cout << "Customer spend: $" << res[i].getAmountSpent() << std::endl << std::endl;
+//    }
 
     return res;
 }
 
+std::vector<Customer> LeaderboardHandler::getTopThreeSavers() {
+    std::vector<Customer> customers = cReader.getAllCustomers();
+    std::vector<Customer> res;
 
-double LeaderboardHandler::calculatePrcSpend(Customer customer) {
+    std::sort(customers.begin(), customers.end(), [](const Customer& c1, const Customer& c2) {
+        return c1.getAmountSaved() > c2.getAmountSaved();
+    });
 
-    if (!cReader.searchByID(customer.getID())) {
-        std::cout << "Customer does not exist." << std::endl;
-        return -1;
+    for (size_t i = 0; i < customers.size(); i++) {
+        if (i == 3) {
+            break;
+        }
+
+        res.push_back(customers[i]);
     }
 
-    float spending = customer.getAmountSpent();
-    float saving = customer.getBalance();
-    double percentspend = spending/(spending+saving) *100;
+    // After sort
+//    for (size_t i = 0; i < res.size(); i++) {
+//        std::cout << "Customer name: " << res[i].getFullName() << std::endl;
+//        std::cout << "Customer spend: $" << res[i].getAmountSaved() << std::endl << std::endl;
+//    }
 
-    // Add your logic to get percentile for prc spent for inputted customer here
+    return res;
 
-    return percentspend;
 }
+// percentage spend and save function is moved to Leaderboard.h and Leaderboard.cpp
 
-double LeaderboardHandler::calculatePrcSave(Customer customer) {
+// double LeaderboardHandler::calculatePrcSpend(Customer customer) {
 
-    if (!cReader.searchByID(customer.getID())) {
-        std::cout << "Customer does not exist." << std::endl;
-        return -1;
-    }
-    float spending = customer.getAmountSpent();
-    float saving = customer.getBalance();
-    double percentsave = saving/(spending+saving) *100;
+//     if (!cReader.searchByID(customer.getID())) {
+//         std::cout << "Customer does not exist." << std::endl;
+//         return -1;
+//     }
 
-    // Add your logic to get percentile for prc saved for inputted customer here
+//     float spending = customer.getAmountSpent();
+//     float saving = customer.getBalance();
+//     double percentspend = spending/(spending+saving) *100;
 
-    return percentsave;
+//     // Add your logic to get percentile for prc spent for inputted customer here
+
+//     return percentspend;
+// }
+
+// double LeaderboardHandler::calculatePrcSave(Customer customer) {
+
+//     if (!cReader.searchByID(customer.getID())) {
+//         std::cout << "Customer does not exist." << std::endl;
+//         return -1;
+//     }
+//     float spending = customer.getAmountSpent();
+//     float saving = customer.getBalance();
+//     double percentsave = saving/(spending+saving) *100;
+
+//     // Add your logic to get percentile for prc saved for inputted customer here
+
+//     return percentsave;
 }

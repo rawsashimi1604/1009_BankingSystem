@@ -46,7 +46,7 @@
        <rect>
         <x>330</x>
         <y>0</y>
-        <width>446</width>
+        <width>271</width>
         <height>111</height>
        </rect>
       </property>
@@ -92,12 +92,97 @@ font: 700 9pt &quot;Segoe UI&quot;;</string>
        <string>Current balance:</string>
       </property>
      </widget>
-     <widget class="QTableWidget" name="tableWidget">
+     <widget class="QLCDNumber" name="balance">
       <property name="geometry">
        <rect>
-        <x>290</x>
-        <y>180</y>
-        <width>351</width>
+        <x>820</x>
+        <y>20</y>
+        <width>64</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_8">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>110</y>
+        <width>191</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(75,73,157);
+font: 700 28pt &quot;Segoe UI&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Spendings</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="savingsLabel">
+      <property name="geometry">
+       <rect>
+        <x>590</x>
+        <y>110</y>
+        <width>141</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(75,73,157);
+font: 700 28pt &quot;Segoe UI&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Savings</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="spendingsTable">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>200</y>
+        <width>281</width>
+        <height>151</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;
+font-size: 20px;
+background-color: rgb(199, 254, 255);
+color: rgb(0, 0, 0);</string>
+      </property>
+      <row>
+       <property name="text">
+        <string>1</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>2</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>3</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>Username</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Spendings Amount</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QTableWidget" name="savingsTable">
+      <property name="geometry">
+       <rect>
+        <x>530</x>
+        <y>200</y>
+        <width>281</width>
         <height>151</height>
        </rect>
       </property>
@@ -133,14 +218,52 @@ color: rgb(0, 0, 0);</string>
        </property>
       </column>
      </widget>
-     <widget class="QLCDNumber" name="balance">
+     <widget class="QLabel" name="spendingsPrc">
       <property name="geometry">
        <rect>
-        <x>820</x>
-        <y>20</y>
-        <width>64</width>
-        <height>31</height>
+        <x>130</x>
+        <y>360</y>
+        <width>191</width>
+        <height>81</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(75,73,157);
+font: 700 18pt &quot;Segoe UI&quot;;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="savingsPrc">
+      <property name="geometry">
+       <rect>
+        <x>590</x>
+        <y>360</y>
+        <width>191</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(75,73,157);
+font: 700 18pt &quot;Segoe UI&quot;;</string>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
      <widget class="QLCDNumber" name="amtSave">

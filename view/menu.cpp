@@ -70,6 +70,7 @@ void Menu::on_leaderboard_clicked()
     leaderBoard.getCustomerAmountspend();
     leaderBoard.getSavePercentage();
     leaderBoard.getSpendPercentage();
+    leaderBoard.displayTables();
     ui->stackedWidget->setCurrentIndex(5);
 }
 
