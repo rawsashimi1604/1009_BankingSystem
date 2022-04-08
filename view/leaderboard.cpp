@@ -87,74 +87,6 @@ void Leaderboard::getSpendPercentage(){
     ui->spendpercent->display(percentSpend);
 }
 
-//void Leaderboard::tableWidgetDisplay(){
-//    std::cout << "test" << std::endl;
-//    std::vector<Customer> top3spender = cReader.getTopThreeSpenders();
-//    int rowCount = 0;
-
-////    for (Transaction tract: transaction){
-////        tract.printInfo();
-////    }
-
-//    for (size_t i=0; i< top3spender.size(); i++){
-//        //std::cout << transaction[79].getAmountReceived()  << std::endl;
-//        rowCount++;
-//    }
-
-
-//    QStringList headerLabels;
-//    ui->tableWidget->setColumnCount(3);
-//    ui->tableWidget->setRowCount(rowCount);
-//    headerLabels  << "Ranking" << "Username" << "Spending";
-//    ui->tableWidget->setHorizontalHeaderLabels(headerLabels);
-
-//    int reverseList = rowCount-1;
-//    for (size_t i=0; i< top3spender.size(); i++){
-//        std::cout<< reverseList << std::endl;
-//        for (int j = 0; j < 3; j++){
-//            if (j == 0){
-
-//                //QString s = QString::fromStdString(tDate.getDateString());
-//                QString user = top3spender.getTopThreeSpenders();
-//                ui->tableWidget->setItem(i,j,new QTableWidgetItem(user));
-//            }
-//            if (j ==1){
-//                int id1 = transaction[reverseList].getSenderID();
-//                if (id1 != -1){
-//                    std::optional<Customer> cust =  cReader.searchByID(id1);
-//                    QString s = QString::fromStdString(cust->getUsername());
-//                    ui->tableWidget->setItem(i,j,new QTableWidgetItem(s));
-//                }
-//            }
-//            if (j == 2){
-//               int id2 = transaction[reverseList].getReceiverID();
-//               if (id2 != -1){
-//                   std::optional<Customer> cust =  cReader.searchByID(id2);
-//                   QString s = QString::fromStdString(cust->getUsername());
-//                   ui->tableWidget->setItem(i,j,new QTableWidgetItem(s));
-//               }
-//            }
-//            if (j == 3){
-//                QString s = QString::number(transaction[reverseList].getAmountSent());
-//                ui->tableWidget->setItem(i,j,new QTableWidgetItem(s));
-//            }
-//            if (j == 4){
-//                QString s = QString::number(transaction[reverseList].getAmountReceived());
-//                ui->tableWidget->setItem(i,j,new QTableWidgetItem(s));
-//            }
-//            if (j == 5){
-//                std::string tType = Enums::convertString(transaction[reverseList].getTransactionType());
-//                QString s = QString::fromStdString(tType);
-//                ui->tableWidget->setItem(i,j,new QTableWidgetItem(s));
-//            }
-//        }
-//        reverseList--;
-//    }
-
-
-//    ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);     //Disable edit for the table
-//}
-
 void Leaderboard::displayTables(){
     LeaderboardHandler lHandler;
     std::vector<Customer> topSpenders = lHandler.getTopThreeSpenders();
@@ -190,5 +122,9 @@ void Leaderboard::displayTables(){
     }
     ui->spendingsPrc->setText("testing1");
     ui->savingsPrc->setText("testing2");
+
+}
+void Leaderboard::getCustomerUsername(){
+    std::string username = std::string(bankApp->getCurrentCustomer()->getUsername());
 
 }
