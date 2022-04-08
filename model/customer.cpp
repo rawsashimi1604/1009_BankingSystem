@@ -7,7 +7,15 @@ const float Customer::INITIAL_STARTING_BALANCE = 1000.00;
 /**
  * Constructs Customer object using date values
  *
- * @param None
+ * @param id -> Customer ID
+ * @param firstName -> Customer first name
+ * @param lastName -> Customer last name
+ * @param age -> Customer age
+ * @param username -> Customer username
+ * @param password -> Customer password
+ * @param year -> Today's Year
+ * @param month -> Today's Month
+ * @param day -> Today's Day
  *
  */
 Customer::Customer(int id, std::string firstName, std::string lastName, int age, std::string username, std::string password, u_int year, u_int month, u_int day)
@@ -27,7 +35,13 @@ Customer::Customer(int id, std::string firstName, std::string lastName, int age,
 /**
  * Constructs customer object using Date object
  *
- * @param None
+ * @param id -> Customer ID
+ * @param firstName -> Customer first name
+ * @param lastName -> Customer last name
+ * @param age -> Customer age
+ * @param username -> Customer username
+ * @param password -> Customer password
+ * @param Date -> Date object containing today's date.
  *
  */
 Customer::Customer(int id, std::string firstName, std::string lastName, int age, std::string username, std::string password, Date date)
@@ -48,7 +62,16 @@ Customer::Customer(int id, std::string firstName, std::string lastName, int age,
 /**
  * Constructs customer object using date string and customized balanced, amountSpent and amountSaved.
  *
- * @param None
+ * @param id -> Customer ID
+ * @param firstName -> Customer first name
+ * @param lastName -> Customer last name
+ * @param age -> Customer age
+ * @param username -> Customer username
+ * @param password -> Customer password
+ * @param dateString -> date representing as a string (dd/mm/yyyy)
+ * @param balance -> How much money to initialize Customer with
+ * @param amountSpent -> How much money to initialize Customer with (spendings)
+ * @param amountSaved -> How much money to initialize Customer with (savings)
  *
  */
 Customer::Customer(int id, std::string firstName, std::string lastName, int age, std::string username, std::string password, std::string dateString, float balance, float amountSpent, float amountSaved)
@@ -112,63 +135,148 @@ std::vector<std::string> Customer::getCsvFormat() const{
 }
 
 
+/**
+ * Returns Customer's username
+ *
+ * @param None
+ * @return Returns Customer's username
+ */
 std::string Customer::getUsername() const{
     return username;
 }
 
+/**
+ * Returns Customer's password
+ *
+ * @param None
+ * @return Returns Customer's password
+ */
 std::string Customer::getPassword() const{
     return password;
 }
 
+/**
+ * Returns Customer's age
+ *
+ * @param None
+ * @return Returns Customer's age
+ */
 int Customer::getAge() const {
     return age;
 }
 
+/**
+ * Returns Customer's first name
+ *
+ * @param None
+ * @return Returns Customer's first name
+ */
 std::string Customer::getFirstName() const {
     return firstName;
 }
 
+/**
+ * Returns Customer's last name
+ *
+ * @param None
+ * @return Returns Customer's last name
+ */
 std::string Customer::getLastName() const {
     return lastName;
 }
 
+/**
+ * Returns Customer's full name
+ *
+ * @param None
+ * @return Returns Customer's full name
+ */
 std::string Customer::getFullName() const {
     return firstName + " " + lastName;
 }
 
+
+/**
+ * Returns Customer's date registered
+ *
+ * @param None
+ * @return Returns Customer's date registered
+ */
 Date Customer::getDateRegistered() const {
     return dateRegistered;
 }
 
+/**
+ * Returns Customer's current balance
+ *
+ * @param None
+ * @return Returns Customer's current balance
+ */
 float Customer::getBalance() const {
     return balance;
 }
 
+/**
+ * Returns Customer's total amount spent
+ *
+ * @param None
+ * @return Returns Customer's total amount spent
+ */
 float Customer::getAmountSpent() const {
     return amountSpent;
 }
 
+/**
+ * Returns Customer's total amount saved
+ *
+ * @param None
+ * @return Returns Customer's total amount saved
+ */
 float Customer::getAmountSaved() const {
     return amountSaved;
 }
 
-// Setters
+/**
+ * Sets Customer's balance
+ *
+ * @param newBalance -> balance to set Customer with
+ * @return None
+ */
 void Customer::setBalance(float newBalance)
 {
     balance = newBalance;
 }
 
+/**
+ * Sets Customer's Amount saved
+ *
+ * @param newBalance -> Amount saved to set Customer with
+ * @return None
+ */
 void Customer::setAmountSaved(float newAmountSaved)
 {
     amountSaved = newAmountSaved;
 }
 
+/**
+ * Sets Customer's Amount spent
+ *
+ * @param newBalance -> Amount spent to set Customer with
+ * @return None
+ */
 void Customer::setAmountSpent(float newAmountSpent)
 {
     amountSpent = newAmountSpent;
 }
 
-// Operator overloading
+
+/**
+ * Prints all information about Customer object to specified ostream.
+ *
+ * @param COUT -> ostream object to overload (std::cout)
+ * @param customerObj -> customer to output.
+ * @return ostream object
+ */
 std::ostream& operator<<(std::ostream& COUT, Customer& customerObj) {
     // Set printing precision to 2 decimal places.
     std::streamsize ss = UtilityFunctions::setPrintingPrecision();

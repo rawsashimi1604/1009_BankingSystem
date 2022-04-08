@@ -9,25 +9,28 @@
 
 #include "model/date.h"
 
-// General Util functions
+/**
+ * The UtilityFunctions namespace contains a bunch of utility functions to be used around the code base.
+ *
+ */
 namespace UtilityFunctions {
 
-    std::streamsize setPrintingPrecision();              // Help with printing precision (2 dec place)
-    void removePrintingPrecision(std::streamsize ss);
-    int checkNumeric(QString); // Check for numeric string for Qstring
+    std::streamsize setPrintingPrecision();                 // Help with printing precision (2 dec place)
+    void removePrintingPrecision(std::streamsize ss);       // Help with printing precision (2 dec place)
+    int checkNumeric(QString);                              // Check for numeric string for Qstring
 
-    Date getTodaysDate();
+    Date getTodaysDate();                                   // Gets today's date according to system time.
 
 }
 
 // List of enums and their functions
 namespace Enums {
     // Transaction
-    enum class TransactionType {DEPOSIT, WITHDRAWAL, TRANSFER, NONE};
+    enum class TransactionType {DEPOSIT, WITHDRAWAL, TRANSFER, NONE};   // Defines possible TransactionTypes
 
-    TransactionType convertTransactionType(std::string& str);
-    std::string convertString(TransactionType transType);
-    std::ostream& operator<<(std::ostream& COUT, TransactionType t);
+    TransactionType convertTransactionType(std::string& str);           // Converts string -> TransactionType
+    std::string convertString(TransactionType transType);               // Converts TransactionType -> string
+    std::ostream& operator<<(std::ostream& COUT, TransactionType t);    // Insertion operator overloading for TransactionType
 }
 
 #endif // UTILS_H
